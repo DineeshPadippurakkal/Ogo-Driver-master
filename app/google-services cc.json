@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "794037772296",
+    "project_id": "ogodrivertest",
+    "storage_bucket": "ogodrivertest.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794037772296:android:42833ad084539c02d231bd",
+        "android_client_info": {
+          "package_name": "webtech.com.courierdriver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7bmNmoX6-BHziOgLS4wvzIjvWJ77UW-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
