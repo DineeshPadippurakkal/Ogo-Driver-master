@@ -1,0 +1,1059 @@
+
+****************************************************************************************************
+****************************************************************************************************
+
+
+
+
+Ogo Realtime firebase Rules :
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+      "DriversNew": {
+      ".indexOn": ["onlineStatus/onlineStatus"]
+    },
+      "TestDrivers": {
+      ".indexOn": ["onSt/onlineStatus","drD/emailId"]
+    },
+      "onlineStatus": {
+      ".indexOn": ["onlineStatus"]
+    },
+       "DrV1":{
+         ".indexOn":["onSt/onlineStatus"]
+    },
+	   "DrV2":{
+         ".indexOn":["onSt/onlineStatus","drD/emailId"]
+    }
+
+  }
+}
+
+
+
+
+****************************************************************************************************
+
+
+23/May/2021
+
+------> OGo application rejected from google play store
+
+https://www.drivemode.com/privacy
+
+Fixing more issues Regarding OGO Driver app rejection ::
+- Privacy policy link ( location permission )specifically covers user privacy including your app’s usage of location data. 
+- Prominent disclosure not found :Please add a prominent disclosure before the runtime permission.
+
+
+
+"This app collects location data to enable tracking features so that drivers of this application will get orders based on the latest nearby available location , by sharing driver location to affiliates, partners, potential partners, and users of mobile application  tracking order feature will activate even when the app is closed or not in use".
+
+#######
+https://support.google.com/googleplay/android-developer/answer/9799150?hl=en#zippy=%2Csee-an-example-of-prominent-in-app-disclosure%2Cstep-provide-prominent-in-app-disclosure
+
+
+
+###################
+https://support.google.com/googleplay/android-developer/answer/9799150?hl=en#zippy=%2Cstep-review-best-practices-for-accessing-location
+Note : Step 1: Review best practices for accessing location- You should never request location permissions from users for the sole purpose of advertising or analytics.
+- Background location may only be used to provide features beneficial to the user and relevant to the core functionality of the app.- Minimize your use of location by using the minimum scope necessary to provide a feature (i.e., coarse instead of fine, foreground instead of background). Users should reasonably expect that the feature or service needs the level of location requested. For example, we may reject apps that request or access background location without adequate justification.Step 2: Consider alternatives to accessing location in the backgroundLocation in the foreground examples:these features are the only reason your app requires access to location in the background, then the chances of rejection are higher.
+-  Delivery/service (for example, food, package, or ride) tracking on the user side (not driver)
+Step 3: Make access to location in the background clear to usersIf you plan to use location in the background in your app, you should communicate this to users in the Google Play store listing via your app description, screenshots, and (if applicable) title or icon. Here are some suggestions on how to highlight use of location in the background to users:Provide a short description to signal "location" (for example, "find anywhere" or “always know where”).Include an in-app screenshot that shows a map/user location or geotagged images. If applicable, your app title or icon may also signal the location feature of your app.Declaration requirements:https://support.google.com/googleplay/android-developer/answer/9888170
+
+Step 4: Provide a video demonstrationAs part of the permissions declaration, you must provide a link to a short video that demonstrates the location-based feature in your app that requires access to location in the background (while the app is not in use). Step 5: Provide prominent in-app disclosure- Privacy policy# You must link to a privacy policy on your app's store listing page and within your app. # Make sure your privacy policy is available on an active URL, applies to your app, and specifically covers user privacy.
+# If your app uses location in the background, your privacy policy must contain appropriate related disclosures.
+# Ensure your privacy policy page is clearly labeled as such.
+
+
+#########################
+Location Privacy Policy Abdulrahim notes :
+
+Privacy PolicyOgo is B2B (Business to Business ) and B2C (Business to Customer) software solution which provides an online ordering system and managing, tracking, maintaining it automatically , no hassle of assigning manual order.It's fully automated ( once order generated till completion). All orders delivery services are carried out through its driver application. We get and orders through our affiliates, partners, potential partners, and users
+About This Policy:This privacy policy (this “Policy”) describes the collection of personal information by OGO Company  (“Company”, “we”, or “us”) from users of our Website at https://ogo.delivery/  (the “Website”), as well as all related applications, widgets, software, tools, and other services provided by us and on which a link to this Policy is displayed (collectively, together with the Website, our “Services”). This Policy also describes our use and disclosure of such information. By using our Services, you consent to the collection, use, and disclosure of personal information in accordance with this Policy. This Policy is incorporated by below (the “Agreement”) and subject to the provisions of the Agreement.
+
+Definitions“Personal Information,” as used in this Policy, is information that specifically identifies an individual, such as an individual’s name, address, telephone number, or e-mail address. Personal Information also includes information about an individual’s activities, such as information about his or her activity on our Services, location information, and demographic information, such as date of birth, gender, geographic area, and preferences, when any of this information is linked to Personal Information that identifies that individual. Personal Information does not include “aggregate” or other non-personally identifiable information, including location or other driving information that is not otherwise tied to Personal Information that identifies an individual. Aggregate information is information that we collect about a group or category of products, services, or users that is not personally identifiable or from which individual identities are removed. We may use and disclose aggregate information, and other non-personally identifiable information, for various purposes as described below.
+Information We Collect :
+Location Information We collect the precise location of your device, including trip route information. This data may be collected when the app is in use or when closed. This data is used to enable a variety of features. For example, automatically launching when you start driving, to display how far you drove, and visualizations of your driving routes. To determine location we use various location services on your device such as IP address, GPS, Wifi, and cell towers.
+How We Use Information :We use the information we have to:Improve, operate, expand, and maintain our Services and related systems;Measure and analyze how our Services are used;Communicate with you, either directly or through a partner;Prevent fraud, violations of our License Agreement, or applicable laws;Maintain a record of our dealings with you;Provide you with customer support;Facilitate transactions and payments ( order history );For other administrative purposes;For other purposes that we may disclose when we request your information and pursuant to your consent.
+
+How We Share Information We Collect : Mobile Applications Your use of the Services may result in the disclosure of your Personal Information to vendors and licensors of the other mobile applications on your mobile device. For example, you may request assistance from the Services with directions to a particular location, and such data may be pushed to the maps application on your mobile device and, in turn, become available to the vendor of the maps application.
+In short before accepting order you are being track by admin affiliates, partners, potential partners, and users  who send order to you based on your location we will track you and send your location to client to show where you are your accepted order is being track from admin panel and through mobile application who orders , we are providing feature to other mobile application  like "Track Your Order" The movement you accept order your are being track by end user.You has to go online to accept orders.
+Analytics Providers We use analytics tools such as firebase analytics . These analytics tools collect information, such as how often you use the Apps, what features of the Apps are used, and other information as defined above under “Information We Collect”. We may use the information collected, including any Personal Information, to provide, protect, and improve our Services.
+
+Anonymized and Aggregated Data We anonymize and aggregate collected data and may share this data with affiliates, partners, potential partners, and users. This aggregated data does not identify you personally. We may also disclose aggregated user statistics for use in marketing purposes or presentations.
+
+Service Providers We may disclose Personal Information to third-party service providers (e.g., payment processing and data storage and processing facilities) that assist us in our work. We limit the Personal Information provided to these service providers to that which is reasonably necessary for them to perform their functions, and we require them to agree to maintain the confidentiality of such Personal Information. We may share your device identifier with affiliates, partners, potential partners, and users in order to receive demographic information about you.
+Legal Requirements We also disclose Personal Information if we believe that doing so is legally required, or is in our interest to protect our property or other legal rights (including, but not limited to, enforcement of our agreements), or the rights or property of others, or otherwise to help protect the safety or security of our Services and other users of the Services.
+
+Location Information You can opt out of having your location data collected and shared with third parties by changing the settings on your mobile device. Certain services may lose functionality as a result.
+
+Security We use reasonable security measures that are designed to protect personal information from accidental loss, disclosure, misuse, and destruction. We encrypt data communications and rely on the security procedures of our cloud server vendors, such as Amazon Web Services and Google Drive. Please be aware, however, that no data security measures can be guaranteed to be completely effective. Consequently, we cannot ensure or warrant the security of any information that you provide to us. You transmit information to us at your own risk.
+
+Updates to this Policy We may occasionally update this Policy. When we do, we will also revise the “last updated” date at the beginning of the Policy. Your continued use of our Services after such changes will be subject to the then-current policy. If we change this Policy in a manner that is materially less restrictive of our use or disclosure of your Personal Information, we will use reasonable efforts to notify you of the change and to obtain your consent prior to applying the change to any Personal Information that we collected from you prior to the date the change becomes effective. We encourage you to periodically review this Policy to stay informed about how we collect, use, and disclose personal information.
+
+Contact UsIf you have any questions or comments about this Policy, please contact us using the following contact information:Email: info@ogo.deliveryPhone: +965-22072022, 66310020
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************************
+
+
+
+
+
+Installation ID:  token :fnMdZWzaRKe2V0a3HkUzc6:APA91bGnFK3Ba1EbcQRl6IlmWFZDBTiSgD0F4WpUiMFmwfuHv9-xvwrQIxJ271dVPxNa4Gnuq5uPYp96wRitAa6l36v4T2yUFXxPGqTQHA78Cy7hJezdOdExzyiBGD22XW47sOxXMRQy
+
+
+OrdersQueueService OrderSingletonQueue.instance.notificationOrdersResponseData.size  => 0
+
+
+[GoogleAccountDataServiceImpl] getToken() -> NETWORK_ERROR. Account:
+Account {name=mahammadladdu727@gmail.com, type=com.google}, App: com.google.android.apps.maps, Service: oauth2:https://www.googleapis.com/auth/mobilemaps.firstparty https://www.googleapis.com/auth/notifications
+
+
+
+
+Base URL : https://somedomain.com
+Full URL : https://somedomain.com//para_1/p001
+
+/para_1/getImagesCount
+
+/para_1/p001
+/para_1/p002
+
+..........
+/0000FF/808080
+
+
+
+
+
+
+
+
+
+---------->
+---------->
+---------->
+---------->
+****************************************************************************************************
+15/Nov/2020
+
+----------> Theme
+https://www.raywenderlich.com/6488033-android-10-dark-theme-getting-started#toc-anchor-001
+
+sample projects
+https://github.com/merttoptas/NightMode
+https://github.com/hasankucuk/DarkThemeSample
+https://github.com/pkjvit/Android-Multi-Theme-UI
+https://github.com/ghusta/android-dark-theme-tester
+https://github.com/TimzOwen/Dark-theme-android
+https://github.com/KunalChaubal/DarkThemeExample
+
+****************************************************************************************************
+30/August/2018
+---------->
+Android Count Down Timer Tutorial
+
+http://www.androidtutorialshub.com/android-count-down-timer-tutorial/
+
+----------> zoom in animation in android
+
+Working example with zoom in
+https://www.viralandroid.com/2015/11/zoom-in-animation-in-android.html
+----------> zoom out animation in android
+
+****************************************************************************************************
+04/Sept/2018
+---------->
+https://stackoverflow.com/questions/33866061/error-file-google-services-json-is-missing-from-module-root-folder-the-google
+
+I received this error while trying to run Google's Firebase analytics sample app:
+
+Prerequisites:
+
+Download https://github.com/firebase/quickstart-android
+Add quickstart/analytics to Android Studio
+Add Procedure:
+
+Go to https://firebase.google.com/
+Click on "GO TO CONSOLE"
+Click on "Add Project"
+Project name: Enter: sample-app
+Click "Create Project" [Takes about 10 seconds or so...]
+Click "Continue"
+On the "Getting Started" page, click "Add Firebase to your Android app"
+Enter package name for the android app [The full package name appears at the top of the manifest: "com.google.firebase.quickstart.analytics"]
+Click on download google-services.json
+In file explorer, add google-services.json to the directory: "quickstart/analytics/app" [Warning: Do not rename the file, it must be: google-services.json]
+Run 'app'
+The sample app already contains the necessary Gradle file settings.
+When adding a new project do: Tools -> Firebase -> Analytics -> Add Event -> Connect App to Firebase.
+Adding a project via Android Studio ensures that all the Gradle Dependecies are setup.
+Remove Procedure:
+
+Go to https://firebase.google.com/
+Click on "GO TO CONSOLE"
+Settings -> Project Settings -> Delete this App
+Settings -> Project Settings -> Delete Project
+Enter project ID and press delete
+I added and removed the sample app multiple times without any noticeable side effects.
+
+
+
+
+
+----------> Firebase Crash Report
+
+//Custom crash logs :
+FirebaseCrash.log("Activity created");
+//Generate Crash Report :
+FirebaseCrash.logcat(Log.ERROR, TAG, "NPE caught");
+FirebaseCrash.report(ex);
+
+
+---------->  parallax scrolling header
+ Collapsing toolbar
+ Scrolling Activity
+ below is good example
+https://android.jlelse.eu/parallax-scrolling-header-tabs-android-tutorial-2cc6e40aa257
+
+
+****************************************************************************************************
+30/Sept/2018
+
+----------> How to check if activity is in foreground or in visible background?
+https://stackoverflow.com/questions/18038399/how-to-check-if-activity-is-in-foreground-or-in-visible-background
+
+
+
+
+****************************************************************************************************
+04/Oct/2018
+
+---------->
+Only fullscreen opaque activities can request orientation oreo
+
+****************************************************************************************************
+21/Oct/2018
+
+----------> SlideView / swipe button
+
+
+https://android-arsenal.com/details/1/5304
+https://android.jlelse.eu/make-a-great-android-ux-how-to-make-a-swipe-button-eefbf060326d
+https://android-arsenal.com/details/1/4535
+
+
+
+---------->
+https://android-arsenal.com/details/1/7238
+
+Kotlin Permissions
+
+https://android-arsenal.com/details/1/7227
+
+
+----------> Custom SearchView
+https://android-arsenal.com/details/1/7189
+
+
+
+****************************************************************************************************
+22/Oct/2018
+
+----------> secure Firebase Realtime Database with Rules
+https://medium.com/@skytreasure/easy-way-to-secure-firebase-realtime-database-with-rules-when-you-have-anonymous-sign-in-or-already-e8ff1ddfbfc9
+
+
+****************************************************************************************************
+---------->  opacity color code , transparent  color code
+Use the below code for black:
+
+<color name="black">#000000</color>
+Now if you want to use opacity then you can use the below code:
+
+<color name="black">#99000000</color>
+And the below for opacity code:
+
+100% — FF
+95% — F2
+90% — E6
+85% — D9
+80% — CC
+75% — BF
+70% — B3
+65% — A6
+60% — 99
+55% — 8C
+50% — 80
+45% — 73
+40% — 66
+35% — 59
+30% — 4D
+25% — 40
+20% — 33
+15% — 26
+10% — 1A
+5% — 0D
+0% — 00
+
+
+
+
+---------->
+NullPointerException when trying to access views in a Kotlin fragment
+
+Kotlin synthetic properties are not magic and work in a very simple way. When you access btn_K, it calls for getView().findViewById(R.id.btn_K).
+
+The problem is that you are accessing it too soon. getView() returns null in onCreateView. Try doing it in the onViewCreated method:
+
+****************************************************************************************************
+29/Oct/2018
+
+----------> Different types of dialogue
+
+https://android-arsenal.com/tag/30
+https://android-arsenal.com/details/1/6252
+https://android-arsenal.com/details/1/6109
+
+FancyGifDialog
+https://android-arsenal.com/details/1/6652
+---------->
+Drag & Drop n' Swipe Recyclerview
+https://android-arsenal.com/details/1/7270
+
+
+----------> useful  lib
+https://android-arsenal.com/
+
+https://kotlinlang.org/docs/resources.html
+
+https://medium.com/pongploydev/top-android-libraries-february-2018-for-android-developer-library-github-2a111b756c62
+
+
+https://github.com/ECLaboratorio/BubbleShowCase-Android
+https://github.com/gauravk95/bubble-navigation
+https://mindorks.com/android/store/Animations/igalata/bubble-picker
+
+
+RollingLayoutManager
+---------->
+https://android-arsenal.com/details/1/7249
+
+---------->
+LoadersPack
+https://android-arsenal.com/details/1/7247
+https://github.com/agrawalsuneet/LoadersPack-Android?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=7247
+https://agrawalsuneet.github.io/agrawalsuneet/opensourcecontribution/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=7247
+
+
+
+---------->
+project already contains module with this name android-studio
+https://stackoverflow.com/questions/33172065/project-already-contains-module-with-this-name-android-studio
+
+Just do below steps:
+File->New->Import module->Select extracted fole from git
+Give the diff name than "app" which is already present like "appOoOAlertDialog"
+
+Add this above added in to settings.gradle file like below
+ or
+ File->Project Structure ->(Right side ) dependencies ->click on + ->Module dependency
+
+ Rebuild and/or restart and build project done
+ Now you can use any github project and modify as per your requirement and use it
+
+
+include ':app',':appOoOAlertDialog'
+
+****************************************************************************************************
+12/Nov/2018
+
+----------> Rating
+https://android-arsenal.com/tag/84
+https://android-arsenal.com/details/1/5424
+
+----------> awesome android gui
+https://github.com/wasabeef/awesome-android-ui
+
+---------->  gui count down
+https://android-arsenal.com/search?q=countdown
+
+
+----------> Animated EditText used on login screen
+https://github.com/florent37/MaterialTextField
+
+----------> ShimmerLayout
+https://github.com/team-supercharge/ShimmerLayout
+
+----------->  Android developer portal with tools, libraries, and apps
+https://android-arsenal.com/tag/101
+
+
+
+---------->
+Blue - 1b75bc (main color)
+Orange - bc6328 (heading)
+Grey - 58595b (text color)
+
+
+
+
+---------->  Graph , chart
+
+https://github.com/jjoe64/GraphView
+
+http://www.android-graphview.org/points-graph/
+http://www.android-graphview.org/zooming-and-scrolling/
+
+****************************************************************************************************
+10/JAN/2018
+-------->
+ANDROID FIND DISTANCE AND DURATION BETWEEN TWO POINTS ON GOOGLE MAP
+
+https://inducesmile.com/android/android-find-distance-and-duration-between-two-points-on-android-map/
+
+---------->
+google map direction api using retrofit
+
+http://www.akexorcist.com/2015/12/google-direction-library-for-android-en.html
+
+https://stackoverflow.com/questions/30163699/google-map-direction-api-using-retrofit
+
+
+****************************************************************************************************
+14/JAN/2018
+
+-------->
+Retrofit - android.os.NetworkOnMainThreadException
+
+in Retrofit Two Types of Method execution takes place- Enqueue - Works on background thread automatically handle by retrofit.
+ Execute - Works on UI thread manually required to put in either background thread or take help of async task.
+
+
+
+
+
+
+----------> How to show enable location dialog like Google maps?
+
+https://stackoverflow.com/questions/29801368/how-to-show-enable-location-dialog-like-google-maps
+
+----------> realtime asset-tracking
+https://codelabs.developers.google.com/codelabs/realtime-asset-tracking/#0
+
+
+
+****************************************************************************************************
+18/FEB/2019
+---------->
+(Najib )
+How to create dynamic tabs and add different functionality to each fragment in Android?
+
+https://www.youtube.com/watch?v=SZ8VnLcg3TQ
+https://github.com/jintoga/Dynamic-Viewpager-Custom-TabLayout
+https://github.com/ricasares/TopGameDeals
+https://javapapers.com/android/android-tab-layout-tutorial/
+
+
+
+04/March/2019
+---------->
+
+EventBus : Activity does not receive event when app is in the background
+
+https://stackoverflow.com/questions/36032422/eventbus-activity-does-not-receive-event-when-app-is-in-the-background
+
+
+
+----------> Send emails :
+https://stackoverflow.com/questions/25136025/sending-mail-in-android-without-intents-using-smtp
+
+https://stackoverflow.com/questions/2020088/sending-email-in-android-using-javamail-api-without-using-the-default-built-in-a
+https://github.com/arpit999/SendMail
+
+Android-Email-App-using-Javamail-Api
+https://www.youtube.com/watch?v=8pTLDsFXLb4
+https://github.com/thegenuinegourav/Android-Email-App-using-Javamail-Api
+
+https://stackoverflow.com/questions/26668620/how-to-send-email-with-attachment-directly-without-going-to-external-apps
+
+https://www.mindstick.com/articles/1673/sending-mail-without-user-interaction-in-android
+
+http://developer-dot-android.blogspot.com/2012/03/sending-emails-without-user-interaction.html
+
+How can I send an email from android application directly without showing the default email form of the device?
+
+https://stackoverflow.com/questions/6264698/how-can-i-send-an-email-from-android-application-directly-without-showing-the-de
+
+****************************************************************************************************
+11/March/2019
+---------->
+Update an Android app (without Google Play)
+
+https://stackoverflow.com/questions/15213211/update-an-android-app-without-google-play
+
+****************************************************************************************************
+25/March/2019
+
+---------->  onlocationchanged
+
+https://stackoverflow.com/questions/41955998/onlocationchanged-gets-called-multiple-times-on-start-of-application
+
+
+****************************************************************************************************
+21/Apr/2019
+
+---------->
+Notify user within app that a new version is available
+How to force update in Android application if new version is available?
+
+
+https://stackoverflow.com/questions/41296491/how-to-force-update-in-android-application-if-new-version-is-available
+https://stackoverflow.com/questions/16466516/notify-user-within-app-that-a-new-version-is-available
+
+
+check from firbase
+https://stackoverflow.com/questions/25201349/programmatically-check-play-store-for-app-updates/25201516#25201516
+
+****************************************************************************************************
+23/April/2019
+
+---------->  launch gmail in andorid
+or Intent URI to launch Gmail App
+https://stackoverflow.com/questions/3470042/intent-uri-to-launch-gmail-app
+
+or
+Intent intent=new Intent(Intent.ACTION_SEND);
+String[] recipients={"mailto@gmail.com"};
+intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+intent.putExtra(Intent.EXTRA_SUBJECT,"Subject text here...");
+intent.putExtra(Intent.EXTRA_TEXT,"Body of the content here...");
+intent.putExtra(Intent.EXTRA_CC,"mailcc@gmail.com");
+intent.setType("text/html");
+intent.setPackage("com.google.android.gm");
+startActivity(Intent.createChooser(intent, "Send mail"));
+
+
+****************************************************************************************************
+03/July/2019
+
+----------> Multiple real time fire base database  under different projects
+
+
+    ///Multiple real time fire base database  under different projects
+    /// only one active connect can occur at once
+
+    fun getFBRealtimeInstance(context: Context)
+    {
+        if(ApiConstant.REAL_TIME_FIRBASE_CONNECT == ApiConstant.REAL_TIME_FIREBASE_DB_DEFAULT_ONE )
+        {
+            //default db from JSON (To connect to your default databases)
+            mFirebaseInstance = FirebaseDatabase.getInstance()
+        }else
+        {
+
+            var fbApp:FirebaseApp
+
+            //from google-services.json The API Key is under a property called api_key, the Application ID came from a property called mobilesdk_app_id and the database URL came from a property called firebase_url.
+            // take 2nd Database url here not the default one which is present in google-services.json file.
+            val options = FirebaseOptions.Builder()
+                    .setApplicationId("1:659250976484:android:fc5500b78a5736d8")
+                    .setApiKey("AIzaSyDkVBI9co3i8VLSwhUKobazt7gVY-qVQec")
+                    .setDatabaseUrl("https://courierdriver-6b3c1-7e91d.firebaseio.com/")
+                    .build()
+
+
+//            FirebaseApp.initializeApp(context, options, "courierdriver-6b3c1-7e91d")
+//            val secondApp = FirebaseApp.getInstance("courierdriver-6b3c1-7e91d")
+//            //To connect to your different databases
+//            mFirebaseInstance = FirebaseDatabase.getInstance(secondApp)
+
+
+            var hasBeenInitialized = false
+            val firebaseApps = FirebaseApp.getApps(context)
+            for (app in firebaseApps) {
+                if (app.name == "courierdriver-6b3c1-7e91d") {
+                    LogUtils.error(LogUtils.TAG, " ###FIREBASE app.name : "+ app.name)
+                    LogUtils.error(LogUtils.TAG, " ###FIREBASE FirebaseApp.DEFAULT_APP_NAME : "+ FirebaseApp.DEFAULT_APP_NAME)
+
+                    hasBeenInitialized = true
+                    fbApp = app
+                }
+            }
+
+
+            if (!hasBeenInitialized)
+            {
+
+                LogUtils.error(LogUtils.TAG, " ###FIREBASE not initialized! ")
+                ///here not initialised
+                fbApp = FirebaseApp.initializeApp(context, options, "courierdriver-6b3c1-7e91d")
+            }
+            else
+            {
+                LogUtils.error(LogUtils.TAG, " ###FIREBASE already initialized! ")
+
+                ///this is already initialised so just get instance of it
+                fbApp = FirebaseApp.getInstance("courierdriver-6b3c1-7e91d")
+
+            }
+
+            mFirebaseInstance = FirebaseDatabase.getInstance(fbApp)
+        }
+
+        // get reference to 'Drivers' node
+        // mFirebaseDatabase = mFirebaseInstance!!.getReference("drivers")
+        mFirebaseDatabase = mFirebaseInstance!!.getReference(BuildConfig.FIREBASE_SECRATE_NODE_TEST)
+
+    }
+
+
+
+
+
+
+
+
+****************************************************************************************************
+21/July/2019
+---------->
+
+Android - Firestore/Firebase Realtime Database “.info/connected” returns wrong connection state
+
+OR
+FireBaseConnectedRef.getInstance(context).fireBaseConnected()
+
+com.courierdriver E/OGODriver: FIRE_BASE : not connected
+
+Solution :
+https://stackoverflow.com/questions/53320480/android-firestore-firebase-realtime-database-info-connected-returns-wrong-c
+
+This might be caused by Firebase closing the connection due to inactivity, which only happens on Android.
+On Android, Firebase automatically manages connection state to reduce bandwidth and battery usage. When a client has no active listeners, no pending write or onDisconnect operations, and is not explicitly disconnected by the goOffline method, Firebase closes the connection after 60 seconds of inactivity.
+
+
+On Android, Firebase automatically manages connection state to reduce bandwidth and battery usage. When a client has no active listeners, no pending write or onDisconnect operations, and is not explicitly disconnected by the goOffline method, Firebase closes the connection after 60 seconds of inactivity.
+
+
+---------->
+
+Android X: tools:replace specified at line: for attribute, but no new value specified
+
+
+https://stackoverflow.com/questions/53268865/android-x-toolsreplace-specified-at-line-for-attribute-but-no-new-value-spec
+
+
+
+****************************************************************************************************
+22/July/2019
+
+---------->
+firebase won't run in background
+Detect if Firebase connection is lost/regained
+Firebase auto-reconnect on android
+
+https://stackoverflow.com/questions/11351689/detect-if-firebase-connection-is-lost-regained
+
+Note that firebase takes time around 2-10 minutes to execute onDisconnect() function.
+
+
+https://github.com/firebase/geofire-java
+https://github.com/firebase/geofire-android
+
+
+
+
+
+
+
+
+----------> Service Related info
+
+
+Thanks. It also says there: "The startService() method returns immediately and the Android system calls the service's onStartCommand() method.
+ If the service is not already running, the system first calls onCreate(), then calls onStartCommand()."
+ So if the service is already running then the system will skip the onCreate() method and call onStartCommand()
+
+****************************************************************************************************
+26/July/2019
+
+----------> Android setRepeating() and setInexactRepeating() do not fire
+
+https://stackoverflow.com/questions/33053651/android-setrepeating-and-setinexactrepeating-do-not-fire
+
+****************************************************************************************************
+---------->
+
+ArrayList initialized/accessed using Singleton class
+
+https://stackoverflow.com/questions/40152454/arraylist-initialized-accessed-using-singleton-class
+
+****************************************************************************************************
+28/July/2019
+---------->  Firebase Database REST API
+https://firebase.google.com/docs/reference/rest/database
+
+****************************************************************************************************
+29/July/2019
+
+
+---------->
+
+how to avoid ConcurrentModificationException kotlin while add
+
+****************************************************************************************************
+30/July/2019
+
+----------> Date and time format example
+https://medium.com/@droidbyme/change-date-or-time-format-in-android-f3e6e131210a
+
+---------->
+CONNECTIVITY_ACTION intent received twice when Wifi connected
+
+https://stackoverflow.com/questions/5276032/connectivity-action-intent-received-twice-when-wifi-connected
+
+If you only want to receive it once, you can simply control it through variables.
+
+ if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())) {
+                NetworkInfo activeNetwork = intent.getParcelableExtra(ConnectivityManager.EXTRA_NETWORK_INFO);
+                if (activeNetwork != null) { // connected to the internet
+                    if (activeNetwork.isConnected() && !isUpdated) {
+                        if (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI) {
+                            // connected to wifi
+                        } else if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE) {
+                            // connected to the mobile provider's data plan
+                        }
+
+                        isUpdated = true;
+                    } else {
+                        isUpdated = false;
+                    }
+                }
+            }
+
+
+
+****************************************************************************************************
+
+---------->  Background Location Limits
+In Oreo (8.0.0+) (API 26+), How to get a location services update when the app is in the background or kill
+
+
+https://developer.android.com/about/versions/oreo/background-location-limits
+
+below is tested and done working fine
+https://androidwave.com/foreground-service-android-example/
+
+****************************************************************************************************
+04/Aug/2019
+
+----------> Android: How to detect when App goes background/foreground
+https://medium.com/@iamsadesh/android-how-to-detect-when-app-goes-background-foreground-fd5a4d331f8a
+
+
+****************************************************************************************************
+
+25/Aug/2019
+----------> Firebase Cloud Storage
+
+
+https://github.com/firebase/quickstart-android
+
+https://proandroiddev.com/firebase-android-series-storage-f09524008e14
+
+Firebase Cloud Storage Upload, Download & Delete Files Android Example
+
+https://www.zoftino.com/firebase-cloud-storage-upload-download-delete-files-android-example
+
+This chapter has created an Android app that makes use of Firebase Cloud Storage to store a video file.
+https://www.techotopia.com/index.php/A_Firebase_Cloud_Storage_Tutorial
+
+
+
+
+----------> Fire base Remote Config example based of condition
+
+https://console.firebase.google.com/project/courierdriver-6b3c1/config
+
+
+****************************************************************************************************
+
+01/Oct/2019
+
+---------->
+
+The Spark plan limit is 100 and cannot be raised. The Flame and Blaze plans have a limit of 100,000 simultaneous connections per database.
+If you need more than 100,000 simultaneous connections, contact Firebase support.
+
+
+https://firebase.googleblog.com/2019/09/increasing-realtime-database-scaling.html
+
+Firebase announce yesterday the new limit of 200 000 simultaneous connections.
+
+
+
+---------->
+
+firebase connection simultaneous limit
+firebase connection timeout
+
+
+****************************************************************************************************
+17/Nov/2019
+
+---------->
+
+togglebutton example
+
+https://stackoverflow.com/questions/21277490/example-on-togglebutton
+
+
+---------->
+20/Nov/2019
+
+Gmail login example
+https://developers.google.com/identity/sign-in/android/start-integrating
+
+https://androidclarified.com/google-signin-android-example/
+https://www.javatpoint.com/android-googlesignin-integrating
+
+
+****************************************************************************************************
+25/Nov/2019
+---------->
+
+List view android lib
+https://android-arsenal.com/tag/52
+
+----------> android device administration
+
+http://blogs.quovantis.com/android-device-administration-apis/
+https://rootfs.wordpress.com/2010/09/09/android-make-your-application-a-device-administrator/
+
+
+---------->
+
+Creating Clickable Styled Spans
+
+https://guides.codepath.com/android/Working-with-the-TextView
+
+https://gist.github.com/nesquena/f2504c642c5de47b371278ee61c75124#file-patterneditablebuilder-java
+
+**********************************************************************************m******************
+---------->
+19/Dec/2019
+
+why Google Play doesn’t allow you to install the app
+hawaii mate 7 app is not supported from google play store
+
+****************************************************************************************************
+---------->
+23/Dec/2019
+
+### interview questions
+
+https://android.jlelse.eu/android-interview-questions-cheat-sheet-96ea01c88def
+https://www.guru99.com/android-interview-questions.html
+https://www.edureka.co/blog/interview-questions/android-interview-questions-fresher-experienced/
+https://intellipaat.com/blog/interview-question/android-interview-questions/
+https://www.simplilearn.com/android-developer-interview-questions-and-answers-article
+https://www.edureka.co/blog/interview-questions/top-android-interview-questions-for-beginners/
+
+
+---------->
+temp shift time login
+D:\WebTechBackup\CourierDriver-Date-Wise-Backup\2019\April\11042019
+
+
+Whats new : - Now order history can be search based on order status- Driver order stuck has been resolved.- Logout from server is implemented - GUI Improved
+
+
+****************************************************************************************************
+02/FEB/2020
+
+----------> Class Mappings From Android to AndroidX
+
+https://developer.android.com/jetpack/androidx/migrate/class-mappings
+
+
+****************************************************************************************************
+11/Feb/2020
+
+---------->
+Foreground service getting killed from Oreo
+
+https://stackoverflow.com/questions/52425222/foreground-service-getting-killed-from-oreo
+
+---------->
+13/FEB/2020
+
+
+Difference between Google Map Distance and Directions API and GeoLocation
+
+1. Distance Matrix APIs : this is useful for computing distance(walking/travelling via bycycle,bus), cost of travel, time of travel
+
+But this is not useful for this scenario.
+
+2. Direction Service : this is useful for this scenario.
+
+Through direction service, we can get the path of User on Google Map in Real Time
+
+
+
+19/March/2020
+---------->  facebook comment like popup in android
+how to build a facebook comment like popup in android?
+
+http://facebook.github.io/rebound/
+
+https://github.com/rozdoum/social-app-android
+
+https://www.youtube.com/watch?v=0to9kwupzIQ
+
+https://github.com/jd-alexander/LikeButton
+
+https://stackoverflow.com/questions/44440766/implementing-like-button-in-recyclerview-using-shared-preference
+
+https://github.com/jd-alexander/LikeButton
+
+https://github.com/frogermcs/LikeAnimation
+
+****************************************************************************************************
+27/Jul/2020
+----------> getting unique device id for android device
+https://medium.com/@ssaurel/how-to-retrieve-an-unique-id-to-identify-android-devices-6f99fd5369eb
+
+done below is working
+https://stackoverflow.com/questions/43415278/unique-id-for-my-android-app
+
+
+****************************************************************************************************
+
+---------->  Android Switch (ON / OFF) Button with Examples
+https://www.tutlane.com/tutorial/android/android-switch-on-off-button-with-examples
+
+
+****************************************************************************************************
+12/Aug/2020
+----------> User Location on Android
+
+https://stackoverflow.com/questions/33022662/android-locationmanager-vs-google-play-services
+
+
+
+1) Android’s Location API (Android Framework Location API )
+using Android APIs from android.location.LocationListener
+
+
+2) Google’s Location Services API (Google Play Service Location API)
+Google’s Location Services API is a part of the Google Play Services
+Google Play Services APIs com.google.android.gms.location.LocationListener
+
+
+----------> Android LocationServices.FusedLocationApi deprecated
+
+https://stackoverflow.com/questions/46481789/android-locationservices-fusedlocationapi-deprecated
+
+---------->
+Android - Fused Location Provider API issues with satellite information (count, signal, etc)
+https://stackoverflow.com/questions/40162272/android-fused-location-provider-api-issues-with-satellite-information-count
+
+
+---------->
+
+Getting “satellites in view”, and “satellites in use” counts in Android
+
+
+https://stackoverflow.com/questions/26148235/getting-satellites-in-view-and-satellites-in-use-counts-in-android
+
+----------> 'isGooglePlayServicesAvailable'(this) is deprecated
+https://stackoverflow.com/questions/41522670/isgoogleplayservicesavailablethis-is-deprecated/44147341
+
+
+
+****************************************************************************************************
+
+----------> QR Code and Bar Code Scanner
+
+https://www.journaldev.com/18198/qr-code-barcode-scanner-android
+
+****************************************************************************************************
+21/Sept.2020
+
+
+----------> Error
+UncaughtException: android.app.RemoteServiceException: Context.startForegroundService() did not then call Service.startForeground(): ServiceRecord{4e792c0 u0 webtech.com.courierdriver/.service.LocationForegroundService}
+
+----------> Error  android.app.RemoteServiceException: Context.startForegroundService() did not then call Service.startForeground():
+
+https://www.theandroiddeveloper.com/post/context-startforegroundservice-did-not-then-call-service-startforeground
+
+
+****************************************************************************************************
+07/Oct/2020
+
+---------->
+PERMISSION_DENIED Firebase Installations can not communicate with Firebase server APIs due to invalid configuration
+https://stackoverflow.com/questions/61516255/firebase-cannot-communicate-with-firebase-server
+
+https://stackoverflow.com/questions/62534601/error-when-communicating-with-the-firebase-installations-server-api-403-forbid
+https://stackoverflow.com/questions/45566530/init-firebase-with-firebaseoptions
+
+https://firebase.google.com/docs/reference/android/com/google/firebase/FirebaseOptions
+
+
+
+---------->
+
+2020-10-08 12:27:50.866 20678-21559/webtech.com.courierdriver W/Firebase-Installations:
+Firebase options used while communicating with Firebase server APIs: AIzaSyAyiLI3EWdNYrgtPeO72BKZbMGYltGdlk4, courierdriver-6b3c1, 1:659250976484:android:fc5500b78a5736d8
+
+
+
+https://stackoverflow.com/questions/39186425/firebaseapp-name-default-already-exists
+
+----------> Unable to start activity - Subscriber classes and its super classes have no public methods with the @Subscribe notation
+
+https://github.com/greenrobot/EventBus/issues/271
+
+
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+
+
+
+
+
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+

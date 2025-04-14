@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            maven { url = uri("https://maven.scijava.org/content/repositories/public/") }
+
+
+        }
+        maven { url "https://repo.grails.org/grails/core/" }
+        maven { url 'https://jitpack.io' }
+    }
+}
+include ':app',':appOoOAlertDialog'

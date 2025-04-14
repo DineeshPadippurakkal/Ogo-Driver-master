@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:padding="@dimen/dimen_5dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+
+            >
+
+           
+
+            <RelativeLayout
+                android:id="@+id/driverImageViewLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                >
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/driverImageView"
+                    android:contentDescription="@string/nav_header_desc"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/colorYellowTheme"
+                    app:civ_border_overlay="false"
+                    android:src="@drawable/driver_avatar"
+                    android:layout_width="@dimen/dimen_60dp"
+                    android:layout_height="@dimen/dimen_60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    />
+
+
+
+
+                <!-- android:layout_alignBottom="@+id/driverImageView" -->
+
+                 <ImageView
+                    android:id="@+id/imageViewDriverTyp"
+                    android:layout_width="@dimen/dimen_25dp"
+                    android:layout_height="@dimen/dimen_25dp"
+                    android:contentDescription="@string/nav_header_desc"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_image_preview"
+                  
+                    android:layout_alignEnd="@+id/driverImageView"
+                     android:layout_alignBottom="@+id/driverImageView"
+                     android:background="@drawable/custom_image_shadow_drawable"
+
+
+                    />
+                
+                <RelativeLayout
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toEndOf="@+id/driverImageView"
+                  android:gravity="center"
+                  >
+                    <RelativeLayout
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                     
+      
+      
+      
+                      >
+                        <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+          
+                          android:layout_gravity="center"
+                          android:layout_marginBottom="@dimen/dimen_5dp"
+          
+                          >
+            
+                            <LinearLayout
+                              android:layout_width="0dp"
+                              android:layout_height="wrap_content"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:orientation="vertical"
+                              android:gravity="center"
+                              android:layout_marginStart="@dimen/dimen_15dp"
+              
+                              >
+                                <TextView
+                                  android:id="@+id/tvDriverName"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                                  android:text="@string/nav_header_title"
+                                  android:textAppearance="?android:attr/textAppearanceMedium"
+                                  android:textColor="@color/white"
+                                  android:letterSpacing="0.1"
+                                  android:includeFontPadding="false"
+                                  android:layout_gravity="start"
+                                  />
+    
+                                <TextView
+                                  android:id="@+id/tvDriverMob"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="start"
+                                  android:fontFamily="@font/avenir_next_condensed_regular"
+                                  android:includeFontPadding="false"
+                                  android:text="@string/nav_header_mobile"
+                                  android:textColor="@color/white"
+                                  android:textAppearance="?android:attr/textAppearanceSmall"
+                                  />
+                                <TextView
+                                  android:id="@+id/tvDriverEmail"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="start"
+                                  android:fontFamily="@font/avenir_next_condensed_regular"
+                                  android:includeFontPadding="false"
+                                  android:text="@string/nav_header_email"
+                                  android:textColor="@color/white"
+                                  android:textAppearance="?android:attr/textAppearanceSmall"
+                                  />
+                
+                
+                               
+            
+            
+                            </LinearLayout>
+        
+        
+        
+        
+        
+                        </LinearLayout>
+    
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+            <View
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/dimen_2dp"
+              android:background="@color/color_yellow_dark"
+             
+              >
+              
+            </View>
+            <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:weightSum="2"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:padding="@dimen/dimen_5dp"
+      
+              >
+                <ImageView
+                  android:id="@+id/ivInternetStatusLogo"
+                  android:layout_width="@dimen/dimen_30dp"
+                  android:layout_height="@dimen/dimen_30dp"
+                  android:contentDescription="@string/nav_header_desc"
+                  android:scaleType="centerInside"
+                  
+                  android:background="@drawable/custom_image_shadow_drawable"
+          
+                  />
+                <TextView
+                  android:id="@+id/tvInternetStatusMsg"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:fontFamily="@font/avenir_next_condensed_bold"
+                  android:text="@string/internet_status"
+                  android:textColor="@color/white"
+                  android:includeFontPadding="false"
+                  android:layout_gravity="center"
+                  android:layout_marginStart="@dimen/dimen_10dp"
+                  android:layout_marginEnd="@dimen/dimen_10dp"
+                  android:textAppearance="?android:attr/textAppearanceSmall"
+                  />
+            </LinearLayout>
+
+
+
+
+
+
+
+            
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

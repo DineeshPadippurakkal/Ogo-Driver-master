@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#0fa4cf</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>-->
+
+
+    <color name="colorPrimary">#1b75bc</color>
+    <color name="colorPrimaryDark">#004881</color>
+    <color name="colorAccent">#1b75bc</color>
+    <color name="orange">#bc6328</color>
+
+    <color name="grey">#58595b</color>
+
+    <color name="colorLoader">#3F51B5</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="color_them">#1b75bc</color>
+
+    <color name="color_nav_tv_item">#5a5a5a</color>
+    <color name="color_light_grey">#5a5a5a</color>
+    <color name="color_dark_grey">#99000000</color>
+
+
+
+    <color name="color_light_green">#3CB371</color>
+    <color name="color_red">#ff0000</color>
+    <color name="light_bg_order_history">#eeeeee</color>
+    <color name="light_bg_invoice">#eeeeee</color>
+
+    <color name="your_color">#ff0000</color>
+    <color name="colorYellow">#F5FA55</color>
+    <color name="colorYellowTheme">#F4C700</color>
+
+    <color name="color_light_gray">#5a5a5a</color>
+    <color name="hintFloatingColorSignUp">#c8c8c8</color>
+    <color name="black">#000000</color>
+    <color name="word_bar">#FF0000</color>
+    <color name="color_yellow_dark">#facb0c</color>
+    <color name="light_green">#DAF7A6</color>
+
+
+    <color name="colorGreenButton">#ff3fb554</color>
+    <color name="colorLimeGreen">#ff3fb554</color>
+
+    <color name="colorOrderOngoing">#F4C700</color>
+    <color name="colorOrderCancelled">#ff0000</color>
+    <color name="colorCompleted">#3CB371</color>
+
+
+
+</resources>

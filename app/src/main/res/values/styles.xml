@@ -1,0 +1,69 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Theme.AppCompat.Light is not a dialog theme -->
+    <style name="DatePickerDialogTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/color_them</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="Theme.AppCompat.Light.DarkActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--NavigationActivity styles-->
+    <style name="navigation_text_view_item_layout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingEnd">@dimen/dimen_30dp</item>
+        <item name="android:paddingStart">@dimen/dimen_30dp</item>
+    </style>
+
+    <style name="navigation_text_view_item" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@color/color_nav_tv_item</item>
+    </style>
+
+    <style name="navigation_text_view_heading" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@color/color_them</item>
+    </style>
+
+    <style name="navigation_item_bg">
+        <item name="android:background">@drawable/round_nav_item</item>
+    </style>
+
+
+    <!-- To change floating label color in register Activity -->
+    <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/hintFloatingColorSignUp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AlertMessageDlgTheme">
+        <item name="android:windowEnterAnimation">@anim/dialog_slide_up</item>
+        <item name="android:windowExitAnimation">@anim/dialog_slide_down</item>
+    </style>
+
+    <style name="order_arrived_text_view_heading" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

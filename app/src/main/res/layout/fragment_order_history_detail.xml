@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_order_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:paddingBottom="@dimen/dimen_10dp"
+
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/orderCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           >
+
+            <RelativeLayout
+                android:id="@+id/rowOrderID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_them"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/tvOrderId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:text="@string/order_id"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                   />
+
+
+                <!--<View
+                    android:id="@+id/seperatorHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    android:layout_below="@+id/tvOrderStatus"
+
+
+                    android:background="@color/colorYellowTheme" />-->
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/rowOrderType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_below="@+id/rowOrderID"
+                android:background="@color/color_them"
+
+
+                >
+                <TextView
+                    android:id="@+id/tvOrderStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:text="Order Status ..."
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+
+
+                    android:padding="@dimen/dimen_5dp"
+
+                    />
+
+
+                <!--  android:src="@drawable/trip_single_en" -->
+
+                <ImageView
+                    android:id="@+id/ivOrderTrip"
+                    android:layout_width="@dimen/dimen_40dp"
+                    android:layout_height="@dimen/dimen_20dp"
+                    android:scaleType="centerCrop"
+
+                    />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rowDateAndPaymentType"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_below="@+id/rowOrderType"
+                android:background="@color/color_them"
+                android:gravity="center"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:paddingEnd="@dimen/dimen_10dp"
+
+                >
+
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+
+                    android:text="@string/order_history_date"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPaymentType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+
+                    android:text="@string/order_history_payment_type"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    />
+
+            </RelativeLayout>
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/rowTotal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_below="@+id/rowDateAndPaymentType"
+                android:background="@color/color_them"
+                android:gravity="center"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:paddingEnd="@dimen/dimen_10dp"
+
+                >
+
+                <TextView
+                    android:id="@+id/totalLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/order_history_total_dist"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    />
+
+                <TextView
+                    android:id="@+id/totalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:text="KD 1"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    />
+
+            </RelativeLayout>
+
+
+
+            <!-- <RelativeLayout
+                android:id="@+id/rowOrderType"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_below="@+id/rowTotal"
+                android:background="@color/color_them"
+                android:gravity="center"
+                android:paddingStart="@dimen/dimen_10dp"
+                android:paddingEnd="@dimen/dimen_10dp"
+
+                >
+
+                <TextView
+                    android:id="@+id/orderTypeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/order_type"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    />
+
+                <TextView
+                    android:id="@+id/orderType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/order_type"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    />
+
+            </RelativeLayout> -->
+
+
+            <RelativeLayout
+                android:id="@+id/rowSenderDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rowTotal"
+
+                >
+
+                <TextView
+                    android:id="@+id/titleSenderAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="@string/order_history_sender_address"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    />
+
+                <TextView
+                    android:id="@+id/addressLineOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titleSenderAddress"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="-10dp"
+                    android:text="Kuwait City Block: 12"
+                    android:fontFamily="@font/avenir_next_condensed_medium"
+                    />
+
+                <View
+                    android:id="@+id/seperatorAddressLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    android:layout_below="@+id/addressLineOne"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorYellowTheme" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rowReceiverDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rowSenderDetails"
+                android:layout_marginTop="@dimen/dimen_10dp">
+
+                <TextView
+                    android:id="@+id/titleRecieverAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    android:text="@string/order_history_receiver_address"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/addressLineTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleRecieverAddress"
+                    android:layout_marginLeft="16dp"
+
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="-10dp"
+                    android:text="Street: Fahed Al-Salem"
+                    android:fontFamily="@font/avenir_next_condensed_medium"
+
+                    />
+
+                <View
+                    android:id="@+id/seperatorRowOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    android:layout_below="@+id/addressLineTwo"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorYellowTheme"  />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rowOrderImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/rowReceiverDetails"
+                android:layout_marginTop="@dimen/dimen_10dp">
+
+                <TextView
+                    android:id="@+id/titleOrderItems"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Order Items:"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+
+                    />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewOrderItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleOrderItems"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp" />
+
+                <View
+                    android:id="@+id/seperatorRowTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    android:layout_below="@+id/recyclerViewOrderItems"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#cccccc" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <Button
+            android:visibility="visible"
+            android:id="@+id/btnAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:background="@color/colorGreenButton"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="GO FOR DELIVERY"
+            android:textAllCaps="false"
+            android:layout_below="@+id/orderCard"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            />
+
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:shimmer="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/color_them"
+	android:orientation="vertical">
+	
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_gravity="center">
+		
+		
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			
+			>
+			
+			<LinearLayout
+				android:id="@+id/timerLayoutHead"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:orientation="vertical">
+				
+				<RelativeLayout
+					android:id="@+id/progressBarCircleLayout"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center"
+					
+					
+					>
+					
+					
+					<ProgressBar
+						android:id="@+id/progressBarCircle"
+						style="?android:attr/progressBarStyleHorizontal"
+						android:layout_width="150dp"
+						android:layout_height="150dp"
+						android:layout_centerInParent="true"
+						android:background="@drawable/drawable_circle"
+						android:indeterminate="false"
+						android:max="100"
+						android:progress="100"
+						android:progressDrawable="@drawable/drawable_circle_progress"
+						android:rotation="-90" />
+					
+					
+					<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_centerInParent="true"
+						android:gravity="center">
+						
+						<TextView
+							android:id="@+id/textViewTime"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:fontFamily="@font/avenir_next_condensed_demi_bold"
+							android:gravity="center"
+							android:text="00"
+							android:textColor="@color/white"
+							android:textSize="70sp"
+							
+							
+							/>
+					
+					</RelativeLayout>
+					
+					
+					<com.agrawalsuneet.loaderspack.loaders.RippleLoader
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_centerInParent="true"
+						app:ripple_animDuration="1000"
+						app:ripple_circleColor="@color/colorYellowTheme"
+						app:ripple_circleInitialRadius="50dp"
+						app:ripple_fromAlpha="1.0"
+						app:ripple_interpolator="@android:anim/decelerate_interpolator"
+						app:ripple_toAplha="0.01"
+						
+						/>
+				
+				
+				</RelativeLayout>
+			
+			</LinearLayout>
+			
+			<LinearLayout
+				android:id="@+id/orderHeaderLayout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/arrived_order_shimmer_view_container"
+				android:layout_margin="@dimen/dimen_5dp"
+				android:background="@drawable/round_shape_arrived_order_details"
+				android:gravity="center_vertical"
+				android:orientation="vertical"
+				android:padding="@dimen/dimen_5dp"
+				
+				
+				>
+				
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_margin="@dimen/dimen_5dp"
+					android:gravity="center"
+					android:orientation="horizontal"
+					android:weightSum="1"
+					
+					>
+					
+					
+					<TextView
+						android:id="@+id/tv_order_id"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						android:layout_weight="0.5"
+						android:enabled="false"
+						android:fontFamily="@font/avenir_next_condensed_medium"
+						android:inputType="none"
+						android:text="@string/order_id"
+						android:textAlignment="center"
+						android:textAppearance="?android:attr/textAppearanceSmall"
+						android:textColor="@color/white"
+						
+						/>
+					
+					
+					<TextView
+						android:id="@+id/tv_source"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						android:layout_weight="0.5"
+						android:enabled="false"
+						android:fontFamily="@font/avenir_next_condensed_medium"
+						android:inputType="none"
+						android:text="@string/order_source"
+						android:textAlignment="center"
+						android:textAppearance="?android:attr/textAppearanceSmall"
+						android:textColor="@color/white"
+						
+						/>
+				
+				
+				</LinearLayout>
+				
+				
+				<TextView
+					android:id="@+id/tv_types_of_order"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="@dimen/dimen_5dp"
+					android:enabled="false"
+					android:fontFamily="@font/avenir_next_condensed_medium"
+					android:inputType="none"
+					android:text="@string/order_type"
+					android:textAlignment="center"
+					android:textAppearance="?android:attr/textAppearanceSmall"
+					android:textColor="@color/white"
+					
+					/>
+				
+				
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/dimen_1dp"
+					android:background="@color/white">
+				
+				</View>
+			
+			
+			</LinearLayout>
+			
+			
+			<RelativeLayout
+				
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/arrived_order_details_layout"
+				android:layout_marginTop="@dimen/dimen_5dp"
+				android:gravity="center"
+				
+				>
+				
+				<LinearLayout
+					
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					
+					
+					>
+					
+					<FrameLayout
+						
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						android:background="@drawable/skip_custom_shadow_drawable"
+						
+						
+						>
+						
+						<androidx.appcompat.widget.LinearLayoutCompat
+							
+							android:id="@+id/skipOrderLayout"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_gravity="center"
+							android:background="@drawable/rounded_ripple_effect"
+							android:gravity="center"
+							android:orientation="horizontal"
+							
+							>
+							
+							<TextView
+								android:id="@+id/tvSkipOrder"
+								android:layout_width="@dimen/dimen_80dp"
+								android:layout_height="@dimen/dimen_80dp"
+								android:layout_gravity="center"
+								android:fontFamily="@font/avenir_next_condensed_bold"
+								android:gravity="center"
+								android:text="@string/skip_order"
+								android:textAlignment="gravity"
+								android:textAppearance="?android:attr/textAppearanceMedium"
+								android:textColor="@color/color_them"
+								
+								
+								/>
+						
+						
+						</androidx.appcompat.widget.LinearLayoutCompat>
+					</FrameLayout>
+				
+				</LinearLayout>
+			
+			
+			</RelativeLayout>
+			
+			<RelativeLayout
+				android:id="@+id/loading_layout"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true">
+			
+			
+			</RelativeLayout>
+			
+			
+			<androidx.appcompat.widget.LinearLayoutCompat
+				android:id="@+id/arrived_order_details_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/orderHeaderLayout"
+				android:layout_margin="@dimen/dimen_5dp"
+				
+				android:background="@drawable/round_shape_arrived_order_details"
+				android:gravity="center"
+				android:orientation="vertical">
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_margin="@dimen/dimen_5dp"
+					android:gravity="center_vertical"
+					android:orientation="vertical"
+					android:padding="@dimen/dimen_5dp">
+					
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="0dp"
+						android:layout_weight="2"
+						
+						android:orientation="horizontal">
+						
+						<LinearLayout
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:orientation="horizontal">
+							
+							<LinearLayout
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								android:layout_margin="@dimen/dimen_5dp"
+								
+								>
+								
+								<ImageView
+									android:id="@+id/ivSender"
+									android:layout_width="@dimen/dimen_50dp"
+									android:layout_height="@dimen/dimen_50dp"
+									android:gravity="center"
+									android:src="@drawable/ic_sender" />
+							
+							
+							</LinearLayout>
+							
+							<LinearLayout
+								android:layout_width="0dp"
+								android:layout_height="match_parent"
+								android:layout_weight="1"
+								android:gravity="center"
+								android:orientation="vertical">
+								
+								<TextView
+									android:id="@+id/senderTV"
+									
+									android:layout_width="match_parent"
+									android:layout_height="wrap_content"
+									android:fontFamily="@font/avenir_next_condensed_regular"
+									android:padding="@dimen/dimen_5dp"
+									
+									android:text="@string/sender"
+									android:textAppearance="?android:attr/textAppearanceMedium"
+									android:textColor="@color/white"
+									android:textStyle="bold" />
+							
+							
+							</LinearLayout>
+							
+							<!-- <View
+								android:layout_width="1dp"
+								android:layout_height="match_parent"
+								android:layout_margin="4dp"
+								android:background="@color/white" /> -->
+						
+						
+						</LinearLayout>
+					
+					</LinearLayout>
+					
+					<TextView
+						android:id="@+id/senderAddress"
+						style="@style/order_arrived_text_view_heading"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:fontFamily="@font/avenir_next_condensed_bold"
+						android:text="@string/sender_address"
+						android:textAppearance="?android:attr/textAppearanceLarge"
+						android:textStyle="bold"
+						
+						
+						/>
+				
+				</LinearLayout>
+				
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/dimen_2dp"
+					android:background="@color/white">
+				
+				</View>
+				
+				
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:gravity="center"
+					android:orientation="horizontal"
+					android:weightSum="2"
+					
+					>
+					
+					<androidx.appcompat.widget.LinearLayoutCompat
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_weight="1">
+						
+						<ImageView
+							android:id="@+id/ivOrderType"
+							android:layout_width="@dimen/dimen_100dp"
+							android:layout_height="@dimen/dimen_50dp"
+							android:padding="@dimen/dimen_5dp"
+							android:scaleType="centerInside"
+							android:src="@drawable/ic_image_preview"
+							
+							
+							/>
+					
+					</androidx.appcompat.widget.LinearLayoutCompat>
+					
+					<!-- android:src="@drawable/trip_single_en"  -->
+					
+					
+					<androidx.appcompat.widget.LinearLayoutCompat
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_weight="1"
+						
+						>
+						
+						<TextView
+							android:id="@+id/tvOrderType"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:layout_margin="@dimen/dimen_5dp"
+							android:enabled="false"
+							android:fontFamily="@font/avenir_next_condensed_bold"
+							android:inputType="none"
+							android:text="@string/order_type"
+							android:textAlignment="center"
+							android:textAppearance="?android:attr/textAppearanceMedium"
+							android:textColor="@color/white"
+							
+							
+							/>
+					
+					</androidx.appcompat.widget.LinearLayoutCompat>
+				
+				
+				</androidx.appcompat.widget.LinearLayoutCompat>
+			
+			
+			</androidx.appcompat.widget.LinearLayoutCompat>
+			
+			
+			<com.facebook.shimmer.ShimmerFrameLayout
+				android:id="@+id/arrived_order_shimmer_view_container"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/timerLayoutHead"
+				android:layout_gravity="center"
+				android:layout_marginBottom="@dimen/dimen_10dp"
+				android:orientation="vertical"
+				shimmer:duration="100"
+				
+				>
+				
+				
+				<androidx.appcompat.widget.LinearLayoutCompat
+					android:id="@+id/acceptOrderSlideViewLayout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:gravity="center"
+					android:paddingStart="@dimen/dimen_40dp"
+					android:paddingEnd="@dimen/dimen_40dp">
+					
+					<!--
+					app:sv_buttonImage="@mipmap/ic_launcher"
+					-->
+					
+					<ng.max.slideview.SlideView
+						android:id="@+id/acceptOrderSlideView"
+						android:layout_width="match_parent"
+						android:layout_height="@dimen/dimen_50dp"
+						android:fontFamily="@font/avenir_next_condensed_demi_bold"
+						app:sv_animateSlideText="true"
+						app:sv_buttonBackgroundColor="@color/colorYellowTheme"
+						app:sv_reverseSlide="false"
+						app:sv_slideBackgroundColor="@color/white"
+						app:sv_slideText="@string/accept_order"
+						app:sv_slideTextColor="@color/black"
+						app:sv_strokeColor="@color/colorYellowTheme" />
+				
+				</androidx.appcompat.widget.LinearLayoutCompat>
+			</com.facebook.shimmer.ShimmerFrameLayout>
+		
+		
+		</RelativeLayout>
+	
+	
+	</ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+
+

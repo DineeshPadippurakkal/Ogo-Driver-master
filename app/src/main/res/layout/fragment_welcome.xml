@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
+    android:background="@color/color_them"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:id="@+id/welcome_note_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/welcome_layout"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                android:padding="@dimen/dimen_10dp"
+
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_welcome_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:fontFamily="@font/avenir_next_condensed_medium"
+                    android:gravity="center"
+                    android:text="@string/welcome_note"
+
+                    android:textAlignment="gravity"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_welcome_instructions1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_next_condensed_medium"
+                    android:gravity="start"
+                    android:text="@string/welcome_inst1"
+
+                    android:textAlignment="gravity"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_welcome_instructions2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_next_condensed_medium"
+                    android:gravity="start"
+                    android:text="@string/welcome_inst2"
+
+                    android:textAlignment="gravity"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+
+
+                    />
+            </LinearLayout>
+
+            
+            <RelativeLayout
+                android:id="@+id/welcome_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_them"
+
+
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_10dp"
+                        android:layout_marginTop="@dimen/dimen_50dp"
+                        android:layout_marginEnd="@dimen/dimen_10dp"
+                        android:layout_marginBottom="@dimen/dimen_10dp"
+                        android:background="@drawable/round_border_welcome"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_welcome_dummy"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_margin="@dimen/dimen_5dp"
+                            android:fontFamily="@font/avenir_next_condensed_bold"
+
+                            android:gravity="center"
+                            android:textAlignment="gravity"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+
+
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_welcome_Username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_welcome_dummy"
+                            android:fontFamily="@font/avenir_next_condensed_bold"
+
+                            android:gravity="center"
+                            android:textAlignment="gravity"
+
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+
+
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_welcome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_welcome_Username"
+                            android:fontFamily="@font/avenir_next_condensed_bold"
+                            android:gravity="center"
+                            android:text="@string/welcome_msg"
+                            android:textAlignment="gravity"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/black"
+
+
+                            />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+
+                        >
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/iv_driver_welcome"
+
+                            android:layout_width="@dimen/dimen_100dp"
+                            android:layout_height="@dimen/dimen_100dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dimen_5dp"
+                            android:src="@mipmap/ic_profile"
+                            app:civ_border_color="@color/colorYellowTheme"
+                            app:civ_border_overlay="false"
+                            app:civ_border_width="2dp"
+
+
+                            />
+                        
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

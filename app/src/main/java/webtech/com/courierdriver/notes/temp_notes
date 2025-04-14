@@ -1,0 +1,609 @@
+*****************************
+
+/// project level build.gradle
+
+
+    signingConfigs {
+
+        release {
+        /// give the .jks file path
+        ///C:\Users\HP
+            storeFile file("C:\\Users\\HPkey_store.jks")
+            storePassword "password"
+            keyAlias "gbk"
+            keyPassword "password"
+
+            /// optional
+            v1SigningEnabled true
+
+            v2SigningEnabled true
+        }
+    }
+
+
+/// under the release section
+    release {
+                zipAlignEnabled true
+                debuggable true
+                signingConfig signingConfigs.release
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+
+
+*****************************
+murtaza9723@ogo.delivery
+
+kw.webtech@gmail.com
+
+
+consultancy
+CONSULTANCY
+
+ IO.Platform.isIOS
+            ? {
+                _buildSocialMediaButton(SocialMediaType.apple),
+                SizedBox(width:ScreenUtil.getResponsiveWidthOfWidget(26, _size.width)),
+                _buildSocialMediaButton(SocialMediaType.facebook),
+                SizedBox( width:ScreenUtil.getResponsiveWidthOfWidget(26, _size.width)),
+                _buildSocialMediaButton(SocialMediaType.google),
+                // SizedBox(width: ScreenUtil.getResponsiveWidthOfWidget(26, _size.width)),
+                // _buildSocialMediaButton(SocialMediaType.twitter),
+              }
+            : _buildSocialMediaButton(SocialMediaType.apple),
+        SizedBox(width: ScreenUtil.getResponsiveWidthOfWidget(26, _size.width)),
+        _buildSocialMediaButton(SocialMediaType.facebook),
+        SizedBox(width: ScreenUtil.getResponsiveWidthOfWidget(26, _size.width)),
+        _buildSocialMediaButton(SocialMediaType.google),
+        // SizedBox(width: ScreenUtil.getResponsiveWidthOfWidget(26, _size.width)),
+        // _buildSocialMediaButton(SocialMediaType.twitter),
+      ],
+*****************************
+# Splash Screen :
+https://hotpot.ai/templates/splash-screen
+https://stackoverflow.com/questions/2634898/what-are-the-sizes-used-for-the-ios-application-splash-screen
+
+
+
+*****************************
+AppLocalizations.of(context).translate('Something_went_wrong'),
+
+ AppLocalizations.of(context).locale.languageCode == 'en'
+              ? appLanguage.changeLanguage(Locale("ar"))
+              : appLanguage.changeLanguage(Locale("en"));
+
+*****************************
+google play store finger prints  tabadal :
+####################
+from tabadal_key_store.jks file finger print taken ( in use )
+D9:09:6B:27:78:A9:E5:FE:E0:27:EC:B6:8E:91:52:97:82:24:77:6B
+D2:EC:29:0D:FD:57:B5:70:92:F2:3C:90:7B:F2:0F:31:61:94:24:DB
+####################
+from key.jks  file finger print taken ( not in use )
+
+4B:4F:68:D0:74:2B:C5:0D:22:84:E8:03:66:CE:03:6A:87:5D:45:BD
+
+
+####################
+From Google play store console :
+( App signing key certificate )
+SHA-1 certificate fingerprint :
+DC:E6:92:B8:77:26:70:FC:C2:F8:58:5D:7C:08:6B:8E:79:ED:C8:53
+
+SHA-256 certificate fingerprint :
+35:72:7C:9A:18:ED:60:51:2A:C6:85:6D:C4:A8:93:78:7B:30:DE:2A:0E:8E:E1:D9:90:B5:63:92:9E:D2:1B:A3
+!!!!!!!!!!!!!!!!!!!
+(Upload key certificate)
+SHA-1 certificate fingerprint :
+D2:EC:29:0D:FD:57:B5:70:92:F2:3C:90:7B:F2:0F:31:61:94:24:DB
+
+SHA-256 certificate fingerprint :
+8F:69:61:ED:AE:50:03:5E:25:5F:DD:19:33:26:CB:6E:15:16:52:5F:DB:09:1D:00:C8:7F:E5:82:7F:06:55:31
+
+####################
+
+
+
+
+*****************************
+<img src="https://" width="200" height="400" />
+
+tabadall_test1@mailinator.com
+tabadall_test2@mailinator.com
+
+9.0.0-1.0.nullsafety.0
+ flutter channel master
+
+Laptop , Desktop , Computer Accessories , Computer Parts
+*****************************
+*****************************
+
+SHA1: 77:31:3F:F9:DB:75:98:0F:92:DE:2B:05:81:43:4A:26:7A:95:99:95
+SHA-256: E6:D3:AA:F5:AC:0A:54:73:A9:69:D6:11:48:A6:B7:71:8A:47:2C:88:28:24:16:B8:66:A5:C3:1D:12:8E:1A:92
+
+
+
+keytool -genkey -v -keystore C:\Users\HP\Desktop\tabadal_key_store.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
+
+
+---------------------------------------------------------------------------
+
+
+
+
+
+----- > online, offline , logout related logic convert from MVC to MVVM architecture
+
+
+// 5 usage
+driverOnlineOfflineStatusPost(userName: String, driverOnlineStatus: String,isLogoutFromUser:Boolean,isLogoutFromServer:Boolean)
+// 1 usage
+makeOnline()
+// 2 usage
+makeOffline(isLogout:Boolean)
+// 5 usage
+goOnline()
+// 4 usage
+goOffline()
+
+//3 call
+logoutPost(userNameStr: String)
+
+// 1 call , but shiftTimeLogin() commented not in use
+shiftTimeLogin(userName: String)
+
+
+
+################
+flow of fn calls :b
+
+
+driverOnlineOfflineStatusPost() -> logoutPost() ( logout from user / logout from server ) // 2 calls
+                                -> apiPostService!!.postDriverOnlineStatusNew() /// api call  ->    -> makeOnline() ///
+                                                                                                    ->  makeOffline(false)
+
+/// //Call here LOGOUT web service go to login screen
+driverOnlineOfflineStatusPost()
+
+/// logout from server
+driverOnlineOfflineStatusPost()
+
+
+goOnline() - > driverOnlineOfflineStatusPost()
+goOffline() -> driverOnlineOfflineStatusPost()
+
+
+
+
+///actual making online /offline
+makeOffline() - > goOnline() ( if order exist force to update online )
+               -> UpdateRealTimeDriverOnlineStatus.updateDriverOnlineStatus(this@MainActivity,OGoConstant.OFFLINE)
+///actual making online
+makeOnline() -> UpdateRealTimeDriverOnlineStatus.updateDriverOnlineStatus(this@MainActivity,OGoConstant.ONLINE)
+
+
+logoutPost()->apiPostService!!.postLogout() ///api call   -> makeOffline(true)
+
+receiveCurrentOrderPost()//api call -> goOnline() // 2  called
+                                    -> goOffline() // 1  call
+
+shiftTimeOnline() - >   goOnline() // 1  call
+                   ->   goOffline() /// 2  call
+
+/// commented not in use
+shiftTimeLogin() - > logoutPost()
+
+
+
+---------------------------------------------------------------------------
+Looper.myLooper()?.let {
+    Handler(it).postDelayed({
+        //Your Code
+    },2500)
+}
+
+Handler().postDelayed({
+//your code
+ },OGoConstant.ARRIVED_ORDER_DELAY!!.toLong())
+
+---------------------------------------------------------------------------
+17/Oct/2019
+
+You have more orders.Please go to xyz area.
+or
+Near by order found.Please go to xyz area.
+
+Checking near by orders for you...
+
+
+
+
+---------------------------------------------------------------------------
+14/Oct/2019
+
+
+[12:02 PM, 10/14/2019] Abdulrahim: Dear Sumit,
+As per our discussion because of switch order functionality our order data model will be change in following places.
+I need update variables/arguments/parameters in below api response
+
+api/driver/accept_order
+api/driver/cancel_order_web
+api/driver/driver_completed_orderlist
+
+api/driver/switch_order_free ( not required )
+api/driver/driver_current_running_orders done
+api/driver/switch_order_assigned done
+
+
+and in normal order notification model (switch_order_status = 0 ) ,
+
+switching switched notification model  (switch_order_status = 1 )   done
+
+and switched notification model  (switch_order_status = 2 ) done
+
+
+
+
+https://ogo.delivery:1000/api/driver/switch_order_assigned
+email_id:rocky@ogo.delivery
+order_id:OID-2201-OCZL
+
+---------------------------------------------------------------------------
+
+
+18/Jul/2019
+
+
+----------> Real Time fire base login model
+
+
+
+
+{
+  "OnlineStatus": {
+    "onlineStatus": "false",
+    "onlineDatetime": "7/15/2019 3:30:17 PM"
+  },
+  "AppStatus": {
+    "status": "active"
+  }
+  ,
+  "OrderStatus": {
+    "orderStatus": "false",
+    "busyStatus": "false"
+  },
+  "Location": {
+    "loctLatt": "29.3662438",
+    "loctLong": "47.9678406",
+    "lastLocationDandT": "7/15/2019 12:11:33 PM",
+    "previous_latitude": "29.3662438",
+    "previous_longitude": "47.9678406",
+    "speed_in_kmph": "50"
+  }
+  ,
+  "DriverDetails": {
+    "app_version": "1.0.8",
+     "cid": "1",
+      "cidType": "CO",
+       "driverImage": "http://ogo.delivery/Images/1301190649WhatsApp Image 2019-01-13 at 6.48.49 PM.jpeg",
+        "e1": "1",
+         "e5": "null",
+          "emailId": "john@ogo.delivery",
+           "id": "1",
+            "name": "john",
+             "phone": "12345678",
+              "vehicleType": "car",
+               "vehicle_no": "12345"
+  }
+
+}
+
+
+----------> Real Time fire base logout model
+{
+  "OnlineStatus": {
+    "onlineStatus": "false"
+  },
+  "AppStatus": {
+    "status": "active"
+  }
+  ,
+
+  "Location": {
+    "loctLatt": "29.3662438",
+    "loctLong": "47.9678406",
+    "lastLocationDandT": "7/15/2019 12:11:33 PM"
+  }
+  ,
+  "DriverDetails": {
+   "emailId": "john@ogo.delivery",
+              "id": "1"
+  }
+
+}
+
+
+------------------------------------------------------------------------------------
+21/July/2019
+
+----------->
+
+
+        ////LOGIN MODEL
+        var realTimeLoginDataModel = RealTimeFireBaseLoginDataModel()
+
+        realTimeLoginDataModel.appStatus =  RealTimeFireBaseAppStatus()
+        realTimeLoginDataModel.onlineStatus =  RealTimeFireBaseOnlineStatus()
+        realTimeLoginDataModel.orderStatus =  RealTimeFireBaseOrderStatus()
+        realTimeLoginDataModel!!.location = RealTimeFireBaseLocation()
+        realTimeLoginDataModel!!.driverDetails = RealTimeFireBaseDriverDetails()
+
+        //  ////LOGOUT MODEL
+        var realTimeLogoutDataModel = RealTimeFireBaseLogoutDataModel()
+          realTimeLogoutDataModel!!.appStatus =  RealTimeFireBaseLogoutAppStatus()
+                realTimeLogoutDataModel!!.onlineStatus =  RealTimeFireBaseLogoutOnlineStatus()
+                realTimeLogoutDataModel!!.location = RealTimeFireBaseLogoutLocation()
+                realTimeLogoutDataModel!!.driverDetails = RealTimeFireBaseLogoutDriverDetails()
+
+
+------------------------------------------------------------------------------------
+
+----------->
+date_of_order
+
+
+
+---------->
+27/July/2019
+
+MyFirebaseMessagingService
+
+   //var notificationOrdersResponseDataList: ArrayList<NotificationOrdersResponseData> = ArrayList()
+
+//                    ///// take orders and add to list
+//                    //// if next order is same as in list then  ignore it else  add new order and save to shared preferences
+//                    ///converting map to jason
+//                    val gson = Gson()
+//                    //val jsonOrder = gson.toJson(remoteMessage.data)
+//
+//                    ////converting  MAP to POJO model class
+//                    var notificationOrdersResponseData: NotificationOrdersResponseData? = null
+//                    val jsonElement = gson.toJsonTree(remoteMessage!!.data)
+//                    notificationOrdersResponseData = gson.fromJson(jsonElement, NotificationOrdersResponseData::class.java)
+//
+//                    ////check here if order list  is empty if its empty then add is directly
+//                    /// if order is already present in order list then  ignore it
+//                    //// keep adding only that order which is not present  in order
+//                    //// add based on its date_of_order ( sort order  based on created time and date ) optional
+//
+//
+//                    if(notificationOrdersResponseDataList.size > 0)
+//                    {
+//                        for ( order in notificationOrdersResponseDataList )
+//                        {
+//                            if(order.orderId === notificationOrdersResponseData.orderId)
+//                            {
+//                                ///ignore dont add it
+//
+//                            }else
+//                            {
+//                                notificationOrdersResponseDataList.add(notificationOrdersResponseData)
+//                            }
+//
+//
+//                        }
+//
+//                    }else
+//                    {
+//                        notificationOrdersResponseDataList.add(notificationOrdersResponseData)
+//
+//
+//
+//                    }
+//
+//
+//                    LogUtils.error(TAG, "notificationOrdersResponseDataList.size  >> " + notificationOrdersResponseDataList.size)
+
+################################################
+
+---------------------------------------------------------------------------
+
+04/Augg/2019
+
+
+Order type is changed ( Delivery , Return , Delivery and Return )
+I need update variables/arguments/parameters  in below api response
+
+api/driver/accept_order
+api/driver/cancel_order_web
+api/driver/driver_current_running_orders
+api/driver/driver_completed_orderlist
+and in notification model as well
+
+
+---------------------------------------------------------------------------
+05/Aug/2019
+----------->
+        //check internet before calling webservice
+        if (NetworkUtil.getInstance(this@MainActivity).isOnline)
+        {
+
+
+        }else
+        {
+            NetworkUtil.getInstance(this@MainActivity).showCustomNetworkError(this@MainActivity)
+
+        }
+
+
+
+
+
+-----------> flutter new open source projects
+
+https://github.com/lohanidamodar/flutter_ui_challenges?fbclid=IwAR13pFxG5tJU6VNiTfBLPA7qmsXF0rMx6IzywN-aET7u20_jqwD7zqA7KAs
+
+
+
+
+
+----------->
+isUpdateAvailableOgoDriver
+isForceUpdateOgoDriver
+versionCodeOgoDriver
+newFeaturesOgoDriver
+appUpdateMessageAndroidEngOgoDriver
+appUpdateMessageAndroidArOgoDriver
+
+
+{"appUpdateMessageAndroidEn":"There is new version of OGO app on Google Play. Please update to the latest version to continue using this app.","appUpdateMessageAndroidAr":"يوجد تحديث جديد متوفر على المتجر،  يرجى تحديث التطبيق للمتابعة.","appUpdateMessageIOSEn":"There is new version of OGO app on App Store. Please update to the latest version to continue using this app.","appUpdateMessageIOSAr":"يوجد تحديث جديد متوفر على المتجر،  يرجى تحديث التطبيق للمتابعة.","titleEn":"Update Available","titleAr":"تحديث جديد متاح","okTextButtonEn":"Update","okTextButtonAr":"تحديث","cancelTextButtonEn":"cancel","cancelTextButtonAr":"إلغاء","isCancelButtonShow":"false"}
+
+
+
+
+......
+
+Read more at: https://www.indiansinkuwait.com/myIIK/PostClassifieds.aspx
+
+
+
+
+-----------> Dart pad online
+https://dartpad.dartlang.org/
+
+
+----------->
+22/Sept/2019
+
+
+Account details : Name :
+KHALIL REHMAN SHAIKHA
+ccount No : 
+000501062873
+RTGS/NEFT IFS Code :ICIC0000005
+
+----------->
+
+karan.anantpure
+gaurav.asawa
+sagar
+shivali.bandi
+mahesh.bansod
+advait.deshmukh
+mugdha.deshmukh
+vrushali.divekar
+shrutika
+siddhi.ghod
+vaishnavi.jagtap
+priti.kauthale
+digambar
+nikita.pagar
+sonali.patekar
+rahul
+preksha
+jayesh
+aadil.sayyed
+vaishnavi.shelke
+abhishek.suryawanshi
+mayur.tambe
+rohan.wagh
+
+
+
+----------->
+
+
+Communities-> maintenance
+
+###############################
+----------->
+04/Feb/2020
+
+*********
+
+APPlOCK Remote access :
+
+
+Xiaomi Redmi Note 5 Pro. (>= Oreo (8.0.0))
+
+The application could not be installed: INSTALL_FAILED_USER_RESTRICTED
+Installation via USB is disabled.
+
+____________________
+Installation did not succeed.
+The application could not be installed: INSTALL_FAILED_UPDATE_INCOMPATIBLE
+The device already has an application with the same package but a different signature.
+____________________
+
+
+*********
+*********
+*********
+*********
+
+
+https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg
+
+https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Trousers%2C_dress_%28AM_1960.022-8%29.jpg/512px-Trousers%2C_dress_%28AM_1960.022-8%29.jpg
+
+https://live.staticflickr.com/4043/4438260868_cc79b3369d_z.jpg
+
+https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg
+
+
+
+
+
+
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+----------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------

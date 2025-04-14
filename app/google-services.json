@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "659250976484",
+    "firebase_url": "https://courierdriver-6b3c1.firebaseio.com",
+    "project_id": "courierdriver-6b3c1",
+    "storage_bucket": "courierdriver-6b3c1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659250976484:android:0c380a48554fa265",
+        "android_client_info": {
+          "package_name": "com.webtech.delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659250976484-12u05eh6ng5ivj89d54r9ho59msj4gib.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.webtech.delivery",
+            "certificate_hash": "cbfe065ab101945a727f2485ca54c84f4346b374"
+          }
+        },
+        {
+          "client_id": "659250976484-4h0pc1sio9vinifq21tt7g404e06snv4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.webtech.delivery",
+            "certificate_hash": "ac82786d3d5cdd703a7b0158d42d2c3cd2d9fe44"
+          }
+        },
+        {
+          "client_id": "659250976484-6sd2hbj51vkn1q2jtt6bdktnmab7j5b5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.webtech.delivery",
+            "certificate_hash": "39a6883189d549e6b2ec5f3f93f24251e4ec91f5"
+          }
+        },
+        {
+          "client_id": "659250976484-tqiaf6t4ekj5tborcecvvq714gpe2b06.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.webtech.delivery",
+            "certificate_hash": "d49cc37829773883ceb1bea684b23cdecb7457fe"
+          }
+        },
+        {
+          "client_id": "659250976484-pa1i9l1mquck5p87fs0cophbv5ok073j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyiLI3EWdNYrgtPeO72BKZbMGYltGdlk4"
+        },
+        {
+          "current_key": "AIzaSyDYetpKiGpYpyJA-7-KbGa0PRYectZmYqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659250976484-06l99ebem4g295egmf89hkcv3co3qq75.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "659250976484-iidkcjcpk3fcrhlgsc5pj122rbkt8bi8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.webtech.MakanDeliveryApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659250976484:android:fc5500b78a5736d8",
+        "android_client_info": {
+          "package_name": "webtech.com.courierdriver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF9vpCc-yWNe3Lwf6xgBGfFXuHm1Xw37E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

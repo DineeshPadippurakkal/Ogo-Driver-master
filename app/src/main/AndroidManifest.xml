@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="webtech.com.courierdriver">
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" /> <!-- INTERNET PERMISSION -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Location related permission -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Storage permission -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Vibrator service -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" /> <!-- foreground permission for > nougat ,  Android (28.0.0) -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Apps that target Android 10 or higher and use notifications with fullscreen intents must request the USE_FULL_SCREEN_INTENT permission -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- <uses-permission android:name="android.permission.WAKE_LOCK" /> -->
+    <!-- <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> -->
+    <!--
+	 Required only when requesting background location access on
+				Android 10 (API level 29) and higher.
+			
+				https://developer.android.com/training/location/permissions#background
+				https://developer.android.com/guide/components/foreground-services#while-in-use-restrictions
+    -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:name=".Application.AppController"
+        android:allowBackup="true"
+        android:debuggable="false"
+        android:icon="@mipmap/delivery_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/delivery_launcher"
+        android:supportsRtl="true"
+        android:testOnly="false"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="HardcodedDebugMode"
+        tools:targetApi="n">
+        <activity
+            android:name=".activity.ErrorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DialogsActivity"
+            android:exported="false" />
+        <activity android:name=".activity.LocationDisclosureActivity" /> <!-- Launcher Activity for android mobile  devices -->
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.LanguageActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- Login Activity -->
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.ArrivedOrderActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.MapsActivity"
+            android:label="@string/title_activity_maps" /> <!-- registering the receiver -->
+        <!--
+			this will not work for >= Nougat please check NetworkChangeBroadcastReceiver
+					 which is  explicit broadcast receiver  called via SyncingIntentService service
+        -->
+        <!-- <action android:name="android.net.wifi.WIFI_STATE_CHANGED" /> -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" /> <!-- this is for higher version than  Nougat >= -->
+        <receiver
+            android:name=".BroadcastReceiver.NetworkChangeBroadcastReceiver"
+            android:exported="true"
+            android:label="NetworkChangeReceiver">
+            <intent-filter>
+                <action
+                    android:name="android.net.conn.CONNECTIVITY_CHANGE"
+                    tools:ignore="BatteryLife" />
+            </intent-filter>
+        </receiver> <!-- Firebase RealTime database service and location for < Android 8 (Oreo) -->
+        <!--
+			<service android:name=".service.LocationService"
+								android:stopWithTask="false"
+								/>
+        -->
+        <!-- Firebase RealTime database service and location for  ( both ) > Android 8 (Oreo) and  < Android 8 (Oreo) -->
+        <!--
+		 Foreground services in Android 11 or higher
+							 https://developer.android.com/about/versions/11/privacy/foreground-services
+							 
+							 If your app targets Android 11 or higher and accesses the location , camera or microphone in a foreground service, you must include the location ,camera and microphone foreground service types.
+        -->
+        <receiver
+            android:name=".BroadcastReceiver.OrdersReceiver"
+            android:enabled="true"
+            android:exported="false" /> <!-- Firebase RealTime database service and location for  ( both ) > Android 8 (Oreo) and  < Android 8 (Oreo) -->
+        <service
+            android:name=".service.SyncingIntentService"
+            android:enabled="true" />
+        <service
+            android:name=".service.LocationForegroundService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location" />
+        <service
+            android:name=".service.LocationForegroundServicePACI"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".service.OrdersQueueService"
+            android:enabled="true" /> <!-- android:exported="false" -->
+        <!-- Firebase Service -->
+        <!-- FCM token -->
+        <service
+            android:name=".service.NearByOrdersQueueService"
+            android:enabled="true"
+            android:exported="true" /> <!-- deprecated  below please check  MyFirebaseMessagingService for FCM token generation -->
+        <!-- FCM token -->
+        <!-- <service -->
+        <!-- android:name=".firebase.MyFirebaseInstanceIDService" -->
+        <!-- android:exported="false"> -->
+        <!-- <intent-filter android:priority="1000"> -->
+        <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <!--
+						Taken from google-services.json file ,
+						google-services.json file taken from firebase console
+        -->
+        <service
+            android:name=".firebase.MyFirebaseMessagingService"
+            android:exported="true"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!--
+		 <meta-data
+								android:name="com.google.android.geo.API_KEY"
+								android:value="AIzaSyAlEwTTs1E6kJoLOp9jTbw_bw9ay3BUxHY" />
+        -->
+        <!--
+			 <meta-data
+								android:name="com.google.android.geo.API_KEY"
+								android:value="AIzaSyC695nD8aNVqejZ-r7IrYqJXNCWt4ykB4U" />
+        -->
+        <!--
+		<meta-data
+								android:name="com.google.android.geo.API_KEY"
+								android:value="AIzaSyBAZEAchq8Ba9xWeEktI-GWXRhQF_748b4" />
+        -->
+        <!-- default app icon for notfiction when app is not active -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/delivery_launcher" />
+        <service
+            android:name=".firebase.MyFirebaseMessagingServiceNew"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
+
+    </application>
+
+</manifest>

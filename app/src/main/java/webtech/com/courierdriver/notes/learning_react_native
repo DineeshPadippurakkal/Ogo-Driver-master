@@ -1,0 +1,251 @@
+
+14/FEB/2019
+################### ALL LINKS  ###################
+----------> React Native
+https://reactjs.org/docs/getting-started.html#try-react
+https://reactjs.org/docs/add-react-to-a-website.html
+
+https://facebook.github.io/react-native/docs/getting-started
+https://www.tutorialspoint.com/react_native/react_native_environment_setup.htm
+
+https://www.javatpoint.com/react-native-tutorial
+
+https://www.spec-india.com/blog/react-native-vs-nativescript-vs-ionic-app-development-comparison-is-here/
+
+https://www.spec-india.com/blog/flutter-vs-react-native-detailed-comparison-similarities-and-superiority/?fbclid=IwAR08kIku1n6CZlTWd8Y_o4xaPuG__d04ERj4DlfuoAKr-RZgOkebvA7WZWE
+
+Hindi Youtube channel for beginner react native
+https://www.youtube.com/channel/UCwOq3W8RxNZ1z5JvgJAUkIw/featured
+
+Validation react native example
+https://github.com/gcanti/tcomb-form-native?fbclid=IwAR2Xv7t4Kgx60EoV7JCDRf0V9KzuO0O77hcunurrYRE7JreFaykXD08B00E
+
+recyclerview equivalent in react native  ( recyclerlistview )
+https://github.com/Flipkart/recyclerlistview?fbclid=IwAR11gtjgyXHWSWld0EGQFfY1zzrzsU_etTk1r1D5oAq7kSwzHn9jCb8-MSM
+
+Example to Call Functions of Other Class From Current Class in React Native
+https://www.skptricks.com/2019/02/example-to-call-functions-of-other-class-in-react-and-react-native.html?fbclid=IwAR0V4XFbOeYy0tBPCDX4xUmI232p0JbwHHASKc_E_3haYCPkTo7PvdZ4Doo
+
+React Native Installing Realm Mobile Database in Android or IOS
+https://www.skptricks.com/2019/03/react-native-installing-realm-mobile-database-in-react-native-application.html?fbclid=IwAR0ik8B6TEFLhJgB7HAi-YdB5BNJd5u1Le-LbLQSA3h-jQCK0oFAIXb5Iog
+
+one useful library for button
+https://github.com/rcaferati/react-native-really-awesome-button?fbclid=IwAR0SbGGKFGA6tNH-cg8q_Av1R7imguUsSgm3iTIcJSfVsw1HkA85YdMgB6g
+
+//Material Design Cutout react native
+https://snack.expo.io/@satya164/material-design-cutout?fbclid=IwAR2c_HaIPGP2VKtNEFJ1gz9IuW6xqO4K1MBUscAGPeulVihrbIIQ_GVgnRg
+
+################### ************  ###################
+
+
+
+
+################### Steps ################### :
+Installing dependencies :
+You will need Node, the React Native command line interface, Python2, a JDK, and Android Studio.
+
+
+Node, Python2, JDK
+We recommend installing Node and Python2 via Chocolatey, a popular package manager for Windows.
+********************
+install chocolatey from here
+https://chocolatey.org/docs/installation
+
+First, ensure that you are using an administrative cmd (run as admin cmd )
+check below section and copy and past
+Install with cmd.exe
+If you don't see any errors, you are ready to use Chocolatey! Type choco or choco -? now,
+
+********************
+
+Use choco to instal below package
+choco install -y nodejs.install python2 jdk8
+(I able to install python2 jdk8 successfully but error in nodejs )
+
+
+********************
+install nodejs from below (download and install for windows 10,  64 bit)
+https://nodejs.org/en/download/
+********************
+
+After installing nodejs you can install React Native CLI now.
+The React Native CLI
+Node comes with npm, which lets you install the React Native command line interface.
+
+Run the following command in a Command Prompt or shell:
+npm install -g react-native-cli
+
+Here your React Native CLI is ready you can launch it from windows menu like cmd ....
+
+
+Now install below
+1. Install Android Studio
+2. Install the Android SDK
+Both are installed already in my case so go ahead.
+
+Creating a new application
+Use the React Native command line interface to generate a new React Native project called "AwesomeProject":
+run below cmd in React Native command line interface
+react-native init AwesomeProject
+
+This is not necessary if you are integrating React Native into an existing application,
+"react-native run-android" cmd  is just one way to run your app - you can also run it directly from within Android Studio
+
+Modifying your app
+Now that you have successfully run the app, let's modify it.
+
+Open App.js in your text editor of choice and edit some lines.
+Press the R key twice or select Reload from the Developer Menu (Ctrl + M) to see your changes!
+That's it!
+Congratulations! You've successfully run and modified your first React Native app.
+
+********************
+Some error :
+if error comes like below then follow this instruction
+could not connect to development server on android
+
+OR
+If you get a "bridge configuration isn't available" error
+
+
+Error :
+Could not run adb reverse: Command failed: adb -s a858f25a reverse tcp:8081 tcp:8081
+
+Error :
+Unable to load scripts from assets index.android.bundle
+
+Solution : https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows
+
+
+Note : this below will  bring dev setting menu : on screen if your app is on foreground :
+adb shell input keyevent 82
+
+change in App.js file and run below
+C:\Users\HP\AwesomeProject1>react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+run below
+C:\Users\HP\AwesomeProject1>react-native run-android
+
+********************
+
+
+****************************************************************************************************
+
+################### cmd :###################
+# Change drive :
+C:\Users\HP>E:
+
+E:\>
+
+# Start development server  in node.js command prompt:
+E:\ReacNative\ReactNativeWorkSpace\FirstApp>react-native start
+
+# Creating a new application
+Use the React Native command line interface to generate a new React Native project called "AwesomeProject":
+
+react-native init AwesomeProject
+
+# Run application if device or emulator connected to systems ( command will work in both cmd and node.js cmd)  :
+E:\ReacNative\ReactNativeWorkSpace\FirstApp>react-native run-android
+
+# run
+react-native run-android
+
+# change in App.js file and run below
+C:\Users\HP\AwesomeProject1>react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+# run below
+C:\Users\HP\AwesomeProject1>react-native run-android
+
+
+# clear cache and start
+react-native start --reset-cache
+
+
+
+
+****************************************************************************************************
+19/FEB/2019
+
+----------> could not connect to development server on android
+OR
+info Could not run adb reverse: Command failed: adb -s a858f25a reverse tcp:8081 tcp:8081
+
+
+
+[react-native] could not connect to development server on android
+http://192.168.1.117:8081/index.android.bundle?platform=android
+
+
+****************************************************************************************************
+28/March/2019
+---------->
+
+React-Native Module HMRClinet is not a registered callable module(calling enable)
+This can happen when you have hot reloading enabled but you are in production mode. To use hot reloading, make sure you have __DEV__ set to true.
+
+To check or change this, in a console type adb shell input keyevent 82, go to Dev Settings, and make sure JS Dev Mode is checked.
+
+If you have remote JS debugging enabled, then you might also see a line in the console that looks like this:
+
+Running application "yourapp" with appParams: {"rootTag":1}. __DEV__ === false, development-level warning are OFF, performance optimizations are ON
+
+If that's the case, then this could be the cause of your problem
+
+OR :
+same error occurs to me when I switch off JS DEV Mode and enable Hot Reloading.I solved it by disable Hot Reloading.Hope it could help.
+
+----------> Enable hot reloading
+
+
+
+---------->
+development server returned error code 500
+
+https://stackoverflow.com/questions/41802749/the-development-server-returned-response-error-code-500-in-react-native
+
+
+
+
+
+
+
+
+
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+
+
+
+
+
+
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************

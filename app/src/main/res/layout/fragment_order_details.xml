@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_order_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/orderCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_them">
+
+            <RelativeLayout
+                android:id="@+id/rowOrderID"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_40dp"
+
+                android:background="@color/color_them"
+                android:gravity="center"
+
+                >
+
+                <TextView
+                    android:id="@+id/tvOrderId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    android:gravity="center"
+                    android:text="@string/order_id"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rowTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rowOrderID"
+
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:background="@color/color_them"
+                android:padding="@dimen/dimen_10dp">
+
+                <RelativeLayout
+                    android:id="@+id/rowDateAndPaymentType"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+
+                    android:background="@drawable/round_shape_order_details"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dimen_10dp"
+                    android:paddingEnd="@dimen/dimen_10dp"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                        android:text="@string/order_history_date"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvPaymentType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                        android:text="@string/order_history_payment_type"
+                        android:textColor="@color/black" />
+
+                </RelativeLayout>
+                <!-- <View
+
+                     android:id="@+id/seperatorLineOne"
+                     android:layout_width="match_parent"
+                     android:layout_height="2px"
+                     android:layout_below="@+id/rowDateAndPaymentType"
+                     android:layout_marginStart="16dp"
+                     android:layout_marginEnd="16dp"
+                     android:background="#cccccc"
+
+
+                     />-->
+
+                <RelativeLayout
+                    android:id="@+id/sourceLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_below="@+id/rowDateAndPaymentType"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:background="@drawable/round_shape_order_details"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dimen_10dp"
+                    android:paddingEnd="@dimen/dimen_10dp"
+
+
+                    >
+
+                    <TextView
+                        android:id="@+id/sourceLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                        android:text="@string/order_source"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/source"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                        android:text="@string/order_web"
+                        android:textColor="@color/black"
+
+                        />
+
+                </RelativeLayout>
+
+                <!-- <RelativeLayout
+                     android:id="@+id/orderTypeLayout"
+                     android:layout_width="match_parent"
+                     android:layout_height="@dimen/dimen_40dp"
+                     android:gravity="center"
+                     android:paddingStart="@dimen/dimen_10dp"
+                     android:paddingEnd="@dimen/dimen_10dp"
+                     android:layout_marginTop="@dimen/dimen_5dp"
+                     android:layout_below="@+id/sourceLayout"
+                     android:background="@drawable/round_shape_order_details"
+
+
+                     >
+
+                     <TextView
+                         android:id="@+id/orderTypeLabel"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="@string/order_type"
+                         android:textColor="@color/black"
+                         android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                         />
+
+                     <TextView
+                         android:id="@+id/orderType"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentRight="true"
+                         android:layout_alignParentEnd="true"
+                         android:text="@string/order_type"
+                         android:textColor="@color/black"
+                         android:fontFamily="@font/avenir_next_condensed_demi_bold"
+
+                         />
+
+                 </RelativeLayout>-->
+
+
+                <RelativeLayout
+                    android:id="@+id/orderInvoiceLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_below="@+id/sourceLayout"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:background="@drawable/round_shape_order_details"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dimen_10dp"
+                    android:paddingEnd="@dimen/dimen_10dp"
+
+
+                    >
+
+                    <TextView
+                        android:id="@+id/orderInvoiceLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                        android:text="@string/total_order_invoice"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/orderInvoice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                        android:text="KD"
+                        android:textColor="@color/black"
+
+                        />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_40dp"
+                    android:layout_below="@+id/orderInvoiceLayout"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:background="@drawable/round_shape_order_details"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/dimen_10dp"
+                    android:paddingEnd="@dimen/dimen_10dp"
+
+
+                    >
+
+                    <TextView
+                        android:id="@+id/deliveryChargesLabel1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                        android:text="@string/delivery_distance"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:id="@+id/deliveryCharges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                        android:text="KD"
+                        android:textColor="@color/black"
+
+                        />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rowSenderAndReceiverDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rowTotal"
+                android:layout_margin="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:background="@drawable/round_shape_order_details"
+                android:padding="@dimen/dimen_10dp"
+
+                >
+
+                <RelativeLayout
+                    android:id="@+id/rowSenderDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tvTitleSenderDetailLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_them"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+
+                            >
+
+                            <ImageView
+                                android:id="@+id/ivSender"
+                                android:layout_width="@dimen/dimen_50dp"
+                                android:layout_height="@dimen/dimen_50dp"
+                                android:layout_marginStart="@dimen/dimen_5dp"
+                                android:layout_weight="0.2"
+
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimen_5dp"
+                                android:src="@drawable/ic_sender"
+
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tvTitleSenderDetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="16dp"
+
+                                android:layout_weight="1.8"
+                                android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                                android:text="@string/sender_title"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/white"
+
+                                />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvSenderName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvTitleSenderDetailLayout"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                            android:text="Name"
+
+                            />
+
+
+                        <TextView
+                            android:id="@+id/tvSenderAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvSenderName"
+                            android:layout_marginTop="@dimen/dimen_10dp"
+                            android:fontFamily="@font/avenir_next_condensed_medium"
+                            android:text="Kuwait City Block: 12"
+
+                            />
+
+
+                        <TextView
+                            android:id="@+id/tvSenderPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvSenderAddress"
+
+                            android:fontFamily="@font/avenir_next_condensed_medium"
+                            android:text="12345678" />
+
+
+                        <View
+                            android:id="@+id/seperatorLineTwo"
+                            android:layout_width="match_parent"
+                            android:layout_height="2px"
+                            android:layout_below="@+id/addressLineOne"
+                            android:layout_marginTop="16dp"
+                            android:background="#cccccc" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/orderTypeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@+id/rowSenderDetails"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <!-- android:src="@drawable/trip_single_en"  -->
+
+                        <ImageView
+                            android:id="@+id/ivOrderType"
+                            android:layout_width="@dimen/dimen_100dp"
+                            android:layout_height="@dimen/dimen_50dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_image_preview" />
+
+                        <TextView
+                            android:id="@+id/tvOrderType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/avenir_next_condensed_bold"
+                            android:gravity="center_horizontal"
+                            android:includeFontPadding="false"
+                            android:text="@string/trip"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="@color/black"
+
+
+                            />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rowReceiverDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/orderTypeLayout"
+                    android:layout_marginTop="@dimen/dimen_10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tvTitleReceiverDetailLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/color_them"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:weightSum="2"
+
+                            >
+
+                            <ImageView
+                                android:id="@+id/ivReceive"
+                                android:layout_width="@dimen/dimen_50dp"
+                                android:layout_height="@dimen/dimen_50dp"
+                                android:layout_marginStart="@dimen/dimen_5dp"
+                                android:layout_weight="0.2"
+
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimen_5dp"
+                                android:src="@drawable/ic_receiver"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tvTitleReceiveDetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+
+                                android:layout_margin="16dp"
+                                android:layout_weight="1.8"
+                                android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                                android:text="@string/receiver_title"
+
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:textColor="@color/white"
+
+                                />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvReceiverName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvTitleReceiverDetailLayout"
+
+                            android:layout_marginTop="@dimen/dimen_10dp"
+                            android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                            android:text="Name" />
+
+
+                        <TextView
+                            android:id="@+id/tvReceiverAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvReceiverName"
+
+                            android:layout_marginTop="@dimen/dimen_10dp"
+                            android:fontFamily="@font/avenir_next_condensed_medium"
+                            android:text="Kuwait City Block: 12"
+
+                            />
+
+
+                        <TextView
+                            android:id="@+id/tvReceiverPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvReceiverAddress"
+                            android:fontFamily="@font/avenir_next_condensed_medium"
+                            android:text="12345678" />
+
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rowOrderImages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rowSenderAndReceiverDetails"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_marginBottom="@dimen/dimen_20dp">
+
+
+                <TextView
+                    android:id="@+id/titleOrderItems"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                    android:text="Order Items:"
+
+                    />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewOrderItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/titleOrderItems"
+                    android:layout_margin="@dimen/dimen_5dp" />
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+        <!--<Button
+            android:id="@+id/btnGoRestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:background="@color/colorGreenButton"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Click to go to Restaurant"
+            android:textAllCaps="false"
+            android:layout_below="@+id/orderCard"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            />-->
+
+
+    </RelativeLayout>
+</ScrollView>

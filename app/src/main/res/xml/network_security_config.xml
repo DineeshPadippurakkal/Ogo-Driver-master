@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Specify that all traffic to particular domains should use HTTPS by disabling clear-text: -->
+<network-security-config>
+	<domain-config cleartextTrafficPermitted="false">
+		<domain includeSubdomains="true">ogo.delivery:9999</domain>
+		<domain includeSubdomains="true">ogo.delivery:8888</domain>
+		<domain includeSubdomains="true">exgisapps.paci.gov.kw</domain>
+	</domain-config>
+
+</network-security-config>

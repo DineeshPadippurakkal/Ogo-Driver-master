@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_them"
+
+    >
+
+    <RelativeLayout
+        android:id="@+id/BubbleNavigationmainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+
+        >
+
+
+
+
+        <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+            android:id="@+id/top_navigation_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:background="@color/white"
+            android:elevation="@dimen/dimen_5dp"
+            android:padding="@dimen/dimen_5dp"
+            android:layout_margin="@dimen/dimen_5dp"
+            app:bnc_mode="inside"
+          android:layoutDirection="ltr"
+
+            >
+
+            <!--
+
+             -->
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/yourOrderBubbleToggleView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                app:bt_active="true"
+                app:bt_colorActive="@color/white"
+                app:bt_colorInactive="@color/colorYellowTheme"
+
+                app:bt_icon="@drawable/ic_your_order"
+                app:bt_padding="@dimen/dimen_8dp"
+                app:bt_shape="@drawable/transition_background_drawable_bottom_navigation"
+                app:bt_title="@string/bottom_navigation_your_order"
+                app:bt_titlePadding="@dimen/dimen_10dp"
+
+
+
+                />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/nearByBubbleToggleView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                app:bt_active="false"
+                app:bt_colorActive="@color/white"
+                app:bt_colorInactive="@color/colorYellowTheme"
+
+                app:bt_icon="@drawable/ic_nearby_order"
+                app:bt_padding="@dimen/dimen_8dp"
+                app:bt_shape="@drawable/transition_background_drawable_bottom_navigation"
+
+                app:bt_title="@string/bottom_navigation_nearby_order"
+                app:bt_titlePadding="@dimen/dimen_10dp"
+
+
+                />
+
+
+
+
+            <!-- Add more child items here - max upto 5 -->
+
+        </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

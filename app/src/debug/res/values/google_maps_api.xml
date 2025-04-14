@@ -1,0 +1,45 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=77:31:3F:F9:DB:75:98:0F:92:DE:2B:05:81:43:4A:26:7A:95:99:95%3Bwebtech.com.courierdriver.activity
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    77:31:3F:F9:DB:75:98:0F:92:DE:2B:05:81:43:4A:26:7A:95:99:95
+
+    SHA-1 certificate fingerprint:
+    77:31:3F:F9:DB:75:98:0F:92:DE:2B:05:81:43:4A:26:7A:95:99:95
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+
+    <!-- new ogo gmail api key -->
+    
+    
+    
+    
+   
+    
+   
+    
+    
+    <!-- old makan gmail api key -->
+   <!-- <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC695nD8aNVqejZ-r7IrYqJXNCWt4ykB4U</string>-->
+    <!--<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAlEwTTs1E6kJoLOp9jTbw_bw9ay3BUxHY</string>-->
+   <!-- <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC695nD8aNVqejZ-r7IrYqJXNCWt4ykB4U</string>-->
+    <!--<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBAZEAchq8Ba9xWeEktI-GWXRhQF_748b4</string>-->
+    <!--<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBD4Z34ITVnh_97PgGwhMOaz5UUzQttAMw</string>-->
+   <!-- <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCpyEThAhs4EpXtOkQVpWxdBAYxMeCWI8w</string>-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDYetpKiGpYpyJA-7-KbGa0PRYectZmYqI</string>
+    
+    
+    
+</resources>

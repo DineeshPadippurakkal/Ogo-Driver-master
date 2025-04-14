@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="5dp"
+	android:layout_marginTop="@dimen/dimen_5dp"
+	android:layout_marginRight="5dp"
+	android:orientation="vertical"
+	
+	
+	>
+	
+	<FrameLayout
+		android:id="@+id/row"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:background="@drawable/round_shape_my_order_list_item">
+		
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@drawable/rounded_ripple_effect_layout_my_order_list_item"
+			android:orientation="horizontal"
+			android:weightSum="1"
+			
+			
+			>
+			
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="@dimen/dimen_5dp"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_weight="0.05"
+				android:orientation="vertical"
+				android:padding="@dimen/dimen_5dp">
+				
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					android:weightSum="2"
+					>
+					
+					
+					<LinearLayout
+						
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:orientation="vertical"
+						android:weightSum="3"
+						android:layout_weight="1.5"
+						
+						
+						
+						>
+						<com.google.android.material.textfield.TextInputLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+						
+							android:focusable="false"
+							android:focusableInTouchMode="false"
+							android:hint="@string/order_id"
+							android:textColorHint="@color/white">
+							
+							<EditText
+								android:id="@+id/orderId"
+								
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:background="@android:color/transparent"
+								android:editable="false"
+								android:focusable="false"
+								android:focusableInTouchMode="false"
+								android:fontFamily="@font/avenir_next_condensed_medium"
+								android:inputType="none"
+								android:maxLines="1"
+								android:singleLine="true"
+								android:textColor="@color/white"
+								android:textAppearance="?android:attr/textAppearanceSmall"
+								
+								
+								/>
+						</com.google.android.material.textfield.TextInputLayout>
+						<com.google.android.material.textfield.TextInputLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+					
+							android:focusable="false"
+							android:focusableInTouchMode="false"
+							android:hint="@string/order_history_date"
+							android:textColorHint="@color/white">
+							
+							<EditText
+								android:id="@+id/orderDate"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:background="@android:color/transparent"
+								android:editable="false"
+								android:focusable="false"
+								android:focusableInTouchMode="false"
+								android:fontFamily="@font/avenir_next_condensed_medium"
+								android:inputType="none"
+								android:maxLines="1"
+								android:singleLine="true"
+								android:textColor="@color/white"
+								android:textAppearance="?android:attr/textAppearanceSmall"
+								
+								
+								/>
+						</com.google.android.material.textfield.TextInputLayout>
+						
+					
+						<com.google.android.material.textfield.TextInputLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+					
+							android:focusable="false"
+							android:focusableInTouchMode="false"
+							android:hint="@string/order_history_total_dist"
+							android:textColorHint="@color/white">
+							
+							<EditText
+								android:id="@+id/totalAmount"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:background="@android:color/transparent"
+								android:editable="false"
+								android:focusable="false"
+								android:focusableInTouchMode="false"
+								android:fontFamily="@font/avenir_next_condensed_medium"
+								android:inputType="none"
+								android:maxLines="1"
+								android:singleLine="true"
+								android:textColor="@color/white"
+								android:textAppearance="?android:attr/textAppearanceSmall"
+								
+								/>
+						</com.google.android.material.textfield.TextInputLayout>
+					
+					
+					</LinearLayout>
+					
+					<LinearLayout
+						android:layout_width="0dp"
+						android:layout_height="fill_parent"
+						android:orientation="vertical"
+						android:weightSum="3"
+						android:layout_weight="0.5"
+						
+						>
+						
+							<com.google.android.material.textfield.TextInputLayout
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								
+								android:focusable="false"
+								android:focusableInTouchMode="false"
+								android:hint="@string/order_history_order_status"
+								android:textColorHint="@color/white">
+								
+								<EditText
+									android:id="@+id/orderStatus"
+									android:layout_width="match_parent"
+									android:layout_height="wrap_content"
+									android:background="@android:color/transparent"
+									android:editable="false"
+									android:focusable="false"
+									android:focusableInTouchMode="false"
+									android:fontFamily="@font/avenir_next_condensed_medium"
+									android:inputType="none"
+									android:textColor="@color/white"
+									android:textAppearance="?android:attr/textAppearanceSmall"
+									
+									
+									
+									/>
+							</com.google.android.material.textfield.TextInputLayout>
+						<com.google.android.material.textfield.TextInputLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+					
+							android:focusable="false"
+							android:focusableInTouchMode="false"
+							android:hint="@string/order_history_order_source"
+							android:textColorHint="@color/white">
+							
+							<EditText
+								android:id="@+id/source"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:background="@android:color/transparent"
+								android:editable="false"
+								android:focusable="false"
+								android:focusableInTouchMode="false"
+								android:fontFamily="@font/avenir_next_condensed_medium"
+								android:inputType="none"
+								android:maxLines="1"
+								android:singleLine="true"
+								android:textColor="@color/white"
+								android:textAppearance="?android:attr/textAppearanceSmall"
+								
+								
+								/>
+						</com.google.android.material.textfield.TextInputLayout>
+					
+						
+						
+						<com.google.android.material.textfield.TextInputLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+					
+							android:focusable="false"
+							android:focusableInTouchMode="false"
+							android:gravity="end"
+							android:hint="@string/order_history_payment_type"
+							android:textColorHint="@color/white"
+							
+							>
+							
+							<EditText
+								android:id="@+id/paymentType"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:background="@android:color/transparent"
+								android:editable="false"
+								android:focusable="false"
+								android:focusableInTouchMode="false"
+								android:fontFamily="@font/avenir_next_condensed_medium"
+								android:inputType="none"
+								android:maxLines="1"
+								android:singleLine="true"
+								android:textColor="@color/white"
+								android:textAppearance="?android:attr/textAppearanceSmall"
+								
+								
+								/>
+						</com.google.android.material.textfield.TextInputLayout>
+					
+					</LinearLayout>
+					
+					
+					
+				</LinearLayout>
+				<RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+					
+					
+				</RelativeLayout>
+
+
+				<LinearLayout
+					android:id="@+id/orderTripLayout"
+					android:layout_width="fill_parent"
+					android:layout_height="20dp"
+					android:layout_gravity="center"
+					android:gravity="center"
+					android:orientation="horizontal"
+					android:weightSum="2"
+
+					>
+					<!--  android:src="@drawable/trip_single_en" -->
+
+					<ImageView
+						android:id="@+id/ivOrderTrip"
+						android:layout_width="@dimen/dimen_40dp"
+						android:layout_height="@dimen/dimen_20dp"
+						android:scaleType="centerCrop"
+
+						/>
+					<TextView
+						android:visibility="gone"
+						android:id="@+id/tvAccept"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="ACCEPT"
+						android:textColor="@color/light_green"
+						android:textStyle="bold"
+						android:layout_marginStart="24dp"
+						android:textSize="18sp"/>
+
+				</LinearLayout>
+				
+		
+			
+		
+		
+		
+		</LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_weight="0.95"
+				>
+				
+				<TextView
+					android:id="@+id/orderStatusColor"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_margin="@dimen/dimen_1dp"
+					
+					
+					>
+				
+				</TextView>
+			
+			</LinearLayout>
+			
+		</LinearLayout>
+	</FrameLayout>
+
+
+</LinearLayout>

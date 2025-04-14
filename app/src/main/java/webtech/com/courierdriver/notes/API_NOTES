@@ -1,0 +1,350 @@
+****************************************************************************************************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+---------->
+---------->
+---------->
+---------->
+
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+27/Jun/2021
+----------> shift timming
+Param needed in login api response :
+
+logged_in
+logged_in_time
+logged_out_time
+shift_from_time
+shift_to_time
+current_day
+
+note : Time format must be in HH:mm:ss
+
+
+@SerializedName("logged_in")
+    @Expose
+    var loggedIn: String? = null
+    @SerializedName("logged_in_time")
+    @Expose
+    var loggedInTime: String? = null
+    @SerializedName("logged_out_time")
+    @Expose
+    var loggedOutTime: String? = null
+    @SerializedName("shift_from_time")
+    @Expose
+    var shiftFromTime: String? = null
+    @SerializedName("shift_to_time")
+    @Expose
+    var shiftToTime: String? = null
+    @SerializedName("current_day")
+    @Expose
+    var currentDay: String? = null
+
+
+
+############### Login API in post man response  :
+
+link=>
+http://courier.makaneats.com/api/driver/login
+http://35.229.110.35/api/driver/login
+
+Method=>
+Post
+
+parameter=>body->x-www-form-urlencoded
+email_id:abdul@gmail.com
+password:abdul@123
+fc_key:kMZHj4Wc5vILAsDin53ToJBB3blInBpVWZnY2//cBwR19LxkCJA1OWSvY7paXVFZT2CWQt/z+Jkpf
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+############### Login API in post man response  :
+
+link=>
+ http://35.229.110.35/api/driver/update_loc
+
+Method=>
+Post
+
+parameter=>body->x-www-form-urlencoded
+        email_id:abdul@gmail.com
+        Loct_latt : 29.366352
+        Loct_long : 47.9681161
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+############### Driver online status  API in post man response  : (old)
+
+link=>
+http://35.229.110.35/api/driver/go_online
+
+Method=>
+Post
+
+parameter=>body->x-www-form-urlencoded
+        email_id:abdul@gmail.com
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+############### Driver offline status  API in post man response  : (old)
+
+link=>
+http://35.229.110.35/api/driver/go_offline
+
+Method=>
+Post
+
+parameter=>body->x-www-form-urlencoded
+        email_id:abdul@gmail.com
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+############### Driver offline/online status  API in post man response  : (NEW API)
+
+link=>
+http://35.229.110.35/api/driver/change_status
+
+Method=>
+Post
+
+parameter=>body->x-www-form-urlencoded
+        email_id:abdul@gmail.com
+        live_status:true
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+############### Accept Order
+link=>
+http://35.229.110.35/api/driver/accept_order
+
+Method=>
+Post
+
+parameter=>body->x-www-form-urlencoded
+        email_id:abdul@gmail.com
+        order_id:OID-2021-THWN
+        c_id:2
+
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+############### Order status
+
+1 DRIVER ACCEPTED
+2 DRIVER_AT_SOURCE
+3 ORDER_COLLECTED
+4 DRIVER_AT_DESTINATION
+5 DELIVERED
+6 COMPLETED
+
+
+link=>
+http://35.229.110.35/api/driver/change_order_status
+
+Method=>
+Post
+Headers=>
+Content-Type:application/x-www-form-urlencoded
+
+
+parameter=>body->x-www-form-urlencoded
+        email_id:raju@gmail.com
+        order_id:OID-1120-OPWG
+        c_id:15
+        order_status_int:6
+
+
+
+
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+28/Oct/2018
+############### order history
+
+link=>
+http://166.62.88.236:3000/api/driver/driver_completed_orderlist
+
+Method=>
+Post
+Headers=>
+Content-Type:application/x-www-form-urlencoded
+
+parameter=>body->x-www-form-urlencoded
+       email_id:salman@gmail.com
+       FromDate:10/10/2018
+       ToDate:30/10/2018
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+06/Nov/2018
+############### current driver accepted order
+link=>
+http://166.62.88.236:3000/api/driver/driver_current_running_orders
+
+Method=>
+Post
+Headers=>
+Content-Type:application/x-www-form-urlencoded
+
+
+parameter=>body->x-www-form-urlencoded
+       email_id:sachin@gmail.com
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+21/JAN/2018
+############### LOGOUT web service
+link=>
+TEST
+http://ogo.delivery:1000/api/driver/driver_logout
+
+LIVE
+
+http://ogo.delivery:9999/api/driver/driver_logout
+
+Method=>
+Post
+Headers=>
+Content-Type:application/x-www-form-urlencoded
+
+parameter=>body->x-www-form-urlencoded
+       email_id:john@ogo.delivery
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+****************************************************************************************************
+22/Oct/2018
+
+####### real time fire base
+my real time fire base database default rules used as below
+
+login details :
+email : makanappkw@gmail.com
+pass: m@9777038915
+
+database link:
+https://console.firebase.google.com/project/courierdriver-6b3c1/database/courierdriver-6b3c1/data
+OR
+https://courierdriver-6b3c1.firebaseio.com/
+
+##### fire base database RULES
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+
+
+
+
+
+****************************************************************************************************
+27/Jul/2019
+############### PACI API GET request to feed
+
+https://exgisapps.paci.gov.kw/LogAppServer/Log/LogServer.svc/json/FeedGPS?CurrentLocationX=48.014189&CurrentLocationY=29.267963&Heading=0.000000&Speed=-1.000000&GPSTime=2016-11-10%2008:50:16&NumOfSatellites=5&CallerID=Kuwait%20STAT-2E105DA8-E8D1-45C4-94FD-8BC1AE27A1A8&CallerType=iPad&CallerVersion=1.0-1&CallerOS=ios&ApplicationName=ogoapp&ApplicationID=ogoapp
+
+
+
+link=>
+https://exgisapps.paci.gov.kw/LogAppServer/Log/LogServer.svc/json/FeedGPS
+
+Method=>
+GET
+Headers=>
+
+
+
+parameter=>params->
+
+CurrentLocationX:48.014189
+CurrentLocationY:29.267963
+Heading:0.000000
+Speed:-1.000000
+GPSTime:2016-11-10%2008:50:16
+CallerID:Kuwait%20STAT-2E105DA8-E8D1-45C4-94FD-8BC1AE27A1A8
+NumOfSatellites:5
+CallerType:android
+CallerVersion:1.0.1
+CallerOS:android
+ApplicationName:ogoapp
+ApplicationID:ogoapp
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************

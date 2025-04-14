@@ -1,0 +1,490 @@
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+****************************************************************************************************
+
+
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+---------->
+
+****************************************************************************************************
+14/Oct/2020
+
+---------->
+Force update functionality improved.
+Deprecated methods removed , latest code added
+
+-----
+6:00 PM	Plugin Error
+				Plugin "GsonFormat" is incompatible (supported only in IntelliJ IDEA).
+				Plugin "Pojo Builder" is incompatible (supported only in IntelliJ IDEA).
+				Plugin "Fabric for Android Studio" is incompatible (supported only in IntelliJ IDEA).
+				Plugin "Android Parcelable code generator" is incompatible (supported only in IntelliJ IDEA).
+
+
+****************************************************************************************************
+11/Oct/2020
+
+ Firebase Crashlytics , google analytics updated.
+ Stability of app improved.
+ Further improvement to performance
+ Deprecated methods removed and updated to latest one.
+ GUI improved.
+ Code Optimized.
+
+
+
+
+
+****************************************************************************************************
+22/Sept/2020
+---------->
+- Now in Android 10+ android devices order will receive  even if app is in background
+- Background location for android 10+ handled ( permission added)
+- Background  location improved in Android 10+ ( foregroundServiceType added)
+- Bugs fixed
+- GUI improved
+
+
+
+
+****************************************************************************************************
+01/May/2019
+---------->
+optimization of real time fire base pushing data to reduce cost
+
+https://firebase.google.com/docs/database/usage/billing
+https://medium.com/icelytics/firebase-database-mysterious-billing-6d06f3fe4d2e
+
+Both database reads and writes can lead to connection costs on your bill. All traffic to and from your database, including operations denied by security rules, leads to billable costs.
+
+
+
+Changing data model  to reduce cost ....  "if we push less data means less cost will come"
+1) remove unnecessary data/nodes from real time fire base database
+
+2) convert data node into int value so automatically pushing data will be less
+like : "lastLocationDandT" can be given one value as 10 so instead of pushing that many char every time it will push 10 which is far less than original string.
+
+3) assign one unique value to each nodes and give some meaningful name at driver/application/web site side and based on int value process the request
+
+( share same data model with all  android driver / android and ios app / web )
+
+4) in this way data will be more secure no one will no what does it mean ( means int value pushing in real time fire base database ) except developer
+
+
+###############
+1)
+e2,e3,e4,fcmkey,password,token
+###############
+2)
+/// number reserved 1 to 20
+driver information :
+busyStatus,cid,cidType,driverImage,e1,e5,emailId,id ( driver ID ) ,name,onlineDatetime,onlineStatus,phone,vehicleType,vehicle_no
+
+/// number reserved 21 to 40
+application information :
+app_version,status ( app status ),
+
+/// number reserved 41 to 60
+location information :
+lastLocationDandT,loctLatt,loctLong,previous_latitude,previous_longitude,speed_in_kmph
+
+/// number reserved 61 to 80
+order information :
+orderStatus
+
+
+
+
+###############
+3)
+###############
+4)
+###############
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************************
+---------->
+05/March/2019
+Reason for cancel order " "
+
+1) Client cancelled order since client not indented to proceed.
+2) Fake Order Found.
+3) Mistake in generating order.
+4) Duplicate order found.
+5) My reason is not listed
+
+
+from user end  cancel reason might be like this below  :
+1) expected a shorter wait time
+2) unable to contact driver
+3) driver denied duty
+4) cab is not moving in my direction
+5) my reason is not listed
+
+
+
+****************************************************************************************************
+12/Sept/2018
+----------> All types of driver status
+### 1) Driver Status with respect to order  :::::
+       READY_TO_PICK,
+       DRIVER_AT_SOURCE
+       ORDER_COLLECTED
+       DRIVER_AT_DESTINATION
+       DELIVERED
+       COMPLETED
+       CANCEL
+       REFUNDED
+### 2) Driver Application Status  ::::: (Config file can be use)
+    public final static String ACTIVE = "Active";
+    public final static String BACKGROUND = "Background";
+    public final static String LOGOUT = "Logout";
+
+### 3) Driver Status  :::::
+
+    ONLINE
+    OFFLINE
+
+
+
+---------->
+------------------------------------------------------------------
+for example
+1- user raised 6 orders
+   (Raju) - vehicle_type = car
+   (Som) - vehicle_type = car
+   (Pritam) - vehicle_type = van
+   (Austin) - vehicle_type = van
+   (Raju Dev) - vehicle_type = van
+   (John sena) - vehicle_type = bike
+
+2- Company (Samsung cid = 2) raised 5 orders
+   (Sachin) - vehicle_type = car
+   (Somdev) - vehicle_type = car
+   (Pritama) - vehicle_type = car
+   (Gayle) - vehicle_type = van
+
+   Drivers
+   Goldberg vehicle_type = car, cid=2, id=1
+   Khane vehicle_type = car, cid=2, id=2
+   Brock vehicle_type = car, cid=2, id=3
+   Rocky vehicle_type = van, cid=2, id=4
+
+3- Company (Britania cid = 3) raised 3 orders
+   (Polly) - vehicle_type = car
+   (Somnarayan) - vehicle_type = car
+   (Swetha) - vehicle_type = bike
+
+
+   Drivers
+   Sanjay vehicle_type = car, cid=3, id=5
+   Salman vehicle_type = car, cid=3, id=6
+   Akshay vehicle_type = car, cid=3, id=7
+   Rocks vehicle_type = bike, cid=3, id=8
+
+
+Sanjay  login  response
+        {
+    "status": true,
+    "message": "Welcome Sanjay!",
+    "data": {
+        "id": "5",
+        "cid": "3",
+        "name": " Sanjay ",
+        "email_id": " Sanjay@gmail.com",
+        "phone": "852147892",
+        "password": "/j9Gjl2SYQ99QzwxxDKBHynCDOLC6R8/rf59S4mFBsQ=",
+        "status": "A",
+        "vehicle_type": " car ",
+        "e1": "",
+        "e2": "",
+        "e3": "",
+        "e4": "",
+        "e5": "",
+        "token": "CluULVgnS+lRsBCeKxo3085znA68XVPkTAaQTxrDJ+cJU9HnKzp92CqhS6Vupc+EogB8EJX7BrZLOD0Un5m/MQ=="
+    }
+}
+
+Sanjay   driver can see orders in his app
+ (Raju) - vehicle_type = car
+(Som) - vehicle_type = car
+(Polly) - vehicle_type = car
+(Somnarayan) - vehicle_type = car
+
+
+
+================
+
+Salman login  response
+        {
+    "status": true,
+    "message": "Welcome  Salman   !",
+    "data": {
+        "id": "6",
+        "cid": "3",
+        "name": "  Salman",
+        "email_id": "  Salman@gmail.com",
+        "phone": "852147892",
+        "password": "/j9Gjl2SYQ99QzwxxDKBHynCDOLC6R8/rf59S4mFBsQ=",
+        "status": "A",
+        "vehicle_type": " car ",
+        "e1": "",
+        "e2": "",
+        "e3": "",
+        "e4": "",
+        "e5": "",
+        "token": "CluULVgnS+lRsBCeKxo3085znA68XVPkTAaQTxrDJ+cJU9HnKzp92CqhS6Vupc+EogB8EJX7BrZLOD0Un5m/MQ=="
+    }
+}
+
+
+Salman   driver can see orders in his app
+ (Raju) - vehicle_type = car
+(Som) - vehicle_type = car
+(Polly) - vehicle_type = car
+(Somnarayan) - vehicle_type = car
+
+
+================
+
+Rocks login  response
+        {
+    "status": true,
+    "message": "Welcome   Rocks  !",
+    "data": {
+        "id": "8",
+        "cid": "3",
+        "name": "   Rocks ",
+        "email_id": "   Rocks@gmail.com",
+        "phone": "852147892",
+        "password": "/j9Gjl2SYQ99QzwxxDKBHynCDOLC6R8/rf59S4mFBsQ=",
+        "status": "A",
+        "vehicle_type": " bike ",
+        "e1": "",
+        "e2": "",
+        "e3": "",
+        "e4": "",
+        "e5": "",
+        "token": "CluULVgnS+lRsBCeKxo3085znA68XVPkTAaQTxrDJ+cJU9HnKzp92CqhS6Vupc+EogB8EJX7BrZLOD0Un5m/MQ=="
+    }
+}
+
+
+Rocks driver can see orders in his app
+ (John sena) - vehicle_type = bike
+(Swetha) - vehicle_type = bike
+------------------------------------------------------------------------------------
+
+28/July/2019
+
+Real time fire base rules LIVE default
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+      "DriversNew": {
+      ".indexOn": ["onlineStatus"]
+    },
+      "TestDrivers": {
+      ".indexOn": ["onlineStatus"]
+    },
+      "onlineStatus": {
+      ".indexOn": ["onlineStatus"]
+    }
+  }
+}
+
+
+------------------------------------------------------------------------------------
+****************************************************************************************************
+02/Oct/2019
+----------> LIVE and DEBUGGING changes
+below are as per live you so change for debugging / testing only below stuff
+
+1) ApiConstant
+    //LIVE
+      val BASE_URL = BASE_URL_LIVE
+
+    //DEBUGGING
+     val BASE_URL = BASE_URL_DEBUGGING
+
+#### You can take different real time fire base database URL (its optional )
+
+    ApiConstant
+     //LIVE
+     var REAL_TIME_FIRBASE_CONNECT = REAL_TIME_FIREBASE_DB_DEFAULT_ONE
+
+      //DEBUGGING
+      var REAL_TIME_FIRBASE_CONNECT = REAL_TIME_FIREBASE_DB_TWO
+
+
+2) AndroidManifest
+
+application->
+
+                //LIVE
+                android:icon="@mipmap/delivery_launcher"
+                android:roundIcon="@mipmap/delivery_launcher"ss
+                //DEBUGGING
+                android:icon="@mipmap/delivery_launcher_test"
+                android:roundIcon="@mipmap/delivery_launcher_test"
+
+
+
+3) activity_login xml ,  activity_register and nav_header_main  and one more place search usage
+
+  //LIVE
+  android:src="@mipmap/ic_profile"
+
+  //DEBUGGING
+   android:src="@mipmap/ic_profile_test"
+
+
+4) FirebaseDatabaseUtils
+
+real time fire base node
+    //LIVE
+    BuildConfig.FIREBASE_SECRATE_NODE
+
+    //DEBUGGING
+    BuildConfig.FIREBASE_SECRATE_NODE_TEST
+
+        //LIVE FOR TESTING
+        BuildConfig.FIREBASE_SECRATE_NODE_LIVE_FOR_TESTING
+
+
+
+https://courierdriver-6b3c1.firebaseio.com/TestDrivers.json?orderBy=%22onlineStatus%22
+
+****************************************************************************************************
+
+List of pending task in OGO (Important one mentioned here )
+1) Make sure firebase and bacnked online / busy driver should match (2 api neede as discussed )
+2) Order Switching
+a) witch to pending queue
+b) witch order to onlu specific driver
+3) show message to all drivers via notification regarding pending orders in near bu places.
+
+
+FireBaseDriverDetails
+
+****************************************************************************************************
+
+27/Jul/2020
+- Update deprecated methods like for getting internet connectivity for android api level 29
+- Test 5 order end to end and check its location updating in backend and firebase ?
+- Add animated loader whenever it is required like CuAround
+- Show driver Due payment
+- Change GUI :  like remove map screens , change go online button and change icons color,theme
+
+
+****************************************************************************************************
+09/Aug/2020
+Work done :
+
+Individual order report.
+Bulk order report
+GUI Changed.
+Dynamic map removed.
+PACI api integrated.
+
+****************************************************************************************************
+- Make all service start as foreground and / or backeround based on api level
+Two services already started as backend and foreground as needed make remaining
+LocationForegroundService
+NearByOrdersQueueService
+OrdersQueueService
+SyncingIntentService
+
+- Add code to make sure service should return satellite count
+To get location we are using Google Play Services APIs which does not give satellite count
+by using FusedLocationProviderClient
+
+- Another way to get location is Android Framework Location API
+use LocationManager and get satellite count from here by adding few more code
+
+- Optimize code for remaining two services and add notification handler in service and start service backround and froground based on version
+
+
+****************************************************************************************************
+16/Aug/2020
+
+##
+LocationForegroundService and LocationForegroundServicePACI
+both services start and stops through its intent actions ( service stops inside service its self)
+here we have stops location  update callbacks before stoping service
+
+## below service start and stop through start and stop call  ( make same like above )
+here service stops inside MainActivity
+We have to stop its thread if any active thread running before stoping service
+NearByOrdersQueueService
+OrdersQueueService
+SyncingIntentService
+
+# Check SyncingIntentService and NetworkChangeBroadcastReceiver
+network change functionality should work for all device like > o  and < o and
+
+# if driver has order then app should not logout and cant go offline also
+driver can't go offline (its working fine ) but driver able to logout which lead to offline status so pls check and fix it.
+
+
+****************************************************************************************************
+Paci web service updated.
+Location service managed.
+Code optimized.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************************************
+
+****************************************************************************************************
+
+****************************************************************************************************
+
+****************************************************************************************************
+
+****************************************************************************************************

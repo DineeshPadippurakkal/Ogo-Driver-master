@@ -1,0 +1,443 @@
+<resources>
+    <string name="app_name">OGO Driver</string>
+    <string name="app_name_caps">OGO DRIVER</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Driver Name</string>
+    <string name="nav_header_subtitle">Driver ID </string>
+    <string name="nav_header_mobile">Driver Mobile </string>
+    <string name="nav_header_email">email</string>
+    <string name="nav_header_app_version">V</string>
+    <string name="nav_header_driver_type">Driver Type </string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nav_header_logout">LogOut </string>
+
+
+    <string name="navigation_drawer_order_details">ORDER DETAILS</string>
+    <string name="navigation_drawer_order">Your order</string>
+    <string name="navigation_drawer_scan_your_orders">Scan orders</string>
+    <string name="navigation_drawer_order_individual_order">Individual Orders</string>
+    <string name="navigation_drawer_order_bulk_report">Bulk Orders</string>
+    <string name="navigation_drawer_order_invoice">Invoice</string>
+    <string name="navigation_drawer_order_online">ONLINE</string>
+    <string name="navigation_drawer_go_online">Go Online</string>
+    <string name="navigation_drawer_contact_us">Contact Us</string>
+    <string name="navigation_drawer_logout">Logout</string>
+
+
+    <!-- Bottom Navigation -->
+
+    <string name="bottom_navigation_your_order">Orders</string>
+    <string name="bottom_navigation_nearby_order">Nearby</string>
+
+    <!-- online / offline -->
+    <string name="online">You are online now.</string>
+    <string name="offline">You are off-line now.Please go online to get orders.</string>
+
+
+    <!-- ON/ OFF -->
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+
+
+    <!-- logout dailogue  -->
+    <string name="logout_title">Logout?</string>
+    <string name="logout_messege">Are you sure want to logout ?</string>
+    <string name="logout_no">No</string>
+    <string name="logout_yes">Logout</string>
+
+    <!-- order collection dialogue  -->
+
+    <string name="order_collection_title">Order Collected ?</string>
+    <string name="order_collection_messege">Please make sure you collected order before going to next step.</string>
+    <string name="order_collection_no">Not yet</string>
+    <string name="order_collection_yes">Collected</string>
+
+    <!-- order delivered dialogue -->
+    <string name="order_delivered_title">order delivered ?</string>
+    <string name="order_delivered_messege">Please make sure you delivered order before finishing / completing order.</string>
+    <string name="order_delivered_no">Not yet</string>
+    <string name="order_delivered_yes">delivered </string>
+
+    <!-- order return collected-->
+    <string name="order_return_collected_title"> Continue return trip ?</string>
+    <string name="order_return_collected_messege">Please make sure you delivered order before going back.</string>
+    <string name="order_return_collected_no">Not yet</string>
+    <string name="order_return_collected_yes">Return</string>
+
+    <!-- order return deliver  -->
+
+    <string name="order_return_deliver_title"> Return Back ?</string>
+    <string name="order_return_deliver_messege">Please make sure you delivered back/ Return back before finishing order.</string>
+    <string name="order_return_deliver_no">Not yet</string>
+    <string name="order_return_deliver_yes">Delivered</string>
+
+
+    <!--     Language     -->
+    <string name="language_en">English</string>
+
+    <string name="language_ar">العربية</string>
+
+    <string name="language_en_msg">Please choose language.</string>
+    <string name="language_ar_msg">اختر اللغة</string>
+
+    <string name="language_note">Please choose different language.</string>
+
+
+    <string name="navigation_drawer_go_online_description">Once you go online you will start receiving orders. </string>
+    <string name="navigation_drawer_go_online_desc">You are online now.You will start receiving orders </string>
+
+
+    <!-- LocationDisclosureActivity -->
+    <string name="location_title">Use Your Location</string>
+    <string name="location_disclosure_description">This app collects location data to enable tracking features so that drivers of this application will get orders based on the latest nearby available location ,tracking order feature will activate even when the app is closed or not in use</string>
+    <string name="no_thanks">No Thanks</string>
+    <string name="location_turn_on">Turn On</string>
+
+
+    <!--MainActivity-->
+
+    <string name="activity_created">  Activity created. </string>
+    <string name="order_details"> Order Details</string>
+    <string name="order_history_details"> Order History Details</string>
+    <string name="orders"> Orders </string>
+    <string name="scanned_orders">Scanned Orders</string>
+    <string name="scanning_orders">Scan QR Code</string>
+    <string name="individual_orders">Individual Orders History</string>
+    <string name="bulk_orders">Bulk Orders History</string>
+    <string name="fatal_error"> My first Android non-fatal error </string>
+    <string name="no_sender_location"> No Sender Location found. </string>
+    <string name="cancel">Canceled</string>
+    <string name="order_cancelled">Your order has been cancelled fom remote.Please press OK to accept next order.</string>
+    <string name="switching_order">Order Switched</string>
+    <string name="switching_order_message">Your order has been switched from remote. Please press OK to release current order. You will receive next order soon.</string>
+
+    <string name="switched_order_assiged">Order Assigned</string>
+    <string name="switched_order_assigned_message">Your order has been assigned from remote. Please press Ok to update you current order status and proceed or deliver accordingly.</string>
+
+
+    <!--WelcomeFragment-->
+    <string name="welcome_title">OGO Home</string>
+    <string name="welcome_msg">Welcome to OGo!</string>
+    <string name="welcome_note">Important instructions </string>
+    <string name="waiting_for_order"> You are online.Waiting for order.</string>
+    <string name="welcome_inst1">* If you are online : Your app is ready to receive orders.Please wait.</string>
+    <string name="welcome_inst2">* If you are offline : You will not get any order however you can use this app to check your orders history.In order to get new order please go online.</string>
+
+
+    <!--ContactUsFragment-->
+    <string name="contact_us_title"> Contact Us </string>
+
+    <string name="tv_contact_us_label"> Call Center : </string>
+
+    <string name="contact_us_email"> Email : </string>
+    <string name="contact_us_website_label"> Website : </string>
+
+
+    <!-- update application -->
+    <string name="youAreNotUpdatedTitle">Update Available!</string>
+    <string name="youAreNotUpdatedMessage">A new version is available. Please update to latest version.</string>
+    <string name="youAreNotUpdatedMessage1">A new version is available. Application is require to update.</string>
+    <string name="youAreNotUpdatedMessage2">An update is available on Play Store.Please update.</string>
+    <string name="youAreNotUpdatedMessage3"> :This app version is no longer supported. Please update your app from the Play Store.</string>
+    <string name="newFeatures">Whats New ? </string>
+
+    <string name="update">Update</string>
+
+
+    <!-- OrderDetailsFragment -->
+
+    <string name="order_details_date">Date:</string>
+    <string name="order_details_payment_type">Payment type:</string>
+    <string name="order_details_total_amt">Total Amount:</string>
+    <string name="order_details_amt">1KWD</string>
+    <string name="order_details_sender_name">Sender:</string>
+    <string name="order_details_sender_address">Address:</string>
+    <string name="order_details_sender_phone">Phone:</string>
+    <string name="order_details_receiver_name">Receiver:</string>
+    <string name="order_details_receiver_address">Address</string>
+    <string name="order_details_receiver_phone">Phone</string>
+
+
+    <!-- IndividualOrderHistoryFragment -->
+
+    <string name="order_history_cancelled"> CANCELLED </string>
+    <string name="order_history_completed"> COMPLETED </string>
+    <string name="order_history_ongoing"> ONGOING </string>
+
+    <string name="order_history_start_date">Start date</string>
+    <string name="order_history_end_date">End date</string>
+    <string name="order_history_payment_type">payment types:</string>
+    <string name="order_history_order_status">order status:</string>
+
+    <string name="order_history_order_source">source:</string>
+    <string name="order_history_payment_lable"> Completed Orders </string>
+    <string name="order_history_payment_count">0</string>
+    <string name="order_history_payment_lable_amount">Total Amount</string>
+    <string name="order_history_payment_total_amount">0</string>
+    <string name="order_history_search">Search</string>
+    <string name="order_history_total_amt">Total Amount:</string>
+    <string name="order_history_total_dist">Total Distance:</string>
+
+
+    <string name="my_orders_payment_types">Payment type</string>
+    <string name="payment_types_title">Please select payment type</string>
+    <string name="payment_types_order_status">Please select order status</string>
+    <string name="payment_ok">OK</string>
+    <string name="no_order">No orders found!</string>
+
+
+    <!--ScanOrderFragment -->
+    <string name="click_to_scan_orders">Click to Scan Order</string>
+    <string name="your_scanned_orders">Your Scanned Order</string>
+
+
+    <!-- ScanningOrderFragment -->
+    <string name="barcode_title">No barcode detected</string>
+
+    <!--  BulkOrderHistoryFragment -->
+    <string name="order_history_order_total_parcel">Total Parcel:</string>
+
+    <!-- OrderHistoryDetailFragment -->
+    <string name="order_history_date">Date:</string>
+    <string name="order_history_sender_address">Sender Address:</string>
+    <string name="order_history_receiver_address">Receiver Address:</string>
+
+
+    <!-- -->
+    <string name="dismiss">DISMISS</string>
+
+
+    <!-- Strings related to login -->
+    <string name="login_text"> DRIVER LOGIN</string>
+    <string name="prompt_email">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="action_sign_in_short">Sign In</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="empty_user_name">Please enter username.</string>
+    <string name="empty_password">Please enter password.</string>
+    <string name="login">Login</string>
+
+
+    <string name="van">VAN</string>
+    <string name="bike">BIKE</string>
+    <string name="car">CAR</string>
+    <string name="login_ok">OK</string>
+    <string name="login_cancel">Cancel</string>
+
+
+    <!-- google play services -->
+    <string name="google_play_services_error">Google Play Services did not installed!</string>
+
+
+    <!--Network related Error-->
+    <string name="network_error_title">Network Error!</string>
+    <string name="network_error_message">No Network Connection.</string>
+    <string name="network_error_wifi_setting">Setting</string>
+
+
+    <string name="network_error_cancel">Cancel</string>
+    <string name="network_error_ok">Ok</string>
+    <string name="color_them_string">#1b75bc</string>
+
+
+    <!--ArrivedOrderActivity-->
+    <string name="order_type"> Order Type :  </string>
+    <string name="sender">Sender:</string>
+    <string name="sender_address">Address:</string>
+    <string name="receiver">Receiver:</string>
+    <string name="receiver_address">Address:</string>
+    <string name="order_rejected">Order rejected!</string>
+    <string name="order_accepted">Order Accepted!</string>
+    <string name="accept_order">Accept order? </string>
+    <string name="skip_order"> Skip </string>
+
+
+    <string name="order_source">Source</string>
+    <string name="order_mobile">MOBILE</string>
+    <string name="order_web">WEB</string>
+
+    <string name="order_distance_text">Distance</string>
+    <string name="order_distance_value">KM </string>
+
+    <string name="order_duration_text">Duration</string>
+    <string name="order_duration_value">Min </string>
+
+
+    <!--   RegisterActivity    -->
+
+    <string name="subject">Subject : request for driver registration.</string>
+    <string name="body">Respected sir, Please register and create my account as per given details. Thank you. </string>
+
+    <string name="cname">Name..</string>
+    <string name="email">E-mail..</string>
+    <string name="phone">Phone..</string>
+    <string name="age">Age..</string>
+
+    <string name="mail_cname"> Name : </string>
+    <string name="mail_email"> E-mail : </string>
+    <string name="mail_phone"> Phone : </string>
+    <string name="mail_country"> Country Name : </string>
+    <string name="mail_age"> Age: </string>
+
+
+    <!--<string name="country">Country</string>-->
+    <string name="register_tv">Register with OGO.</string>
+    <string name="action_register"> Not a user ? Click to send a register request.</string>
+    <string name="privacy_policy"> <u>Privacy Policy</u></string>
+    <string name="register_request"> Send register request </string>
+    <string name="phone_error"> Phone number should have only  8 digits  </string>
+    <string name="age_error"> Age should be between 18 to 55</string>
+
+
+    <!-- OrdersFragment -->
+    <string name="go_sender"> Go to sender </string>
+    <string name="sender_title"> Sender details</string>
+    <string name="trip"> trip </string>
+    <string name="single_trip"> Single Trip </string>
+    <string name="return_trip"> Return Trip </string>
+
+    <string name="go_to_sender"> Click to go to sender </string>
+    <string name="go_to_sender_one"> Slide to go to sender </string>
+    <string name="go_to_finish_order"> Slide to finish order </string>
+    <string name="order_id"> Order ID: </string>
+    <string name="sender_phone">Sender Phone</string>
+    <string name="receiver_phone">Receiver Phone</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!--OrderSenderMapFragment-->
+
+    <string name="phone_number">--------</string>
+    <string name="area">Area</string>
+    <string name="sender_location">Sender Location</string>
+    <string name="my_location">My Location</string>
+    <string name="payment">Payment</string>
+    <string name="order_total"> Order Total</string>
+    <string name="delivery_charges"> Delivery Charges</string>
+    <string name="delivery_distance"> Total Distance</string>
+    <string name="total_order_invoice">Total order invoice</string>
+
+    <string name="order_payment_notes"> Payment note</string>
+    <string name="order_payment_msg_paid"> Payment already paid,no need to collect.</string>
+    <string name="order_payment_msg_unpaid"> Please collect the payment. </string>
+
+    <string name="arrived_to_sender"> Arrived to Sender? </string>
+
+    <string name="go_to_receiver"> Go to Receiver </string>
+    <string name="direction">DIRECTION</string>
+    <string name="go_forward">Go Next</string>
+
+    <!--OrderBackToSenderMapFragment-->
+    <string name="back_to_sender_title"> Back To Sender details</string>
+    <string name="back_to_sender">Sender:</string>
+    <string name="back_to_sender_address">Address:</string>
+    <string name="delivered_back"> delivered back to sender </string>
+    <string name="back_to_sender_arrived"> Arrived Back to sender </string>
+    <string name="back_to_order_payment_msg"> Please make sure you collected payment. </string>
+
+
+    <!--OrderReceiverMapFragment-->
+    <string name="arrived_to_receiver"> Arrived to Receiver? </string>
+    <string name="order_delivered"> Order Delivered </string>
+    <string name="order_return_collected"> Continue Return Trip</string>
+
+    <string name="receiver_title"> Receiver details</string>
+
+    <string name="order_accepted_one">Order Accepted</string>
+    <string name="finish">Finish</string>
+
+
+    <string name="my_orders_payment_types_all_display">ALL</string>
+    <string name="my_orders_payment_types_cod_display">COD</string>
+    <string name="my_orders_payment_types_knet_display">Knet </string>
+    <string name="my_orders_payment_types_master_display">Master Card</string>
+    <string name="my_orders_payment_types_visa_card_display">Visa Card</string>
+    <string name="my_orders_payment_types_credit_card_display">Credit Card</string>
+
+    <string name="my_orders_order_status_all_display">ALL</string>
+
+    <string name="my_orders_order_status_completed_display">COMPLETED</string>
+    <string name="my_orders_order_status_cancelled_display">CANCELLED</string>
+    <string name="internet_status"> INTERNET STATUS</string>
+    <string name="connected_to_internet"> INTERNET ON </string>
+
+
+    <!--NetworkChangeBroadcastReceiver -->
+    <string name="not_connected_to_internet">INTERNET OFF </string>
+    <string name="skip">Skip</string>
+    <string name="submit_rating">Submit Rating</string>
+
+
+    <!--  OrdersRatingFragment -->
+
+    <string name="description_rating">Your each rating matters!</string>
+    <string name="title_rating">How was your experience?</string>
+    <string name="order_rating">Order Rating</string>
+    <string name="comment">type here comment (optional).</string>
+    <string name="location_note_title">OGO real-time delivery.</string>
+    <string name="location_note">OGO is currently tracking you.</string>
+
+
+    <!-- Location -->
+    <string name="location_note_arabic"> يتم تتبعك الان  من خلال أوجو.</string>
+
+    <string name="checking_near_by_order">Checking nearby orders for you.</string> <!-- Location -->
+
+
+    <!-- NearByOrdersQueueService  -->
+    <string name="more_orders">You have more orders.</string>
+    <string name="no_orders">You dont have any order nearby you.</string>
+    <string name="go_to_area">Please go to </string>
+    <string name="order_queue_note_title">OGO real-time delivery.</string>
+    <string name="order_queue_note">Managing your orders.</string>
+
+    <!-- OrdersQueueService -->
+
+    <string name="sync_intent_note_title">OGO Driver.</string>
+    <string name="sync_intent_note">Working in background.</string>
+
+    <!--SyncingIntentService -->
+    <string name="near_by_orders_note">Check out your nearby orders here.</string>
+    <string name="near_by_orders_status"> PENDING </string>
+
+
+    <!-- NearByFragments-->
+    <string name="total_near_by_orders"> Total Nearby Orders :</string>
+    <string name="refresh"> Refresh</string>
+    <string name="near_by_orders"> Nearby Order </string>
+    <string name="invoice_amt"> Invoice Amount:</string>
+    <string name="total_invoice_amt"> Total Invoice :</string>
+
+    <!-- InvoiceFragment -->
+    <string name="invoice"> Invoice </string>
+    <string name="invoice_pick_date"> Date : </string>
+    <string name="your_shift">My Shifts</string>
+    <!--	<string name="image_logo">image logo</string>-->
+    <!--	<string name="hello_blank_fragment">Hello blank fragment</string>-->
+    <string-array name="choices">
+        <item>All</item>
+        <item>COD</item>
+        <item>Knet</item>
+        <item>Master Card</item>
+        <item>Visa Card</item>
+        <item>Credit Card</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="order_status_choices">
+        <item>All</item>
+        <item>COMPLETED</item>
+        <item>CANCELLED</item>
+
+    </string-array>
+
+
+</resources>

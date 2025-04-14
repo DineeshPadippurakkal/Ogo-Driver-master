@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="payment_types">
+        <item>Payment type</item>
+        <item>All</item>
+        <item>cash</item>
+        <item>knet</item>
+    </string-array>
+</resources>

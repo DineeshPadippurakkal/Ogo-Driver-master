@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/nearByOrdersLayout"
+
+                >
+                <FrameLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+
+                    android:background="@drawable/rounded_rectangle_my_orders"
+                    android:layout_margin="@dimen/dimen_5dp"
+
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+
+                        >
+
+
+                       <!-- <TextView
+                            android:id="@+id/tvnearByOrders"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_40dp"
+                            android:gravity="center"
+                            android:text="@string/near_by_orders_note"
+                            android:textAlignment="gravity"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                            android:background="@color/color_them"
+                            android:layout_margin="@dimen/dimen_2dp"
+
+                            />-->
+
+                        <FrameLayout
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/skip_custom_shadow_drawable"
+                            android:layout_gravity="center"
+
+
+
+                            >
+
+                            <LinearLayout
+
+                                android:id="@+id/refreshOrdersLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:background="@drawable/rounded_ripple_effect"
+
+                                >
+
+                                <TextView
+                                    android:id="@+id/tvRefreshOrders"
+                                    android:layout_width="@dimen/dimen_70dp"
+                                    android:layout_height="@dimen/dimen_70dp"
+                                    android:text="@string/refresh"
+                                    android:textAlignment="gravity"
+                                    android:gravity="center"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:textColor="@color/color_them"
+                                    android:fontFamily="@font/avenir_next_condensed_bold"
+                                    android:layout_gravity="center"
+
+
+                                    />
+
+
+
+                            </LinearLayout>
+                        </FrameLayout>
+                        <TextView
+                            android:id="@+id/tvtotalNearByOrders"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimen_40dp"
+                            android:gravity="center"
+                            android:text="@string/total_near_by_orders"
+                            android:textAlignment="gravity"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/avenir_next_condensed_demi_bold"
+                            android:background="@color/color_them"
+                            android:layout_margin="@dimen/dimen_2dp"
+
+                            />
+
+
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/nearByOrdersRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@+id/nearByOrdersLayout"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

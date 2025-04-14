@@ -1,0 +1,441 @@
+<resources>
+    <string name="app_name">سائق أوجو</string>
+    <string name="app_name_caps">سائق أوجو</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">اسم السائق</string>
+    <string name="nav_header_subtitle">رقم السائق</string>
+    <string name="nav_header_mobile">رقم هاتف السائق </string>
+    <string name="nav_header_app_version">رقم الإصدار: </string>
+    <string name="nav_header_driver_type">نوع السائق </string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">إعدادات</string>
+    <string name="nav_header_logout">تسجيل خروج </string>
+
+
+    <string name="navigation_drawer_order_details">تفاصيل الطلب</string>
+    <string name="navigation_drawer_order"> الطلبات الخاصة بك </string>
+	<string name="navigation_drawer_order_individual_order">الطلبات الفردية</string>
+	<string name="navigation_drawer_order_bulk_report">الطلبات المجمعة</string>
+	<string name="navigation_drawer_order_invoice">الفاتورة</string>
+
+    <string name="navigation_drawer_order_online">متصل</string>
+    <string name="navigation_drawer_go_online">اتصل باوجو</string>
+    <string name="navigation_drawer_contact_us"> إتصل بنا</string>
+    <string name="navigation_drawer_logout">تسجيل خروج</string>
+	
+	
+	<!-- Bottom Navigation -->
+	
+	<string name="bottom_navigation_your_order">الطلبات</string>
+	<string name="bottom_navigation_nearby_order">الاقرب</string>
+
+    <!-- online / offline -->
+    <string name="online">انت متصل الآن</string>
+    <string name="offline">انت غير متصل ، يرجى الاتصال لاستلام الطلبات</string>
+
+    <!-- ON/ OFF -->
+    <string name="on">تشغيل</string>
+    <string name="off">إطفاء</string>
+
+    <!-- logout dailogue  -->
+    <string name="logout_title">تسجيل خروج؟</string>
+    <string name="logout_messege">هل انت متأكد من تسجيل الخروج؟</string>
+    <string name="logout_no">لا</string>
+    <string name="logout_yes">تسجيل خروج</string>
+
+    <!-- order collection dialogue  -->
+
+    <string name="order_collection_title">هل تم استلام الطلب ؟</string>
+    <string name="order_collection_messege">الرجاء التأكد من استلام الطلب قبل المتابعة</string>
+    <string name="order_collection_no">ليس بعد </string>
+    <string name="order_collection_yes">تم الاستلام</string>
+
+    <!-- order delivered dialogue -->
+    <string name="order_delivered_title">تم توصيل الطلب ؟</string>
+    <string name="order_delivered_messege">الرجاء التأكد من تسليم الطلب ، قبل انهاء الطلب</string>
+    <string name="order_delivered_no">ليس بعد </string>
+    <string name="order_delivered_yes">تم التوصيل</string>
+
+    <!-- order return collected-->
+    <string name="order_return_collected_title">  مواصلة رحلة العودة ؟ </string>
+    <string name="order_return_collected_messege"> يرجى التأكد من تسليم الطلب قبل العودة</string>
+    <string name="order_return_collected_no"> ليس بعد</string>
+    <string name="order_return_collected_yes">العودة</string>
+	
+	<!-- order return deliver  -->
+	
+	<string name="order_return_deliver_title">رجوع ؟</string>
+	<string name="order_return_deliver_messege">يرجى التأكد من إعادة توصيلها / العودة قبل الانتهاء من الطلب.</string>
+	<string name="order_return_deliver_no">ليس بعد</string>
+	<string name="order_return_deliver_yes">تم التوصيل</string>
+
+
+    <!--
+    Language
+    -->
+    <string name="language_en">English</string>
+
+    <string name="language_ar">العربية</string>
+
+    <string name="language_note">الرجاء إختيار لغة اخري</string>
+
+
+    <string name="navigation_drawer_go_online_description">يمكن استلام طلبات عندما تكون متصلا باوجو </string>
+    <string name="navigation_drawer_go_online_desc">انت متصل الآن ، يمكنك استلام طلبات </string>
+    
+    
+    <!-- LocationDisclosureActivity -->
+    <string name="location_title"> استخدم موقعك</string>
+    <string name="location_disclosure_description">يجمع هذا التطبيق بيانات الموقع لتمكين ميزات التتبع بحيث يحصل سائقو هذا التطبيق على الطلبات بناءً على أحدث موقع متاح و قريب ، وسيتم تنشيط ميزة تتبع الطلب حتى عند إغلاق التطبيق أو عدم استخدامه.</string>
+    <string name="no_thanks">لا شكرا!</string>
+    <string name="location_turn_on">تشغيل</string>
+    
+    <!--MainActivity-->
+
+    <string name="activity_created">  Activity created. </string>
+    <string name="order_details"> تفاصيل الطلب</string>
+    <string name="order_history_details"> تفاصيل الطلبات</string>
+    <string name="orders"> الطلبات </string>
+		<string name="individual_orders">السجل الخاص بالطلبات الفردية</string>
+		<string name="bulk_orders">السجل الخاص بالطلبات المجمعة</string>
+    <string name="fatal_error"> My first Android non-fatal error </string>
+    <string name="no_sender_location"> لايوجد عنوان للمرسل </string>
+    <string name="cancel"> تم الإلغاء </string>
+    <string name="order_cancelled">تم الغاء الطلب ، يرجى الموافقة لمتابعة الطلبات</string>
+	<string name="switching_order">تم تبديل الطلب</string>
+	<string name="switching_order_message">تم تبديل طلبك من جهاز التحكم عن بعد. يرجى الضغط على "موافق" لتحرير الطلب الحالي. سوف تتلقى الطلب التالي قريبا</string>
+	
+	<string name="switched_order_assiged"> تم تنفيذ الطلب</string>
+	<string name="switched_order_assigned_message">تم تنفيذ طلبك من بعد. يرجى الضغط على "موافق" لتحديث حالة الطلب الحالية والمتابعة أو التسليم وفقًا لذلك.</string>
+	
+	
+	
+	
+	<!--WelcomeFragment-->
+
+    <string name="welcome_title">الصفحة الرئيسية</string>
+
+    <string name="welcome_msg">مرحباً بكم في أوجو!</string>
+    <string name="welcome_note">تعليمات مهمة </string>
+    <string name="waiting_for_order"> انت الان متصل بالانترنت . نحن في انتظار طلبك .</string>
+    <string name="welcome_inst1">* إذا كنت متصلاً بالانترنت : فالتطبيق جاهز لاستلام طلباتك
+ يرجى الانتظار
+.</string>
+    <string name="welcome_inst2">* إذا كنت غير متصل بالإنترنت: فلن تحصل على أي طلبية ، لكن يمكنك إستخدام هذا التطبيق للتحقق من سجل طلباتك.
+من أجل الحصول على طلب جديد ، يرجى الاتصال بالانترنت.
+.</string>
+
+
+    <!--ContactUsFragment-->
+    <string name="contact_us_title"> إتصل بنا </string>
+    <string name="tv_contact_us_label">  خدمة العملاء : </string>
+    <string name="contact_us_email">  البريد الإلكتروني : </string>
+    <string name="contact_us_website_label">  الموقع  : </string>
+
+
+
+    <!-- update application -->
+    <string name="youAreNotUpdatedTitle">يوجد تحديث للتطبيق</string>
+    <string name="youAreNotUpdatedMessage">A new version is available. Please update to latest version.</string>
+    <string name="youAreNotUpdatedMessage1">A new version is available. Application is require to update.</string>
+    <string name="youAreNotUpdatedMessage2">An update is available on Play Store.Please update.</string>
+    <string name="youAreNotUpdatedMessage3"> هذا الإصدار لم يعد يعمل ، يرجى تحديث التطبيق</string>
+    <string name="newFeatures">مالجديد؟ </string>
+
+    <string name="update">تحديث</string>
+
+    <!-- OrderDetailsFragment -->
+
+    <string name="order_details_date">تاريخ:</string>
+    <string name="order_details_payment_type">طرق الدفع:</string>
+    <string name="order_details_total_amt">المبلغ الكلي:</string>
+    <string name="order_details_amt">1KWD</string>
+    <string name="order_details_sender_name">المرسل :</string>
+    <string name="order_details_sender_address">العنوان:</string>
+    <string name="order_details_sender_phone">رقم الهاتف:</string>
+    <string name="order_details_receiver_name"> المستقبل:</string>
+    <string name="order_details_receiver_address">العنوان:</string>
+    <string name="order_details_receiver_phone">رقم الهاتف</string>
+
+
+    <!-- IndividualOrderHistoryFragment -->
+    <string name="order_history_cancelled">ملغى</string>
+    <string name="order_history_completed"> مكتمل </string>
+    <string name="order_history_ongoing"> قيد التنفيذ </string>
+
+    <string name="order_history_start_date">تاريخ البداية</string>
+    <string name="order_history_end_date"> تاريخ النهاية</string>
+
+    <string name="order_history_payment_type">طرق الدفع:</string>
+	<string name="order_history_order_status"> حالة الطلب :</string>
+	
+	<string name="order_history_order_source">المصدر:</string>
+    <string name="order_history_payment_lable"> طلبات إكتملت </string>
+    <string name="order_history_payment_count">0</string>
+    <string name="order_history_payment_lable_amount">المبلغ الإجمالي </string>
+    <string name="order_history_payment_total_amount">0</string>
+    <string name="order_history_search">بحث</string>
+    <string name="order_history_total_amt">المبلغ الكلي:</string>
+    
+    <string name="my_orders_payment_types">طرق الدفع:</string>
+    
+    <string name="payment_types_title">الرجاء اختيار عملية الدفع</string>
+	<string name="payment_types_order_status"> من فضلك إختار حالة الطلب</string>
+    <string name="payment_ok">موافق</string>
+    <string name="no_order">لا توجد طلبات!</string>
+	
+	
+	<!--  BulkOrderHistoryFragment -->
+	<string name="order_history_order_total_parcel"> مجموع الطرود:</string>
+
+    <!-- OrderHistoryDetailFragment -->
+    <string name="order_history_date">تاريخ:</string>
+    <string name="order_history_sender_address">عنوان المرسل:</string>
+    <string name="order_history_receiver_address">عنوان المستلم:</string>
+
+
+        <!-- -->
+    <string name="dismiss">تجاهل</string>
+
+
+    <!-- Strings related to login -->
+    <string name="login_text"> تسجيل دخول السائق</string>
+    <string name="prompt_email">اسم المستخدم</string>
+    <string name="prompt_password">كلمة المرور </string>
+    <string name="action_sign_in">تسجيل دخول</string>
+    <string name="action_sign_in_short">تسجيل دخول</string>
+    <string name="error_invalid_email">البريد الالكتوني غير صحيح</string>
+    <string name="error_invalid_password">كلمة المرور قصيرة</string>
+    <string name="error_incorrect_password">كلمة المرور غير صحيحة</string>
+    <string name="error_field_required">الحقل مطلوب</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="empty_user_name">يرجى إدخال اسم المستخدم</string>
+    <string name="empty_password">يرجى إدخال كلمة المرور </string>
+    <string name="login">تسجيل دخول </string>
+
+
+    <string name="van">VAN</string>
+    <string name="bike">BIKE</string>
+    <string name="car">CAR</string>
+    <string name="login_ok">موافق</string>
+    <string name="login_cancel">الغاء</string>
+
+    <!-- google play services -->
+    <string name="google_play_services_error">لم يتم تثبيت خدمات جوجل بلاي!</string>
+
+    <!--Network related Error-->
+    <string name="network_error_title">خطأ في الشبكة</string>
+    <string name="network_error_message">خطأ في الشبكة</string>
+    <string name="network_error_wifi_setting">إعدادات</string>
+
+
+    <string name="network_error_cancel">الغاء</string>
+    <string name="network_error_ok">موافق</string>
+    <string  name="color_them_string">#1b75bc</string >
+
+
+    <!--ArrivedOrderActivity-->
+    <string name="order_type"> نوع الطلب :</string>
+    <string name="sender">المرسل :</string>
+    <string name="sender_address">العنوان:</string>
+    <string name="receiver">المستلم:</string>
+    <string name="receiver_address">العنوان:</string>
+    <string name="order_rejected">تم رفض الطلب!</string>
+    <string name="order_accepted">تم قبول الطلب!</string>
+    <string name="accept_order">قبول الطلب؟ </string>
+    <string name="skip_order">تخطي</string>
+    <string name="order_source">المصدر</string>
+    <string name="order_mobile">النقال</string>
+    <string name="order_web">الموقع</string>
+
+    <string name="order_distance_text">المسافة</string>
+    <string name="order_distance_value">كم </string>
+
+    <string name="order_duration_text">المدة</string>
+    <string name="order_duration_value">دقيقة </string>
+
+
+    <!--   RegisterActivity    -->
+    <string name="subject">الموضوع: طلب تسجيل السائق.</string>
+    <string name="body">عزيزي ، يرجى التسجيل وإنشاء حسابي حسب التفاصيل المعطاة لكم . شكراً </string>
+
+    <string name="cname">الاسم</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="age">العمر</string>
+
+    <string name="mail_cname">الاسم : </string>
+    <string name="mail_email">البريد الالكتروني : </string>
+    <string name="mail_phone">رقم الهاتف : </string>
+    <string name="mail_country"> إسم البلد :</string>
+    <string name="mail_age">العمر : </string>
+
+    <!--<string name="country">Country</string>-->
+    <string name="register_tv">سجل مع أوجو</string>
+    <string name="action_register"> لست مستخدم ؟ سجل الآن </string>
+    <string name="privacy_policy"> <u>سياسة الخصوصية</u></string>
+    <string name="register_request"> إرسال طلب التسجيل</string>
+    <string name="phone_error"> رقم لهاتف يجب ان يكون ٨ خانات </string>
+    <string name="age_error"> العمر يجيب ان يكون بين ١٨ إلى ٥٥</string>
+
+
+    <!-- OrdersFragment -->
+
+    <string name="go_sender"> الذهاب إلى المرسل </string>
+    <string name="sender_title">تفاصيل المرسل</string>
+    <string name="trip"> الرحلة  </string>
+    <string name="single_trip"> رحلة فردية  </string>
+    <string name="return_trip"> رحلة العودة  </string>
+
+    <string name="go_to_sender"> اضغط للذهاب إلى المرسل </string>
+    <string name="go_to_sender_one"> اسحب للذهاب إلى المرسل </string>
+    <string name="go_to_finish_order"> اسحب لإنهاء الطلبr </string>
+    <string name="order_id"> رقم الطلب: </string>
+    <string name="sender_phone">رقم المرسل</string>
+    <string name="receiver_phone">رقم المستلم</string>
+
+    <string name="title_activity_maps">الخريطة</string>
+
+    <!--OrderSenderMapFragment-->
+    <string name="phone_number">--------</string>
+    <string name="area">المنطقة</string>
+    <string name="sender_location">موقع المرسل</string>
+    <string name="my_location">موقعي</string>
+    <string name="payment">الدفع</string>
+    <string name="order_payment_notes"> ملاحظات عملية الدفع</string>
+    <string name="order_payment_msg_paid"> تم دفع رسوم التوصيل ، لاحاجة لتحصيل أي مبلغ.</string>
+    <string name="order_payment_msg_unpaid"> يجب تحصيل المبلغ. </string>
+
+    <string name="order_total"> قيمة الطلب</string>
+    <string name="delivery_charges"> رسوم التوصيل</string>
+    <string name="delivery_distance"> المسافة الكلية</string>
+    <string name="order_history_total_dist"> المسافة الكلية</string>
+    <string name="total_order_invoice">المجموع الكلي للطلب</string>
+    <string name="arrived_to_sender"> تم الوصل إلى المرسل؟ </string>
+
+    <string name="go_to_receiver"> الذهاب إلى المستلم </string>
+    <string name="direction">الاتجاهات</string>
+    <string name="go_forward">التالي</string>
+	
+	
+	<!--OrderBackToSenderMapFragment-->
+	<string name="back_to_sender_title">  العودة إلي بيانات المرسل</string>
+	<string name="back_to_sender">المرسل :</string>
+	<string name="back_to_sender_address">العنوان:</string>
+	<string name="delivered_back">  تم تسليمها إلى المرسل </string>
+	<string name="back_to_sender_arrived">  وصل إلي المرسل </string>
+	<string name="back_to_order_payment_msg">  يرجى التأكد من أنك قمت بالحصول على النقود </string>
+	
+
+    <!--OrderReceiverMapFragment-->
+    <string name="arrived_to_receiver"> تم الوصل إلى  المستلم ؟ </string>
+    <string name="order_delivered"> تم توصيل الطلب </string>
+    <string name="order_return_collected"> مواصلة رحلة العودة ? </string>
+
+    <string name="receiver_title"> تفاصيل الطلب</string>
+
+    <string name="order_accepted_one">تم قبول الطلب</string>
+    <string name="finish">النهاية</string>
+
+   
+    
+
+
+    <!-- please check string-array is used  -->
+    <string name="my_orders_payment_types_all_display">الجميع</string>
+    <string name="my_orders_payment_types_cod_display">الدفع عند الاستلام</string>
+    <string name="my_orders_payment_types_knet_display">كي نت</string>
+    <string name="my_orders_payment_types_master_display">ماستر كارد</string>
+    <string name="my_orders_payment_types_visa_card_display">فيزا كارد</string>
+    <string name="my_orders_payment_types_credit_card_display"> بطاقة الائتمان</string>
+
+
+
+    <string-array name="choices">
+        <item>الجميع</item>
+        <item>الدفع عند الاستلام</item>
+        <item>كي نت</item>
+        <item>ماستر كارد</item>
+        <item>فيزا كارد</item>
+        <item>بطاقة الإئتمان</item>
+    </string-array>
+	
+	<string name="my_orders_order_status_all_display">الكل</string>
+	<string name="my_orders_order_status_completed_display">تمت</string>
+	<string name="my_orders_order_status_cancelled_display">ألغيت</string>
+
+	
+    
+
+
+    <!--NetworkChangeBroadcastReceiver -->
+    <string name="internet_status">  حالة الانترنت</string>
+    <string name="connected_to_internet">  متصل بالانترنت  </string>
+    <string name="not_connected_to_internet"> غير متصل بالانترنت </string>
+
+
+    <!--  OrdersRatingFragment -->
+    <string name="skip">تجاهل</string>
+    <string name="submit_rating">Submit Rating</string>
+    <string name="description_rating">Your each rating matters!</string>
+    <string name="title_rating">How was your experience?</string>
+    <string name="order_rating">Order Rating</string>
+    <string name="comment">type here comment (optional).</string>
+
+
+   
+	
+	
+	<!-- NearByOrdersQueueService  -->
+	<string name="checking_near_by_order">التحقق من الطلبات القريبة لك</string>
+	<string name="more_orders">لديك المزيد من الطلبات</string>
+	<string name="no_orders"> ليس لديك أي طلب قريب منك</string>
+	<string name="go_to_area">الرجاء الذهاب إلى </string>
+	
+	<!-- NearByFragments-->
+	<string name="near_by_orders_note"> تحقق من طلباتك القريبة هنا.</string>
+	<string name="near_by_orders_status">قيد الانتظار</string>
+	<string name="total_near_by_orders">إجمالي الطلبات القريبة</string>
+	<string name="refresh"> تحديث </string>
+	<string name="near_by_orders">الطلبات الاقرب </string>
+	
+	<!-- InvoiceFragment -->
+	<string name="invoice_amt">   قيمة الفاتورة :</string>
+	<string name="total_invoice_amt">إجمالي الفاتورة:</string>
+	<string name="invoice">الفاتورة</string>
+	<string name="invoice_pick_date">التاريخ:</string>
+
+    <!--ScanOrderFragment -->
+    <string name="click_to_scan_orders">انقر لمسح الطلب</string>
+    <string name="your_scanned_orders">طلبك الممسوح ضوئيًا</string>
+
+    <!-- ScanningOrderFragment -->
+    <string name="barcode_title">لم يتم الكشف عن رمز شريطي</string>
+
+    <string name="language_en_msg">Please choose language.</string>
+    <string name="language_ar_msg">اختر اللغة</string>
+
+    <string name="navigation_drawer_scan_your_orders">فحص الطلبات</string>
+
+    <string name="nav_header_email">البريد الإلكتروني</string>
+    <string name="scanned_orders">الطلبات الممسوحة ضوئيًا</string>
+    <string name="scanning_orders">مسح رمز الاستجابة السريعة</string>
+
+    <string name="location_note_title">تسليم OGO في الوقت الحقيقي.</string>
+    <string name="location_note">يتتبعك OGO حاليًا.</string>
+
+    <string name="location_note_arabic"> يتم تتبعك الان  من خلال أوجو.</string>
+
+    <string name="order_queue_note_title">OGO real-time delivery.</string>
+    <string name="order_queue_note">إدارة طلباتك.</string>
+
+    <string name="sync_intent_note_title">OGO real-time delivery.</string>
+    <string name="sync_intent_note">التحقق من الشبكة الخاصة بك.</string>
+
+    <string name="your_shift">نوباتي</string>
+
+
+</resources>
