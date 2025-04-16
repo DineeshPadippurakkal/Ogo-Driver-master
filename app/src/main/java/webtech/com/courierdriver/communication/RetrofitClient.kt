@@ -74,9 +74,9 @@ object RetrofitClient {
             builder.sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
             builder.hostnameVerifier { hostname, session -> true }
 
-            builder.readTimeout(TIME_OUT_SESSION, TimeUnit.MILLISECONDS)
-            builder.writeTimeout(TIME_OUT_SESSION, TimeUnit.MILLISECONDS)
-            builder.connectTimeout(TIME_OUT_SESSION, TimeUnit.MILLISECONDS)
+            builder.readTimeout(60, TimeUnit.SECONDS)
+            builder.writeTimeout(60, TimeUnit.SECONDS)
+            builder.connectTimeout(60, TimeUnit.SECONDS)
 
             if (webtech.com.courierdriver.BuildConfig.DEBUG) {
                 val loggingInterceptor = HttpLoggingInterceptor()

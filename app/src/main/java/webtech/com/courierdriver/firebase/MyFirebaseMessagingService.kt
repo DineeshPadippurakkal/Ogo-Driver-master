@@ -1,6 +1,10 @@
 package webtech.com.courierdriver.firebase
 
 import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -137,25 +141,72 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 
-    private fun showCancelOrderNotification(orderId: String, message: String) {
-        val builder = NotificationCompat.Builder(this, CANCEL_ORDER_CHANNEL_ID)
+    private fun showCancelOrderNotification(title: String, message: String) {
+        val channelId = "cancel_order_channel"
+
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            this, 0, intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val builder = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.ic_notification)
-            .setContentTitle("Order Cancelled: #$orderId")
+            .setContentTitle(title)
             .setContentText(message)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setAutoCancel(true)
+            .setContentIntent(pendingIntent)
 
-        val notificationManager = NotificationManagerCompat.from(this)
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                channelId, "Cancel Order Alerts",
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
+
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
             ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
         ) {
-            notificationManager.notify(orderId.hashCode(), builder.build())
+            notificationManager.notify(101, builder.build())
         } else {
             Log.w("Notification", "POST_NOTIFICATIONS permission not granted")
             // Optional: Ask permission from the user here if you're in an Activity
         }
+
+        val svc = Intent(this, BackgroundSoundService::class.java)
+        startService(svc)
     }
+
+//    private fun showCancelOrderNotification(orderId: String, message: String) {
+//        val builder = NotificationCompat.Builder(this, "CANCEL_ORDER_CHANNEL_ID")
+//            .setSmallIcon(R.drawable.ic_notification)
+//            .setContentTitle("Order Cancelled: #$orderId")
+//            .setContentText(message)
+//            .setPriority(NotificationCompat.PRIORITY_HIGH)
+//            .setAutoCancel(true)
+//
+//        val notificationManager = NotificationManagerCompat.from(this)
+//
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+//            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+//        ) {
+//            notificationManager.notify(orderId.hashCode(), builder.build())
+//        } else {
+//            Log.w("Notification", "POST_NOTIFICATIONS permission not granted")
+//            // Optional: Ask permission from the user here if you're in an Activity
+//        }
+//        val svc = Intent(this, BackgroundSoundService::class.java)
+//        startService(svc)
+//    }
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
         //so if you are sending  notification model ( notification payload ) instead of data model ( data payload ) and app is in foreground below block will execute
@@ -168,10 +219,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 //
 //        }
 //        }
+        Log.d("ogoNotification", "POST_NOTIFICATIONS")
         val data = remoteMessage.data
         val type = remoteMessage.notification?.title ?: remoteMessage.data["title"]
+        val message = remoteMessage.notification?.body ?: remoteMessage.data["body"]
         val orderId = data["order_id"]
-        val message = data["body"]
+//        val message = data["body"]
+        val body = data["body"] ?: "Message"
 
         when (type) {
             "New Order" -> showNewOrderNotification(orderId.toString(), message!!)

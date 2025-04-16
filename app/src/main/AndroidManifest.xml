@@ -200,9 +200,16 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <service
+            android:name=".firebase.BackgroundSoundService"
+            android:enabled="true" />
+        <service
+            android:name=".LocationUtils.LocationServiceHelper"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location" >
 
-
-
+        </service>
     </application>
 
 </manifest>

@@ -113,7 +113,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
     private val DELAY = 5000L
 
 
-    internal var orderSwitchedAndAssignedFromRemoteData: OrderSwitchedAndAssignedFromRemoteData? = null
+    internal var orderSwitchedAndAssignedFromRemoteData: OrderSwitchedAndAssignedFromRemoteData? =
+        null
     internal var orderCancelledFromRemoteData: OrderCancelledFromRemoteData? = null
     internal var orderSwitchingFromRemoteData: OrderSwitchFromRemoteData? = null
     internal var isLogoutFromServer: String? = null
@@ -140,8 +141,6 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
         preferenceHelper = PreferenceHelper(this@MainActivity)
         language = preferenceHelper!!.language
-
-
 
 
 
@@ -191,13 +190,17 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                     // Log.e("langauage","is : =>"+language);
                     LogUtils.debug(LogUtils.TAG, "langauage is : =>" + language)
                     val i = getBaseContext().getPackageManager()
-                            .getLaunchIntentForPackage(getBaseContext().getPackageName())
+                        .getLaunchIntentForPackage(getBaseContext().getPackageName())
                     if (i != null)
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     finish()
                     startActivity(i)
                 } else {
-                    Toast.makeText(this@MainActivity, getString(R.string.language_note), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@MainActivity,
+                        getString(R.string.language_note),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
 
@@ -216,13 +219,17 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                     // Log.e("langauage","is : =>"+language);
                     LogUtils.debug(LogUtils.TAG, "langauage is : =>" + language)
                     val i = getBaseContext().getPackageManager()
-                            .getLaunchIntentForPackage(getBaseContext().getPackageName())
+                        .getLaunchIntentForPackage(getBaseContext().getPackageName())
                     if (i != null)
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     finish()
                     startActivity(i)
                 } else {
-                    Toast.makeText(this@MainActivity, getString(R.string.language_note), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@MainActivity,
+                        getString(R.string.language_note),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
 
@@ -230,7 +237,7 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         })
 
 
-         binding.lytslidingdrawer.tvAppVersion.setText(getString(R.string.nav_header_app_version) + "" + BuildConfig.VERSION_NAME)
+        binding.lytslidingdrawer.tvAppVersion.setText(getString(R.string.nav_header_app_version) + "" + BuildConfig.VERSION_NAME)
 
 
         /////set driver image here
@@ -238,17 +245,20 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         preferenceHelper?.let { preferenceHelper ->
             preferenceHelper.loggedInUser?.let { loggedInUser ->
                 loggedInUser.driverImage?.let {
-                    LogUtils.error(LogUtils.TAG, "DRIVER IMAGE URL =>" + preferenceHelper.loggedInUser!!.driverImage)
+                    LogUtils.error(
+                        LogUtils.TAG,
+                        "DRIVER IMAGE URL =>" + preferenceHelper.loggedInUser!!.driverImage
+                    )
 
                     //var driverURL="http://".plus(preferenceHelper!!.loggedInUser!!.driverImage)
                     // LogUtils.error(LogUtils.TAG, "DRIVER IMAGE driverURL =>" + driverURL)
 
                     Glide.with(binding.lytslidingdrawer.lytheader.driverImageView.context)
-                            .load(preferenceHelper.loggedInUser!!.driverImage)
-                            .diskCacheStrategy(DiskCacheStrategy.NONE)///don't cache
-                            //.placeholder(R.drawable.ic_profile)
-                            .error(R.drawable.ic_image_preview)///if url exist but images not available on server
-                            .into(binding.lytslidingdrawer.lytheader.driverImageView)
+                        .load(preferenceHelper.loggedInUser!!.driverImage)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)///don't cache
+                        //.placeholder(R.drawable.ic_profile)
+                        .error(R.drawable.ic_image_preview)///if url exist but images not available on server
+                        .into(binding.lytslidingdrawer.lytheader.driverImageView)
 
                 }
 
@@ -277,7 +287,12 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
         drawerToggle = ActionBarDrawerToggle(
-                this, binding.drawerLayout, binding.lytappbar.toolbar as Toolbar?, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+            this,
+            binding.drawerLayout,
+            binding.lytappbar.toolbar as Toolbar?,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
         binding.drawerLayout!!.addDrawerListener(drawerToggle!!)
 
 
@@ -287,7 +302,7 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
         //// Current Order fragment load here
-         binding.lytslidingdrawer.navigationDrawerOrderLayout.setOnClickListener {
+        binding.lytslidingdrawer.navigationDrawerOrderLayout.setOnClickListener {
             if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
                 (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
                 loadYourOrdersTab()
@@ -301,11 +316,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
         }
 
-
         /// Scan Order
         binding.lytslidingdrawer.navigationDrawerScanYourOrderLayout.setOnClickListener {
 
-             binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility = View.GONE
+            binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility =
+                View.GONE
 
             // Handle the order history
             // Toast.makeText(this@MainActivity, "Scan Orders!", Toast.LENGTH_LONG).show();
@@ -314,15 +329,17 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             shouldDisplayHomeUp(false)///don't show back icon in action bar
             if (supportActionBar != null)
                 supportActionBar!!.setTitle(R.string.scanned_orders)
-            supportFragmentManager.beginTransaction().replace(R.id.frame_container, ScannedOrderFragment.newInstance()).commit()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_container, ScannedOrderFragment.newInstance()).commit()
 
         }
 
 
         ////Individual  Order History
-             binding.lytslidingdrawer.navigationDrawerOrderIndividualOrderLayout.setOnClickListener {
+        binding.lytslidingdrawer.navigationDrawerOrderIndividualOrderLayout.setOnClickListener {
 
-             binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility = View.GONE
+            binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility =
+                View.GONE
 
             // Handle the order history
             //Toast.makeText(this@MainActivity, "Individual  order history!", Toast.LENGTH_LONG).show();
@@ -333,14 +350,18 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                 supportActionBar!!.setTitle(R.string.individual_orders)
             //    supportFragmentManager!!.beginTransaction().replace(R.id.frame_container, IndividualOrderHistoryFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)).addToBackStack("My Orders").commit()
             //supportFragmentManager!!.beginTransaction().replace(R.id.frame_container, IndividualOrderHistoryFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)).addToBackStack("My Orders").commitAllowingStateLoss()
-            supportFragmentManager.beginTransaction().replace(R.id.frame_container, IndividualOrderHistoryFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)).commit()
+            supportFragmentManager.beginTransaction().replace(
+                R.id.frame_container,
+                IndividualOrderHistoryFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)
+            ).commit()
 
         }
 
         //// Bulk Order History
-            binding.lytslidingdrawer.navigationDrawerOrderBulkReportLayout.setOnClickListener {
+        binding.lytslidingdrawer.navigationDrawerOrderBulkReportLayout.setOnClickListener {
 
-             binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility = View.GONE
+            binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility =
+                View.GONE
 
             // Handle the order history
             Toast.makeText(this@MainActivity, "Bulk order history!", Toast.LENGTH_LONG).show()
@@ -351,7 +372,10 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                 supportActionBar!!.setTitle(R.string.bulk_orders)
             //    supportFragmentManager!!.beginTransaction().replace(R.id.frame_container, BulkOrderHistoryFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)).addToBackStack("My Orders").commit()
             //supportFragmentManager!!.beginTransaction().replace(R.id.frame_container, BulkOrderHistoryFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)).addToBackStack("My Orders").commitAllowingStateLoss()
-            supportFragmentManager.beginTransaction().replace(R.id.frame_container, BulkOrderHistoryFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)).commit()
+            supportFragmentManager.beginTransaction().replace(
+                R.id.frame_container,
+                BulkOrderHistoryFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)
+            ).commit()
 
         }
 
@@ -395,14 +419,16 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         //////////////////////////////////////
 
 
-         binding.lytslidingdrawer.navigationDrawerContactUsLayout.setOnClickListener {
+        binding.lytslidingdrawer.navigationDrawerContactUsLayout.setOnClickListener {
 
-             binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility = View.GONE
+            binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility =
+                View.GONE
             (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
             shouldDisplayHomeUp(false)///don't show back icon in action bar
             if (supportActionBar != null)
                 supportActionBar!!.setTitle(R.string.contact_us_title)
-            supportFragmentManager.beginTransaction().replace(R.id.frame_container, ContactUsFragment.newInstance()).commit()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frame_container, ContactUsFragment.newInstance()).commit()
 
 
         }
@@ -422,29 +448,35 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
             OoOAlertDialog.Builder(this@MainActivity)
-                    .setTitle(titleMsg)
-                    .setTitleColor(R.color.color_them)
-                    .setMessage(message)
-                    .setMessageColor(R.color.black)
-                    .setAnimation(Animation.POP)
-                    .setPositiveButton(positiveButtonMsg, null)
-                    .setCancelable(false)
-                    .setNegativeButton(negativeButtonMsg, OnClickListener() {
+                .setTitle(titleMsg)
+                .setTitleColor(R.color.color_them)
+                .setMessage(message)
+                .setMessageColor(R.color.black)
+                .setAnimation(Animation.POP)
+                .setPositiveButton(positiveButtonMsg, null)
+                .setCancelable(false)
+                .setNegativeButton(negativeButtonMsg, OnClickListener() {
 
 
-                        if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
-                            (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
-                            //Call here LOGOUT web service go to login screen
-                            driverOnlineOfflineStatusPost(preferenceHelper!!.lastUsername!!, OGoConstant.LOGOUT, true, false)
+                    if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
+                        (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
+                        //Call here LOGOUT web service go to login screen
+                        driverOnlineOfflineStatusPost(
+                            preferenceHelper!!.lastUsername!!,
+                            OGoConstant.LOGOUT,
+                            true,
+                            false
+                        )
 
 
-                        } else {
-                            NetworkUtil.getInstance(this@MainActivity).showCustomNetworkError(this@MainActivity)
+                    } else {
+                        NetworkUtil.getInstance(this@MainActivity)
+                            .showCustomNetworkError(this@MainActivity)
 
-                        }
+                    }
 
 
-                    }).build()
+                }).build()
 
 
         }
@@ -465,21 +497,27 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         } else {
 
             driverId = preferenceHelper!!.loggedInUser!!.id
-              binding.lytslidingdrawer.lytheader.tvDriverMob.text = preferenceHelper!!.loggedInUser!!.phone
-            binding.lytslidingdrawer.lytheader.tvDriverName.text = preferenceHelper!!.loggedInUser!!.name
-            binding.lytslidingdrawer.lytheader.tvDriverEmail.text = preferenceHelper!!.loggedInUser!!.emailId
+            binding.lytslidingdrawer.lytheader.tvDriverMob.text =
+                preferenceHelper!!.loggedInUser!!.phone
+            binding.lytslidingdrawer.lytheader.tvDriverName.text =
+                preferenceHelper!!.loggedInUser!!.name
+            binding.lytslidingdrawer.lytheader.tvDriverEmail.text =
+                preferenceHelper!!.loggedInUser!!.emailId
             //tvDriverType.text = preferenceHelper!!.loggedInUser!!.vehicleType
 
             if (preferenceHelper!!.loggedInUser!!.vehicleType!!.equals("VAN", true)) {
-                Glide.with(this@MainActivity).load(getImage("ic_van")).into(binding.lytslidingdrawer.lytheader.imageViewDriverTyp)
+                Glide.with(this@MainActivity).load(getImage("ic_van"))
+                    .into(binding.lytslidingdrawer.lytheader.imageViewDriverTyp)
 
             } else if (preferenceHelper!!.loggedInUser!!.vehicleType!!.equals("BIKE", true)) {
 
-                Glide.with(this@MainActivity).load(getImage("ic_bike")).into(binding.lytslidingdrawer.lytheader.imageViewDriverTyp)
+                Glide.with(this@MainActivity).load(getImage("ic_bike"))
+                    .into(binding.lytslidingdrawer.lytheader.imageViewDriverTyp)
 
 
             } else if (preferenceHelper!!.loggedInUser!!.vehicleType!!.equals("CAR", true)) {
-                Glide.with(this@MainActivity).load(getImage("ic_car")).into(binding.lytslidingdrawer.lytheader.imageViewDriverTyp)
+                Glide.with(this@MainActivity).load(getImage("ic_car"))
+                    .into(binding.lytslidingdrawer.lytheader.imageViewDriverTyp)
 
             }
 
@@ -493,10 +531,14 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
 
-            orderCancelledFromRemoteData = this.intent.getSerializableExtra(MyFirebaseMessagingService.CANCEL_ORDER) as? OrderCancelledFromRemoteData
-            orderSwitchingFromRemoteData = this.intent.getSerializableExtra(MyFirebaseMessagingService.SWITCH_ORDER) as? OrderSwitchFromRemoteData
-            orderSwitchedAndAssignedFromRemoteData = this.intent.getSerializableExtra(MyFirebaseMessagingService.SWITCHED_ORDER_ASSIGNING) as? OrderSwitchedAndAssignedFromRemoteData
-            isLogoutFromServer = this.intent.getStringExtra(MyFirebaseMessagingService.LOGOUT_FROM_SERVER)
+            orderCancelledFromRemoteData =
+                this.intent.getSerializableExtra(MyFirebaseMessagingService.CANCEL_ORDER) as? OrderCancelledFromRemoteData
+            orderSwitchingFromRemoteData =
+                this.intent.getSerializableExtra(MyFirebaseMessagingService.SWITCH_ORDER) as? OrderSwitchFromRemoteData
+            orderSwitchedAndAssignedFromRemoteData =
+                this.intent.getSerializableExtra(MyFirebaseMessagingService.SWITCHED_ORDER_ASSIGNING) as? OrderSwitchedAndAssignedFromRemoteData
+            isLogoutFromServer =
+                this.intent.getStringExtra(MyFirebaseMessagingService.LOGOUT_FROM_SERVER)
             orderStuck = this.intent.getStringExtra(MyFirebaseMessagingService.ORDER_STUCK)
 
 
@@ -504,7 +546,12 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
 
                 if (isLogoutFromServer != null && isLogoutFromServer.equals(OGoConstant.LOGOUT_FROM_SERVER)) {
-                    driverOnlineOfflineStatusPost(preferenceHelper!!.lastUsername!!, OGoConstant.LOGOUT, false, true)
+                    driverOnlineOfflineStatusPost(
+                        preferenceHelper!!.lastUsername!!,
+                        OGoConstant.LOGOUT,
+                        false,
+                        true
+                    )
 
 
                 } else if (orderStuck != null && orderStuck.equals(OGoConstant.ORDER_STUCK)) {
@@ -569,10 +616,10 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
         ////once    binding.lytslidingdrawer.toggleGoOnlineButton clicked , handle request here
-          binding.lytslidingdrawer.toggleGoOnlineButton.setOnClickListener {
+        binding.lytslidingdrawer.toggleGoOnlineButton.setOnClickListener {
 
             // if (language == Language.ENGLISH)
-            if (  binding.lytslidingdrawer.toggleGoOnlineButton.isChecked()) {
+            if (binding.lytslidingdrawer.toggleGoOnlineButton.isChecked()) {
 
 
                 goOnline()
@@ -591,7 +638,13 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
                 // goOffline()
 
-                ApiCall.getInstance(this@MainActivity).loginPostToGetNewShiftTime(this@MainActivity, preferenceHelper!!.lastUsername!!, preferenceHelper!!.lastPassword!!, preferenceHelper!!.fcmToken!!, BuildConfig.VERSION_NAME)
+                ApiCall.getInstance(this@MainActivity).loginPostToGetNewShiftTime(
+                    this@MainActivity,
+                    preferenceHelper!!.lastUsername!!,
+                    preferenceHelper!!.lastPassword!!,
+                    preferenceHelper!!.fcmToken!!,
+                    BuildConfig.VERSION_NAME
+                )
                 Looper.myLooper()?.let {
                     Handler(it).postDelayed({
                         // YOUR CODE after duration finished
@@ -667,9 +720,13 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
         ////add status to fire base
-        UpdateRealTimeDriverApplicationStatus.updateRealTimeDriverApplicationStatus(this@MainActivity, OGoConstant.ACTIVE)
+        UpdateRealTimeDriverApplicationStatus.updateRealTimeDriverApplicationStatus(
+            this@MainActivity,
+            OGoConstant.ACTIVE
+        )
         ///Another way to save value in share preference
-        PreferenceManager.getDefaultSharedPreferences(this@MainActivity).edit().putBoolean("isActive", true).apply()
+        PreferenceManager.getDefaultSharedPreferences(this@MainActivity).edit()
+            .putBoolean("isActive", true).apply()
 
         // //Ask for location permission
 
@@ -679,8 +736,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             //Ask for location permission
             //askForPermission(Manifest.permission.ACCESS_FINE_LOCATION, LOCATION)
             client = GoogleApiClient.Builder(this@MainActivity)
-                    .addApi(LocationServices.API)
-                    .build()
+                .addApi(LocationServices.API)
+                .build()
 
 
             ////Make sure GPS is ON
@@ -708,9 +765,13 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         super.onPause()
 
 
-        UpdateRealTimeDriverApplicationStatus.updateRealTimeDriverApplicationStatus(this@MainActivity, OGoConstant.BACKGROUND)
+        UpdateRealTimeDriverApplicationStatus.updateRealTimeDriverApplicationStatus(
+            this@MainActivity,
+            OGoConstant.BACKGROUND
+        )
         ///Another way to save value in share preference
-        PreferenceManager.getDefaultSharedPreferences(this@MainActivity).edit().putBoolean("isActive", false).apply()
+        PreferenceManager.getDefaultSharedPreferences(this@MainActivity).edit()
+            .putBoolean("isActive", false).apply()
 
         ///these below two line will disable landscape mode ,check onResume() also
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
@@ -743,7 +804,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         //goOffline()
 
         ///Another way to save value in share preference
-        PreferenceManager.getDefaultSharedPreferences(this@MainActivity).edit().putBoolean("isActive", false).apply()
+        PreferenceManager.getDefaultSharedPreferences(this@MainActivity).edit()
+            .putBoolean("isActive", false).apply()
 
         super.onDestroy()
 
@@ -763,7 +825,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
     /////here control will come when location permission granted
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
 
@@ -776,7 +842,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                 } else {
 
 
-                    Toast.makeText(this@MainActivity, "Permission Denied (LOCATION), Please allow to proceed !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Permission Denied (LOCATION), Please allow to proceed !",
+                        Toast.LENGTH_LONG
+                    ).show();
                 }
 
 
@@ -946,8 +1016,16 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 * */
 
 
-    private fun driverOnlineOfflineStatusPost(userName: String, driverOnlineStatus: String, isLogoutFromUser: Boolean, isLogoutFromServer: Boolean) {
-        LogUtils.error(LogUtils.TAG, "driverOnlineOfflineStatusPost driverOnlineStatus  =>" + driverOnlineStatus)
+    private fun driverOnlineOfflineStatusPost(
+        userName: String,
+        driverOnlineStatus: String,
+        isLogoutFromUser: Boolean,
+        isLogoutFromServer: Boolean
+    ) {
+        LogUtils.error(
+            LogUtils.TAG,
+            "driverOnlineOfflineStatusPost driverOnlineStatus  =>" + driverOnlineStatus
+        )
 
         if (isLogoutFromServer) {
             ///logout directly
@@ -959,7 +1037,13 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             //logoutPost(userName)
 
             ////First call API and get new shift time
-            ApiCall.getInstance(this@MainActivity).loginPostToGetNewShiftTime(this@MainActivity, preferenceHelper!!.lastUsername!!, preferenceHelper!!.lastPassword!!, preferenceHelper!!.fcmToken!!, BuildConfig.VERSION_NAME)
+            ApiCall.getInstance(this@MainActivity).loginPostToGetNewShiftTime(
+                this@MainActivity,
+                preferenceHelper!!.lastUsername!!,
+                preferenceHelper!!.lastPassword!!,
+                preferenceHelper!!.fcmToken!!,
+                BuildConfig.VERSION_NAME
+            )
 
             Looper.myLooper()?.let {
                 Handler(it).postDelayed({
@@ -982,48 +1066,66 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             if (apiPostService == null)
                 apiPostService = ApiPostUtils.apiPostService
 
-            apiPostService!!.postDriverOnlineStatusNew(userName, driverOnlineStatus).enqueue(object : Callback<DriverOnlineStatusResp> {
+            apiPostService!!.postDriverOnlineStatusNew(userName, driverOnlineStatus)
+                .enqueue(object : Callback<DriverOnlineStatusResp> {
 
-                override fun onResponse(call: Call<DriverOnlineStatusResp>, response: Response<DriverOnlineStatusResp>) {
+                    override fun onResponse(
+                        call: Call<DriverOnlineStatusResp>,
+                        response: Response<DriverOnlineStatusResp>
+                    ) {
 
-                    // LogUtils.error(LogUtils.TAG, "response.raw().toString() =>" + response.raw().toString())
+                        // LogUtils.error(LogUtils.TAG, "response.raw().toString() =>" + response.raw().toString())
 
-                    if (response.isSuccessful) {
+                        if (response.isSuccessful) {
 
-                        // driverOnlineOfflineStatusResponse(response.body()!!.toString())
+                            // driverOnlineOfflineStatusResponse(response.body()!!.toString())
 
-                        if (response.body()!!.status.toString().equals("true", true)) {
+                            if (response.body()!!.status.toString().equals("true", true)) {
 
-                            LogUtils.error(LogUtils.TAG, "driverOnlineOfflineStatusPost response.body()!!.message.toString() =>" + response.body()!!.message.toString())
-                            // showProgress(false)
+                                LogUtils.error(
+                                    LogUtils.TAG,
+                                    "driverOnlineOfflineStatusPost response.body()!!.message.toString() =>" + response.body()!!.message.toString()
+                                )
+                                // showProgress(false)
 
-                            if (driverOnlineStatus.equals(OGoConstant.ONLINE, true)) {
-                                makeOnline()
+                                if (driverOnlineStatus.equals(OGoConstant.ONLINE, true)) {
+                                    makeOnline()
+                                } else {
+                                    makeOffline(false)
+                                }
+
+
                             } else {
-                                makeOffline(false)
+
+                                Toast.makeText(
+                                    this@MainActivity,
+                                    response.body()!!.message,
+                                    Toast.LENGTH_LONG
+                                ).show();
+
                             }
 
 
-                        } else {
-
-                            Toast.makeText(this@MainActivity, response.body()!!.message, Toast.LENGTH_LONG).show();
-
                         }
+                    }
+
+                    override fun onFailure(call: Call<DriverOnlineStatusResp>, t: Throwable) {
+
+                        LogUtils.error(
+                            "TAG",
+                            "Unable to submit driverOnlineOfflineStatusPost to API."
+                        )
+                        Toast.makeText(
+                            this@MainActivity,
+                            " Unable to submit driverOnlineOfflineStatusPost to API.!",
+                            Toast.LENGTH_LONG
+                        ).show();
+
+                        // showProgress(false)
 
 
                     }
-                }
-
-                override fun onFailure(call: Call<DriverOnlineStatusResp>, t: Throwable) {
-
-                    LogUtils.error("TAG", "Unable to submit driverOnlineOfflineStatusPost to API.")
-                    Toast.makeText(this@MainActivity, " Unable to submit driverOnlineOfflineStatusPost to API.!", Toast.LENGTH_LONG).show();
-
-                    // showProgress(false)
-
-
-                }
-            })
+                })
 
 
         }
@@ -1044,7 +1146,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
         if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
             //// Call here Scanning
-             binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility = View.GONE
+            binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility =
+                View.GONE
 
             // Handle the order history
             // Toast.makeText(this@MainActivity, "Scan Orders!", Toast.LENGTH_LONG).show();
@@ -1053,7 +1156,10 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             shouldDisplayHomeUp(true)/// show back icon in action bar
             if (supportActionBar != null)
                 supportActionBar!!.setTitle(R.string.scanning_orders)
-            supportFragmentManager.beginTransaction().replace(R.id.frame_container, ScanningOrderFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)).commit()
+            supportFragmentManager.beginTransaction().replace(
+                R.id.frame_container,
+                ScanningOrderFragment.newInstance(preferenceHelper!!.loggedInUser!!.emailId!!)
+            ).commit()
 
 
         } else {
@@ -1071,7 +1177,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
         if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
             //// Call here Scanning
-             binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility = View.GONE
+            binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility =
+                View.GONE
 
             // Handle the order history
             // Toast.makeText(this@MainActivity, "Scan Orders!", Toast.LENGTH_LONG).show();
@@ -1080,7 +1187,10 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             shouldDisplayHomeUp(true)/// show back icon in action bar
             if (supportActionBar != null)
                 supportActionBar!!.setTitle(R.string.scanned_orders)
-            supportFragmentManager.beginTransaction().replace(R.id.frame_container, ScannedOrderFragment.newInstance(scannedOrderEvent.scannedOrder)).commit()
+            supportFragmentManager.beginTransaction().replace(
+                R.id.frame_container,
+                ScannedOrderFragment.newInstance(scannedOrderEvent.scannedOrder)
+            ).commit()
 
 
         } else {
@@ -1103,7 +1213,9 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             supportActionBar!!.setTitle(R.string.back_to_sender_title)
         val orderEntityJson = Gson().toJson(event.getOrderEntity())
 
-        supportFragmentManager.beginTransaction().replace(R.id.frame_container, OrderSenderMapFragment.newInstance(orderEntityJson)).addToBackStack("Sender Directions").commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, OrderSenderMapFragment.newInstance(orderEntityJson))
+            .addToBackStack("Sender Directions").commit()
 
     }
 
@@ -1120,7 +1232,10 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             supportActionBar!!.setTitle(R.string.back_to_sender_title)
         val orderEntityJson = Gson().toJson(event.getOrderEntity())
 
-        supportFragmentManager.beginTransaction().replace(R.id.frame_container, OrderBackToSenderMapFragment.newInstance(orderEntityJson)).addToBackStack("Back To Sender Directions ").commit()
+        supportFragmentManager.beginTransaction().replace(
+            R.id.frame_container,
+            OrderBackToSenderMapFragment.newInstance(orderEntityJson)
+        ).addToBackStack("Back To Sender Directions ").commit()
 
     }
 
@@ -1137,7 +1252,9 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         if (supportActionBar != null)
             supportActionBar!!.setTitle(R.string.receiver_title)
         val orderEntityJson = Gson().toJson(event.getOrderEntity())
-        supportFragmentManager.beginTransaction().replace(R.id.frame_container, OrderReceiverMapFragment.newInstance(orderEntityJson)).addToBackStack("Receiver Directions").commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, OrderReceiverMapFragment.newInstance(orderEntityJson))
+            .addToBackStack("Receiver Directions").commit()
 
     }
 
@@ -1199,7 +1316,9 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         if (supportActionBar != null)
             supportActionBar!!.setTitle(R.string.order_rating)
         val orderEntityJson = Gson().toJson(event.getOrderEntity())
-        supportFragmentManager.beginTransaction().replace(R.id.frame_container, OrdersRatingFragment.newInstance(orderEntityJson)).addToBackStack("Order Rating").commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, OrdersRatingFragment.newInstance(orderEntityJson))
+            .addToBackStack("Order Rating").commit()
 
     }
 
@@ -1232,7 +1351,12 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
         if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
             //Call here LOGOUT web service go to login screen
-            driverOnlineOfflineStatusPost(preferenceHelper!!.lastUsername!!, OGoConstant.LOGOUT, false, true)
+            driverOnlineOfflineStatusPost(
+                preferenceHelper!!.lastUsername!!,
+                OGoConstant.LOGOUT,
+                false,
+                true
+            )
 
         } else {
             NetworkUtil.getInstance(this@MainActivity).showCustomNetworkError(this@MainActivity)
@@ -1272,7 +1396,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
     fun onShowSenderDirection(event: ShowSenderDirectionEvent) {
 
         LogUtils.error(LogUtils.TAG, "onShowSenderDirection in MainActivity>>>>")
-        SenderDirectionTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, event.lat, event.lon)
+        SenderDirectionTask().executeOnExecutor(
+            AsyncTask.THREAD_POOL_EXECUTOR,
+            event.lat,
+            event.lon
+        )
 
 
     }
@@ -1288,7 +1416,9 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         if (supportActionBar != null)
             supportActionBar!!.setTitle(R.string.order_details)
         val orderEntityJson = Gson().toJson(event.orderDetailsEntity)
-        supportFragmentManager.beginTransaction().replace(R.id.frame_container, OrderDetailsFragment.newInstance(orderEntityJson)).addToBackStack("Order Detail").commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, OrderDetailsFragment.newInstance(orderEntityJson))
+            .addToBackStack("Order Detail").commit()
     }
 
 
@@ -1302,7 +1432,9 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         if (supportActionBar != null)
             supportActionBar!!.setTitle(R.string.order_history_details)
         val orderEntityJson = Gson().toJson(event.orderHistoryEntity)
-        supportFragmentManager.beginTransaction().replace(R.id.frame_container, OrderHistoryDetailFragment.newInstance(orderEntityJson)).addToBackStack("Order Detail").commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, OrderHistoryDetailFragment.newInstance(orderEntityJson))
+            .addToBackStack("Order Detail").commit()
     }
 
 
@@ -1314,13 +1446,17 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
         if (event.internetStatus == OGoConstant.INTERNET_ON) {
             /// connected to internet
-            Glide.with(this@MainActivity).load(getImage("ic_connected_to_internet")).into(binding.lytslidingdrawer.lytheader.ivInternetStatusLogo)
-            binding.lytslidingdrawer.lytheader.tvInternetStatusMsg.text = getString(R.string.connected_to_internet)
+            Glide.with(this@MainActivity).load(getImage("ic_connected_to_internet"))
+                .into(binding.lytslidingdrawer.lytheader.ivInternetStatusLogo)
+            binding.lytslidingdrawer.lytheader.tvInternetStatusMsg.text =
+                getString(R.string.connected_to_internet)
 
         } else {
             // no internet connection
-            Glide.with(this@MainActivity).load(getImage("ic_not_connected_to_internet")).into(binding.lytslidingdrawer.lytheader.ivInternetStatusLogo)
-            binding.lytslidingdrawer.lytheader.tvInternetStatusMsg.text = getString(R.string.not_connected_to_internet)
+            Glide.with(this@MainActivity).load(getImage("ic_not_connected_to_internet"))
+                .into(binding.lytslidingdrawer.lytheader.ivInternetStatusLogo)
+            binding.lytslidingdrawer.lytheader.tvInternetStatusMsg.text =
+                getString(R.string.not_connected_to_internet)
 
 
         }
@@ -1418,7 +1554,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         /// if service already started or running then only stop it else ignore
         LogUtils.error(LogUtils.TAG, "isLocationForegroundServicePACIStarted::" + serviceStarted)
 
-        locationForegroundServicePACIIntent = Intent(this@MainActivity, LocationForegroundServicePACI::class.java)
+        locationForegroundServicePACIIntent =
+            Intent(this@MainActivity, LocationForegroundServicePACI::class.java)
 
         ///if locationForegroundServicePACIIntent is not null then only start service
         locationForegroundServicePACIIntent?.let {
@@ -1453,11 +1590,17 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             //// this will start Background  Service
             startService(locationServiceIntent)
 
-            LogUtils.error(LogUtils.TAG, "${LocationForegroundService.javaClass.canonicalName} in MainActivity -> startLocationActionService() for < Oreo (8.0.0) ")
+            LogUtils.error(
+                LogUtils.TAG,
+                "${LocationForegroundService.javaClass.canonicalName} in MainActivity -> startLocationActionService() for < Oreo (8.0.0) "
+            )
 
         } else {
             startForegroundService(locationServiceIntent)
-            LogUtils.error(LogUtils.TAG, "${LocationForegroundService.javaClass.canonicalName} in MainActivity -> startLocationActionService() for > Oreo (8.0.0) ")
+            LogUtils.error(
+                LogUtils.TAG,
+                "${LocationForegroundService.javaClass.canonicalName} in MainActivity -> startLocationActionService() for > Oreo (8.0.0) "
+            )
         }
 
     }
@@ -1469,18 +1612,25 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             //// this will start Background  Service
             startService(locationForegroundServicePACIIntent)
 
-            LogUtils.error(LogUtils.TAG, "${LocationForegroundServicePACI.javaClass.canonicalName} in MainActivity -> startLocationActionServicePACI() for < Oreo (8.0.0) ")
+            LogUtils.error(
+                LogUtils.TAG,
+                "${LocationForegroundServicePACI.javaClass.canonicalName} in MainActivity -> startLocationActionServicePACI() for < Oreo (8.0.0) "
+            )
 
         } else {
             startForegroundService(locationForegroundServicePACIIntent)
-            LogUtils.error(LogUtils.TAG, "${LocationForegroundServicePACI.javaClass.canonicalName} in MainActivity -> startLocationActionServicePACI() for > Oreo (8.0.0) ")
+            LogUtils.error(
+                LogUtils.TAG,
+                "${LocationForegroundServicePACI.javaClass.canonicalName} in MainActivity -> startLocationActionServicePACI() for > Oreo (8.0.0) "
+            )
         }
 
     }
 
 
     fun startNearByOrdersQueueService() {
-        nearByOrderQueueServiceIntent = Intent(this@MainActivity, NearByOrdersQueueService::class.java)
+        nearByOrderQueueServiceIntent =
+            Intent(this@MainActivity, NearByOrdersQueueService::class.java)
 
         ///if nearByOrderQueueServiceIntent is not null then only start service
         nearByOrderQueueServiceIntent?.let {
@@ -1490,12 +1640,18 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
                 //// this will start Background  Service
                 startService(nearByOrderQueueServiceIntent)
-                LogUtils.error(LogUtils.TAG, " ${NearByOrdersQueueService.javaClass.simpleName} started in MainActivity -> startNearByOrdersQueueService() for < Oreo (8.0.0) ")
+                LogUtils.error(
+                    LogUtils.TAG,
+                    " ${NearByOrdersQueueService.javaClass.simpleName} started in MainActivity -> startNearByOrdersQueueService() for < Oreo (8.0.0) "
+                )
 
             } else {
 
                 startForegroundService(nearByOrderQueueServiceIntent)
-                LogUtils.error(LogUtils.TAG, " ${NearByOrdersQueueService.javaClass.simpleName} started in MainActivity -> startNearByOrdersQueueService() for > Oreo (8.0.0) ")
+                LogUtils.error(
+                    LogUtils.TAG,
+                    " ${NearByOrdersQueueService.javaClass.simpleName} started in MainActivity -> startNearByOrdersQueueService() for > Oreo (8.0.0) "
+                )
 
 
             }
@@ -1518,11 +1674,17 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                 //// this will start Background  Service
                 startService(ordersQueueServiceIntent)
 
-                LogUtils.error(LogUtils.TAG, "${OrdersQueueService.javaClass.simpleName}  started in MainActivity -> startOrdersQueueService() for < Oreo (8.0.0) ")
+                LogUtils.error(
+                    LogUtils.TAG,
+                    "${OrdersQueueService.javaClass.simpleName}  started in MainActivity -> startOrdersQueueService() for < Oreo (8.0.0) "
+                )
 
             } else {
                 startForegroundService(ordersQueueServiceIntent)
-                LogUtils.error(LogUtils.TAG, " ${OrdersQueueService.javaClass.simpleName}  started in MainActivity -> startOrdersQueueService() for > Oreo (8.0.0) ")
+                LogUtils.error(
+                    LogUtils.TAG,
+                    " ${OrdersQueueService.javaClass.simpleName}  started in MainActivity -> startOrdersQueueService() for > Oreo (8.0.0) "
+                )
             }
         }
 
@@ -1541,11 +1703,17 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                 //// this will start Background  Service
                 startService(syncingIntentServiceIntent)
 
-                LogUtils.error(LogUtils.TAG, "${SyncingIntentService.javaClass.simpleName}  started in MainActivity -> startSyncingIntentService() for < Oreo (8.0.0) ")
+                LogUtils.error(
+                    LogUtils.TAG,
+                    "${SyncingIntentService.javaClass.simpleName}  started in MainActivity -> startSyncingIntentService() for < Oreo (8.0.0) "
+                )
 
             } else {
                 startForegroundService(syncingIntentServiceIntent)
-                LogUtils.error(LogUtils.TAG, " ${SyncingIntentService.javaClass.simpleName}  started in MainActivity -> startSyncingIntentService() for > Oreo (8.0.0) ")
+                LogUtils.error(
+                    LogUtils.TAG,
+                    " ${SyncingIntentService.javaClass.simpleName}  started in MainActivity -> startSyncingIntentService() for > Oreo (8.0.0) "
+                )
             }
         }
 
@@ -1561,54 +1729,75 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         val orderEntityJson = Gson().toJson(cancelOrderEvent.getOrderCancelledFromRemoteEntity())
 
         // LogUtils.error(LogUtils.TAG, "currentOrder!!.orderId =>"+currentOrder!!.orderId)
-        LogUtils.error(LogUtils.TAG, "cancelOrderEvent.orderCancelledFromRemoteEntity.orderId.toString() =>" + cancelOrderEvent.orderCancelledFromRemoteEntity.orderId.toString())
+        LogUtils.error(
+            LogUtils.TAG,
+            "cancelOrderEvent.orderCancelledFromRemoteEntity.orderId.toString() =>" + cancelOrderEvent.orderCancelledFromRemoteEntity.orderId.toString()
+        )
 
         ///if current order and order id from server is same then finish this order and change status respectively
-        if (cancelOrderEvent.orderCancelledFromRemoteEntity.orderId.toString().equals(currentOrder!!.orderId, true)) {
+        if (cancelOrderEvent.orderCancelledFromRemoteEntity.orderId.toString()
+                .equals(currentOrder!!.orderId, true)
+        ) {
 
             // vibrate the device
-            val vibrator = this@MainActivity!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            val vibrator =
+                this@MainActivity!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             vibrator.vibrate(100)
             run {
-                val mPlayer = MediaPlayer.create(this@MainActivity, R.raw.order_cancelled)
-                mPlayer.start()
+//                val mPlayer = MediaPlayer.create(this@MainActivity, R.raw.order_cancelled)
+//                mPlayer.start()
 
-                LogUtils.error(LogUtils.TAG, "Status => mPlayer.start(); called : Order cancelled from remote !")
+                val svc = Intent(this, BackgroundSoundService::class.java)
+                startService(svc)
+
+                LogUtils.error(
+                    LogUtils.TAG,
+                    "Status => mPlayer.start(); called : Order cancelled from remote !"
+                )
             }
 
 
             OoOAlertDialog.Builder(this@MainActivity)
-                    .setTitle("Order Cancelled!")
-                    .setTitleColor(R.color.color_them)
-                    .setMessage(getString(R.string.order_cancelled))
-                    .setMessageColor(R.color.black)
-                    .setAnimation(Animation.POP)
-                    .setCancelable(false)
-                    .setNegativeButton("OK", OnClickListener() {
+                .setTitle("Order Cancelled!")
+                .setTitleColor(R.color.color_them)
+                .setMessage(getString(R.string.order_cancelled))
+                .setMessageColor(R.color.black)
+                .setAnimation(Animation.POP)
+                .setCancelable(false)
+                .setNegativeButton("OK", OnClickListener() {
 
-                        ///make drawer close here if its is already opened else ignore
-                        if ((binding.drawerLayout)!!.isDrawerOpen(GravityCompat.START)) {
-                            (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
-                        }
+                    ///make drawer close here if its is already opened else ignore
+                    if ((binding.drawerLayout)!!.isDrawerOpen(GravityCompat.START)) {
+                        (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
+                    }
+
+                    /// stop background notification service
+                    if (DriverUtilities.isMyServiceRunning(BackgroundSoundService::class.java, this)) {
+                        val svc = Intent(this, BackgroundSoundService::class.java)
+                        stopService(svc)
+                    }
+
+                    ////created new api
+                    cancelOrderPost(preferenceHelper!!.loggedInUser!!.emailId!!.toString())
+
+                    //..old api
+                    //cancelOrderPost(preferenceHelper!!.loggedInUser!!.emailId!!,cancelOrderEvent.orderCancelledFromRemoteEntity.orderId!!,OGoConstant.CANCEL)
+                    Toast.makeText(
+                        this@MainActivity,
+                        "Your order has been cancelled from remote.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
 
-                        ////created new api
-                        cancelOrderPost(preferenceHelper!!.loggedInUser!!.emailId!!.toString())
-
-                        //..old api
-                        //cancelOrderPost(preferenceHelper!!.loggedInUser!!.emailId!!,cancelOrderEvent.orderCancelledFromRemoteEntity.orderId!!,OGoConstant.CANCEL)
-                        Toast.makeText(this@MainActivity, "Your order has been cancelled from remote.", Toast.LENGTH_SHORT).show()
-
-
-                        Looper.myLooper()?.let {
-                            Handler(it).postDelayed({
-                                // YOUR CODE after duration finished
-                                EventBus.getDefault().post(ListOrdersEvent())
-                            }, OGoConstant.DELAY)
-                        }
+                    Looper.myLooper()?.let {
+                        Handler(it).postDelayed({
+                            // YOUR CODE after duration finished
+                            EventBus.getDefault().post(ListOrdersEvent())
+                        }, OGoConstant.DELAY)
+                    }
 
 
-                    }).build()
+                }).build()
 
 
         }
@@ -1688,53 +1877,89 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         LogUtils.error(LogUtils.TAG, "cancelOrderPost userNameStr=>" + userNameStr)
 
         apiPostService = ApiPostUtils.apiPostService
-        apiPostService!!.postCancelOrder(userNameStr).enqueue(object : Callback<CancelOrderResponse> {
+        apiPostService!!.postCancelOrder(userNameStr)
+            .enqueue(object : Callback<CancelOrderResponse> {
 
-            override fun onResponse(call: Call<CancelOrderResponse>, response: Response<CancelOrderResponse>) {
+                override fun onResponse(
+                    call: Call<CancelOrderResponse>,
+                    response: Response<CancelOrderResponse>
+                ) {
 
-                LogUtils.error(LogUtils.TAG, "response.raw().toString() =>" + response.raw().toString())
+                    LogUtils.error(
+                        LogUtils.TAG,
+                        "response.raw().toString() =>" + response.raw().toString()
+                    )
 
-                if (response.isSuccessful) {
+                    if (response.isSuccessful) {
 
-                    showCancelOrderResponseonse(response.body()!!.toString())
+                        showCancelOrderResponseonse(response.body()!!.toString())
 
-                    if (response.body()!!.status.toString().equals("true", true)) {
-                        LogUtils.error(LogUtils.TAG, "postCancelOrder response.body()!!.message.toString() =>" + response.body()!!.message.toString())
-                        //Toast.makeText(mActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
-                        Toast.makeText(this@MainActivity, "order cancelled successfully! ", Toast.LENGTH_SHORT).show()
+                        if (response.body()!!.status.toString().equals("true", true)) {
+                            LogUtils.error(
+                                LogUtils.TAG,
+                                "postCancelOrder response.body()!!.message.toString() =>" + response.body()!!.message.toString()
+                            )
+                            //Toast.makeText(mActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this@MainActivity,
+                                "order cancelled successfully! ",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                        preferenceHelper!!.orderStatus = OGoConstant.CANCEL
-                        UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(this@MainActivity, OGoConstant.CANCEL)
+                            preferenceHelper!!.orderStatus = OGoConstant.CANCEL
+                            UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(
+                                this@MainActivity,
+                                OGoConstant.CANCEL
+                            )
 
 
-                    } else {
+                        } else {
 
-                        Toast.makeText(this@MainActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this@MainActivity,
+                                response.body()!!.message,
+                                Toast.LENGTH_LONG
+                            ).show()
+
+                        }
+
 
                     }
-
-
-                }
-            }
-
-            override fun onFailure(call: Call<CancelOrderResponse>, t: Throwable) {
-
-                if (t is IOException) {
-                    Toast.makeText(this@MainActivity, "this is an actual network failure :( inform the user and possibly retry", Toast.LENGTH_SHORT).show();
-                    // logging probably not necessary
-                } else {
-                    Toast.makeText(this@MainActivity, "conversion issue! big problems :(", Toast.LENGTH_SHORT).show();
-                    // todo log to some central bug tracking service
-                    Toast.makeText(this@MainActivity, " Unable to submit cancelOrderPost to API.!", Toast.LENGTH_LONG).show();
                 }
 
-                LogUtils.error("TAG", "Unable to submit cancelOrderPost to API." + t.printStackTrace())
-                LogUtils.error("TAG", "Unable to submit cancelOrderPost to API.")
+                override fun onFailure(call: Call<CancelOrderResponse>, t: Throwable) {
 
-                // showProgress(false)
+                    if (t is IOException) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "this is an actual network failure :( inform the user and possibly retry",
+                            Toast.LENGTH_SHORT
+                        ).show();
+                        // logging probably not necessary
+                    } else {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "conversion issue! big problems :(",
+                            Toast.LENGTH_SHORT
+                        ).show();
+                        // todo log to some central bug tracking service
+                        Toast.makeText(
+                            this@MainActivity,
+                            " Unable to submit cancelOrderPost to API.!",
+                            Toast.LENGTH_LONG
+                        ).show();
+                    }
 
-            }
-        })
+                    LogUtils.error(
+                        "TAG",
+                        "Unable to submit cancelOrderPost to API." + t.printStackTrace()
+                    )
+                    LogUtils.error("TAG", "Unable to submit cancelOrderPost to API.")
+
+                    // showProgress(false)
+
+                }
+            })
 
 
     }
@@ -1752,53 +1977,71 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         val orderEntityJson = Gson().toJson(switchingOrderEvent.orderSwitchFromRemoteEntity)
 
         // LogUtils.error(LogUtils.TAG, "currentOrder!!.orderId =>"+currentOrder!!.orderId)
-        LogUtils.error(LogUtils.TAG, "switchingOrderEvent.orderSwitchFromRemoteEntity.orderId.toString() =>" + switchingOrderEvent.orderSwitchFromRemoteEntity!!.orderId.toString())
+        LogUtils.error(
+            LogUtils.TAG,
+            "switchingOrderEvent.orderSwitchFromRemoteEntity.orderId.toString() =>" + switchingOrderEvent.orderSwitchFromRemoteEntity!!.orderId.toString()
+        )
 
         ///if current order and order id from server is same then finish this order and change status respectively
-        if (switchingOrderEvent.orderSwitchFromRemoteEntity!!.orderId.toString().equals(currentOrder!!.orderId, true)) {
+        if (switchingOrderEvent.orderSwitchFromRemoteEntity!!.orderId.toString()
+                .equals(currentOrder!!.orderId, true)
+        ) {
 
             // vibrate the device
-            val vibrator = this@MainActivity!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            val vibrator =
+                this@MainActivity!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             vibrator.vibrate(100)
             run {
                 val mPlayer = MediaPlayer.create(this@MainActivity, R.raw.order_cancelled)
                 mPlayer.start()
 
-                LogUtils.error(LogUtils.TAG, "Status => mPlayer.start(); called : Order cancelled from remote !")
+                LogUtils.error(
+                    LogUtils.TAG,
+                    "Status => mPlayer.start(); called : Order cancelled from remote !"
+                )
             }
 
 
             OoOAlertDialog.Builder(this@MainActivity)
-                    .setTitle(getString(R.string.switching_order))
-                    .setTitleColor(R.color.color_them)
-                    .setMessage(getString(R.string.switching_order_message))
-                    .setMessageColor(R.color.black)
-                    .setAnimation(Animation.POP)
-                    .setCancelable(false)
-                    .setNegativeButton("OK", OnClickListener() {
+                .setTitle(getString(R.string.switching_order))
+                .setTitleColor(R.color.color_them)
+                .setMessage(getString(R.string.switching_order_message))
+                .setMessageColor(R.color.black)
+                .setAnimation(Animation.POP)
+                .setCancelable(false)
+                .setNegativeButton("OK", OnClickListener() {
 
-                        ///make drawer close here if its is already opened else ignore
-                        if ((binding.drawerLayout)!!.isDrawerOpen(GravityCompat.START)) {
-                            (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
-                        }
-
-
-                        //// web call api
-
-                        switchingOrderPost(preferenceHelper!!.loggedInUser!!, currentOrder!!.orderId!!, preferenceHelper!!.lastLat!!, preferenceHelper!!.lastLong!!)
+                    ///make drawer close here if its is already opened else ignore
+                    if ((binding.drawerLayout)!!.isDrawerOpen(GravityCompat.START)) {
+                        (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
+                    }
 
 
-                        Toast.makeText(this@MainActivity, R.string.switching_order_message, Toast.LENGTH_SHORT).show()
+                    //// web call api
 
-                        Looper.myLooper()?.let {
-                            Handler(it).postDelayed({
-                                // YOUR CODE after duration finished
-                                EventBus.getDefault().post(ListOrdersEvent())
-                            }, OGoConstant.DELAY)
-                        }
+                    switchingOrderPost(
+                        preferenceHelper!!.loggedInUser!!,
+                        currentOrder!!.orderId!!,
+                        preferenceHelper!!.lastLat!!,
+                        preferenceHelper!!.lastLong!!
+                    )
 
 
-                    }).build()
+                    Toast.makeText(
+                        this@MainActivity,
+                        R.string.switching_order_message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    Looper.myLooper()?.let {
+                        Handler(it).postDelayed({
+                            // YOUR CODE after duration finished
+                            EventBus.getDefault().post(ListOrdersEvent())
+                        }, OGoConstant.DELAY)
+                    }
+
+
+                }).build()
 
 
         }
@@ -1815,32 +2058,67 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 //    @Field("vehicle_type") vehicleType: String
     /// some more fields
 
-    fun switchingOrderPost(loggedInUser: LoginRespData, orderId: String, lastLat: String?, lastLong: String?) {
+    fun switchingOrderPost(
+        loggedInUser: LoginRespData,
+        orderId: String,
+        lastLat: String?,
+        lastLong: String?
+    ) {
         LogUtils.error(LogUtils.TAG, "switchingOrderPost userNameStr=>" + loggedInUser.emailId)
 
         apiPostService = ApiPostUtils.apiPostService
-        apiPostService!!.postSwitchingOrder(loggedInUser!!.emailId!!, loggedInUser!!.name!!, loggedInUser!!.phone!!, orderId, lastLat!!, lastLong!!, loggedInUser!!.vehicleType!!, loggedInUser!!.vehicle_no!!, loggedInUser!!.cid!!).enqueue(object : Callback<OrderSwitchingResp> {
+        apiPostService!!.postSwitchingOrder(
+            loggedInUser!!.emailId!!,
+            loggedInUser!!.name!!,
+            loggedInUser!!.phone!!,
+            orderId,
+            lastLat!!,
+            lastLong!!,
+            loggedInUser!!.vehicleType!!,
+            loggedInUser!!.vehicle_no!!,
+            loggedInUser!!.cid!!
+        ).enqueue(object : Callback<OrderSwitchingResp> {
 
-            override fun onResponse(call: Call<OrderSwitchingResp>, response: Response<OrderSwitchingResp>) {
+            override fun onResponse(
+                call: Call<OrderSwitchingResp>,
+                response: Response<OrderSwitchingResp>
+            ) {
 
-                LogUtils.error(LogUtils.TAG, "response.raw().toString() =>" + response.raw().toString())
+                LogUtils.error(
+                    LogUtils.TAG,
+                    "response.raw().toString() =>" + response.raw().toString()
+                )
 
                 if (response.isSuccessful) {
 
                     showOrderSwitchingResponse(response.body()!!.toString())
 
                     if (response.body()!!.status.toString().equals("true", true)) {
-                        LogUtils.error(LogUtils.TAG, "switchingOrderPost response.body()!!.message.toString() =>" + response.body()!!.message.toString())
+                        LogUtils.error(
+                            LogUtils.TAG,
+                            "switchingOrderPost response.body()!!.message.toString() =>" + response.body()!!.message.toString()
+                        )
                         //Toast.makeText(mActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
-                        Toast.makeText(this@MainActivity, "Order Switched Successfully! ", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Order Switched Successfully! ",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
                         preferenceHelper!!.orderStatus = OGoConstant.NO_ORDER
-                        UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(this@MainActivity, OGoConstant.NO_ORDER)
+                        UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(
+                            this@MainActivity,
+                            OGoConstant.NO_ORDER
+                        )
 
 
                     } else {
 
-                        Toast.makeText(this@MainActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this@MainActivity,
+                            response.body()!!.message,
+                            Toast.LENGTH_LONG
+                        ).show()
 
                     }
 
@@ -1851,15 +2129,30 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             override fun onFailure(call: Call<OrderSwitchingResp>, t: Throwable) {
 
                 if (t is IOException) {
-                    Toast.makeText(this@MainActivity, "this is an actual network failure :( inform the user and possibly retry", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                        this@MainActivity,
+                        "this is an actual network failure :( inform the user and possibly retry",
+                        Toast.LENGTH_SHORT
+                    ).show();
                     // logging probably not necessary
                 } else {
-                    Toast.makeText(this@MainActivity, "conversion issue! big problems :(", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                        this@MainActivity,
+                        "conversion issue! big problems :(",
+                        Toast.LENGTH_SHORT
+                    ).show();
                     // todo log to some central bug tracking service
-                    Toast.makeText(this@MainActivity, " Unable to submit switchingOrderPost to API.!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(
+                        this@MainActivity,
+                        " Unable to submit switchingOrderPost to API.!",
+                        Toast.LENGTH_LONG
+                    ).show();
                 }
 
-                LogUtils.error("TAG", "Unable to submit switchingOrderPost to API." + t.printStackTrace())
+                LogUtils.error(
+                    "TAG",
+                    "Unable to submit switchingOrderPost to API." + t.printStackTrace()
+                )
                 LogUtils.error("TAG", "Unable to submit switchingOrderPost to API.")
 
                 // showProgress(false)
@@ -1882,60 +2175,77 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         shouldDisplayHomeUp(false)///don't show back icon in action bar
         if (supportActionBar != null)
             supportActionBar!!.setTitle(R.string.switched_order_assiged)
-        val orderEntityJson = Gson().toJson(switchedOrderAssignedEvent.orderSwitchedAndAssignedFromRemoteEntity)
+        val orderEntityJson =
+            Gson().toJson(switchedOrderAssignedEvent.orderSwitchedAndAssignedFromRemoteEntity)
 
         // LogUtils.error(LogUtils.TAG, "currentOrder!!.orderId =>"+currentOrder!!.orderId)
-        LogUtils.error(LogUtils.TAG, "switchedOrderAssignedEvent.orderSwitchedAndAssignedFromRemoteEntity.orderId.toString() =>" + switchedOrderAssignedEvent.orderSwitchedAndAssignedFromRemoteEntity!!.orderId.toString())
+        LogUtils.error(
+            LogUtils.TAG,
+            "switchedOrderAssignedEvent.orderSwitchedAndAssignedFromRemoteEntity.orderId.toString() =>" + switchedOrderAssignedEvent.orderSwitchedAndAssignedFromRemoteEntity!!.orderId.toString()
+        )
 
 
         /// here order is not yet assigned its being assigned , order will be assigned after api call
         // if(true)
 
         ///if current order and order id from server is same then finish this order and change status respectively
-        if (switchedOrderAssignedEvent.orderSwitchedAndAssignedFromRemoteEntity!!.orderId.toString().equals(currentOrder!!.orderId, true)) {
+        if (switchedOrderAssignedEvent.orderSwitchedAndAssignedFromRemoteEntity!!.orderId.toString()
+                .equals(currentOrder!!.orderId, true)
+        ) {
 
             // vibrate the device
-            val vibrator = this@MainActivity!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            val vibrator =
+                this@MainActivity!!.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             vibrator.vibrate(100)
             run {
                 val mPlayer = MediaPlayer.create(this@MainActivity, R.raw.order_cancelled)
                 mPlayer.start()
 
-                LogUtils.error(LogUtils.TAG, "Status => mPlayer.start(); called : Order switched and assigned from remote !")
+                LogUtils.error(
+                    LogUtils.TAG,
+                    "Status => mPlayer.start(); called : Order switched and assigned from remote !"
+                )
             }
 
 
             OoOAlertDialog.Builder(this@MainActivity)
-                    .setTitle(getString(R.string.switched_order_assiged))
-                    .setTitleColor(R.color.color_them)
-                    .setMessage(getString(R.string.switched_order_assigned_message))
-                    .setMessageColor(R.color.black)
-                    .setAnimation(Animation.POP)
-                    .setCancelable(false)
-                    .setNegativeButton("OK", OnClickListener() {
+                .setTitle(getString(R.string.switched_order_assiged))
+                .setTitleColor(R.color.color_them)
+                .setMessage(getString(R.string.switched_order_assigned_message))
+                .setMessageColor(R.color.black)
+                .setAnimation(Animation.POP)
+                .setCancelable(false)
+                .setNegativeButton("OK", OnClickListener() {
 
-                        ///make drawer close here if its is already opened else ignore
-                        if ((binding.drawerLayout)!!.isDrawerOpen(GravityCompat.START)) {
-                            (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
-                        }
-
-
-                        //// web call api
-
-                        switchedOrderAssignedPost(preferenceHelper!!.loggedInUser!!.emailId!!, currentOrder!!.orderId!!)
+                    ///make drawer close here if its is already opened else ignore
+                    if ((binding.drawerLayout)!!.isDrawerOpen(GravityCompat.START)) {
+                        (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
+                    }
 
 
-                        Toast.makeText(this@MainActivity, R.string.switched_order_assiged, Toast.LENGTH_SHORT).show()
+                    //// web call api
 
-                        Looper.myLooper()?.let {
-                            Handler(it).postDelayed({
-                                // YOUR CODE after duration finished
-                                EventBus.getDefault().post(ListOrdersEvent())
-                            }, OGoConstant.DELAY)
-                        }
+                    switchedOrderAssignedPost(
+                        preferenceHelper!!.loggedInUser!!.emailId!!,
+                        currentOrder!!.orderId!!
+                    )
 
 
-                    }).build()
+                    Toast.makeText(
+                        this@MainActivity,
+                        R.string.switched_order_assiged,
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                    Looper.myLooper()?.let {
+                        Handler(it).postDelayed({
+                            // YOUR CODE after duration finished
+                            EventBus.getDefault().post(ListOrdersEvent())
+                        }, OGoConstant.DELAY)
+                    }
+
+
+                }).build()
 
 
         }
@@ -1952,53 +2262,86 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         LogUtils.error(LogUtils.TAG, "switchedOrderAssignedPost userNameStr =>" + emailId)
 
         apiPostService = ApiPostUtils.apiPostService
-        apiPostService!!.postSwitchedOrderAssigned(emailId, orderId).enqueue(object : Callback<OrderSwitchedAndAssignedResp> {
+        apiPostService!!.postSwitchedOrderAssigned(emailId, orderId)
+            .enqueue(object : Callback<OrderSwitchedAndAssignedResp> {
 
-            override fun onResponse(call: Call<OrderSwitchedAndAssignedResp>, response: Response<OrderSwitchedAndAssignedResp>) {
+                override fun onResponse(
+                    call: Call<OrderSwitchedAndAssignedResp>,
+                    response: Response<OrderSwitchedAndAssignedResp>
+                ) {
 
-                LogUtils.error(LogUtils.TAG, "response.raw().toString() =>" + response.raw().toString())
+                    LogUtils.error(
+                        LogUtils.TAG,
+                        "response.raw().toString() =>" + response.raw().toString()
+                    )
 
-                if (response.isSuccessful) {
+                    if (response.isSuccessful) {
 
-                    showOrderSwitchedAndAssignedResponse(response.body()!!.toString())
+                        showOrderSwitchedAndAssignedResponse(response.body()!!.toString())
 
-                    if (response.body()!!.status.toString().equals("true", true)) {
+                        if (response.body()!!.status.toString().equals("true", true)) {
 
-                        LogUtils.error(LogUtils.TAG, "switchedOrderAssignedPost response.body()!!.message.toString() =>" + response.body()!!.message.toString())
-                        //Toast.makeText(mActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
-                        Toast.makeText(this@MainActivity, "Order Assigned Successfully! ", Toast.LENGTH_SHORT).show()
+                            LogUtils.error(
+                                LogUtils.TAG,
+                                "switchedOrderAssignedPost response.body()!!.message.toString() =>" + response.body()!!.message.toString()
+                            )
+                            //Toast.makeText(mActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this@MainActivity,
+                                "Order Assigned Successfully! ",
+                                Toast.LENGTH_SHORT
+                            ).show()
 
-                        receiveCurrentOrderPost(emailId)
+                            receiveCurrentOrderPost(emailId)
 
 
-                    } else {
+                        } else {
 
-                        Toast.makeText(this@MainActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                this@MainActivity,
+                                response.body()!!.message,
+                                Toast.LENGTH_LONG
+                            ).show()
+
+                        }
+
 
                     }
-
-
-                }
-            }
-
-            override fun onFailure(call: Call<OrderSwitchedAndAssignedResp>, t: Throwable) {
-
-                if (t is IOException) {
-                    Toast.makeText(this@MainActivity, "this is an actual network failure :( inform the user and possibly retry", Toast.LENGTH_SHORT).show();
-                    // logging probably not necessary
-                } else {
-                    Toast.makeText(this@MainActivity, "conversion issue! big problems :(", Toast.LENGTH_SHORT).show();
-                    // todo log to some central bug tracking service
-                    Toast.makeText(this@MainActivity, " Unable to submit switchedOrderAssignedPost to API.!", Toast.LENGTH_LONG).show();
                 }
 
-                LogUtils.error("TAG", "Unable to submit switchedOrderAssignedPost to API." + t.printStackTrace())
-                LogUtils.error("TAG", "Unable to submit switchedOrderAssignedPost to API.")
+                override fun onFailure(call: Call<OrderSwitchedAndAssignedResp>, t: Throwable) {
 
-                // showProgress(false)
+                    if (t is IOException) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "this is an actual network failure :( inform the user and possibly retry",
+                            Toast.LENGTH_SHORT
+                        ).show();
+                        // logging probably not necessary
+                    } else {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "conversion issue! big problems :(",
+                            Toast.LENGTH_SHORT
+                        ).show();
+                        // todo log to some central bug tracking service
+                        Toast.makeText(
+                            this@MainActivity,
+                            " Unable to submit switchedOrderAssignedPost to API.!",
+                            Toast.LENGTH_LONG
+                        ).show();
+                    }
 
-            }
-        })
+                    LogUtils.error(
+                        "TAG",
+                        "Unable to submit switchedOrderAssignedPost to API." + t.printStackTrace()
+                    )
+                    LogUtils.error("TAG", "Unable to submit switchedOrderAssignedPost to API.")
+
+                    // showProgress(false)
+
+                }
+            })
 
 
     }
@@ -2029,15 +2372,25 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                 if (locationResponse!!.lat != null && locationResponse!!.lon != null) {
                     val resLat = java.lang.Double.parseDouble(locationResponse!!.lat!!)
                     val resLon = java.lang.Double.parseDouble(locationResponse!!.lon!!)
-                    val intent = Intent(android.content.Intent.ACTION_VIEW,
-                            Uri.parse("http://maps.google.com/maps?daddr=$resLat,$resLon"))
+                    val intent = Intent(
+                        android.content.Intent.ACTION_VIEW,
+                        Uri.parse("http://maps.google.com/maps?daddr=$resLat,$resLon")
+                    )
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this@MainActivity, getString(R.string.no_sender_location), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@MainActivity,
+                        getString(R.string.no_sender_location),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
 
             } else {
-                Toast.makeText(this@MainActivity, getString(R.string.no_sender_location), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@MainActivity,
+                    getString(R.string.no_sender_location),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -2061,7 +2414,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
                 ////Snackbar setAction
                 ///Just point to any View inside the Activity's XML. You can give an id to the root viewGroup
-                val snack = Snackbar.make(binding.drawerLayout, snackbarMessage, Snackbar.LENGTH_INDEFINITE)
+                val snack =
+                    Snackbar.make(binding.drawerLayout, snackbarMessage, Snackbar.LENGTH_INDEFINITE)
                 snack.setAction(getString(R.string.dismiss), View.OnClickListener {
                     // executed when DISMISS is clicked
                     //System.out.println("Snackbar Set Action - OnClick.")
@@ -2075,7 +2429,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             2 -> {
                 ////Snackbar setAction
                 ///Just point to any View inside the Activity's XML. You can give an id to the root viewGroup
-                val snack = Snackbar.make((binding.drawerLayout)!!, snackbarMessage, Snackbar.LENGTH_LONG)
+                val snack =
+                    Snackbar.make((binding.drawerLayout)!!, snackbarMessage, Snackbar.LENGTH_LONG)
                 snack.setAction(getString(R.string.dismiss), View.OnClickListener {
                     // executed when DISMISS is clicked
                     //System.out.println("Snackbar Set Action - OnClick.")
@@ -2088,7 +2443,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             3 -> {
                 ////Snackbar setAction
                 ///Just point to any View inside the Activity's XML. You can give an id to the root viewGroup
-                val snack = Snackbar.make((binding.drawerLayout)!!, snackbarMessage, Snackbar.LENGTH_SHORT)
+                val snack =
+                    Snackbar.make((binding.drawerLayout)!!, snackbarMessage, Snackbar.LENGTH_SHORT)
                 snack.setAction(getString(R.string.dismiss), View.OnClickListener {
                     // executed when DISMISS is clicked
                     //System.out.println("Snackbar Set Action - OnClick.")
@@ -2109,122 +2465,213 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
     * */
     private fun receiveCurrentOrderPost(userNameStr: String) {
         apiPostService = ApiPostUtils.apiPostService
-        apiPostService!!.postReceiveCurrentOrder(userNameStr).enqueue(object : Callback<ReceiveCurrentOrderResponse> {
-            override fun onResponse(call: Call<ReceiveCurrentOrderResponse>, response: Response<ReceiveCurrentOrderResponse>) {
+        apiPostService!!.postReceiveCurrentOrder(userNameStr)
+            .enqueue(object : Callback<ReceiveCurrentOrderResponse> {
+                override fun onResponse(
+                    call: Call<ReceiveCurrentOrderResponse>,
+                    response: Response<ReceiveCurrentOrderResponse>
+                ) {
 
-                //LogUtils.error("TvCloud>>>", "response.raw().toString() =>" + response.raw().toString())
+                    //LogUtils.error("TvCloud>>>", "response.raw().toString() =>" + response.raw().toString())
 
-                if (response.isSuccessful) {
+                    if (response.isSuccessful) {
 
-                    showReceiveCurrentOrderResponse(response.body()!!.toString())
-
-
-                    if (response.body()!!.status.toString().equals("true", true)) {
-
-                        /////// update current order status here in share preference
-                        /// value is not coming from server hence taken as hard coded
-
-                        //preferenceHelper!!.orderStatus  = OGoConstant.DRIVER_ACCEPTED
-
-                        preferenceHelper!!.orderStatus = response.body()!!.data!!.get(0)!!.orderStatusInt
-                        UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(this@MainActivity, response.body()!!.data!!.get(0).orderStatusInt.toString())
+                        showReceiveCurrentOrderResponse(response.body()!!.toString())
 
 
-                        LogUtils.error(LogUtils.TAG, "postReceiveCurrentOrder response.body()!!.message.toString() =>" + response.body()!!.message.toString())
-                        // showProgress(false)
-                        LogUtils.error(LogUtils.TAG, "response.body()!!.data!!.get(0) : " + response.body()!!.data!!.get(0))
-                        ///make sure at least one order is present
-                        if (response.body()!!.data!! != null && response.body()!!.data!!.size > 0) {
+                        if (response.body()!!.status.toString().equals("true", true)) {
+
+                            /////// update current order status here in share preference
+                            /// value is not coming from server hence taken as hard coded
+
+                            //preferenceHelper!!.orderStatus  = OGoConstant.DRIVER_ACCEPTED
+
+                            preferenceHelper!!.orderStatus =
+                                response.body()!!.data!!.get(0)!!.orderStatusInt
+                            UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(
+                                this@MainActivity,
+                                response.body()!!.data!!.get(0).orderStatusInt.toString()
+                            )
 
 
-                            ////make busy status
-                            preferenceHelper!!.busyStatus = OGoConstant.BUSY
-
-                            ////here send accepted order ( received current order) to fragment and display it accordingly
-                            LogUtils.error(LogUtils.TAG, "MainActivity response.body()!!.data.get(0).orderId!!=> orderId >:  " + response.body()!!.data!!.get(0).orderId!!)
-                            LogUtils.error(LogUtils.TAG, "MainActivity  response.body()!!.data!!.get(0)!!.senderName!! >:  " + response.body()!!.data!!.get(0).senderName!!)
-                            LogUtils.error(LogUtils.TAG, "MainActivity  response.body()!!.data!!.size >:  " + response.body()!!.data!!.size)
-                            currentOrder = response.body()!!.data!!.get(0)!!
-
-                            ///....below value is pushing in fir base database on request of backend developer
-                            ///if order exist then save this value to push in fire base
-                            //// here instead of cid we are updating diff (nonCid ) as request by backend developer (sumeet )
-                            ////while accepting order we are updating cid
-                            preferenceHelper!!.fireBase_e5 = response.body()!!.data!!.get(0).nonCid
-
-
-                            ////make driver online
-                            goOnline()
+                            LogUtils.error(
+                                LogUtils.TAG,
+                                "postReceiveCurrentOrder response.body()!!.message.toString() =>" + response.body()!!.message.toString()
+                            )
+                            // showProgress(false)
+                            LogUtils.error(
+                                LogUtils.TAG,
+                                "response.body()!!.data!!.get(0) : " + response.body()!!.data!!.get(
+                                    0
+                                )
+                            )
+                            ///make sure at least one order is present
+                            if (response.body()!!.data!! != null && response.body()!!.data!!.size > 0) {
 
 
-                            if (supportActionBar != null)
-                                supportActionBar!!.setTitle(R.string.orders)
+                                ////make busy status
+                                preferenceHelper!!.busyStatus = OGoConstant.BUSY
 
-                            val fragment = OrdersFragment()
-                            val b = Bundle()
-                            b.putSerializable("DISPLAY_ACCEPTED_ORDER", currentOrder!!)
-                            fragment.setArguments(b)
-                            val fragmentManager = supportFragmentManager
+                                ////here send accepted order ( received current order) to fragment and display it accordingly
+                                LogUtils.error(
+                                    LogUtils.TAG,
+                                    "MainActivity response.body()!!.data.get(0).orderId!!=> orderId >:  " + response.body()!!.data!!.get(
+                                        0
+                                    ).orderId!!
+                                )
+                                LogUtils.error(
+                                    LogUtils.TAG,
+                                    "MainActivity  response.body()!!.data!!.get(0)!!.senderName!! >:  " + response.body()!!.data!!.get(
+                                        0
+                                    ).senderName!!
+                                )
+                                LogUtils.error(
+                                    LogUtils.TAG,
+                                    "MainActivity  response.body()!!.data!!.size >:  " + response.body()!!.data!!.size
+                                )
+                                currentOrder = response.body()!!.data!!.get(0)!!
 
-                            ///with action bar load fragment
-                            //fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).addToBackStack(fragment.javaClass.getName()).commit()
-                            fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).addToBackStack(fragment.javaClass.getName()).commitAllowingStateLoss()
-
-
-
-                            if (((orderCancelledFromRemoteData != null) && orderCancelledFromRemoteData!!.orderId.toString().equals(currentOrder!!.orderId, true))) {
-
-                                //LogUtils.error(LogUtils.TAG, "currentOrder!!.orderId =>"+currentOrder!!.orderId)
-                                //LogUtils.error(LogUtils.TAG, "orderCancelledFromRemoteData!!.orderId.toString() =>"+orderCancelledFromRemoteData!!.orderId.toString())
-
-                                cancelOrder(OrderCancelledFromRemoteEvent(orderCancelledFromRemoteData))
-
-                            } else if (currentOrder!!.orderStatusInt.toString().equals(OGoConstant.CANCEL)) {
-
-
-                                ///converting map to jason
-                                val gson = Gson()
-                                //val jsonOrder = gson.toJson(remoteMessage.data)
-
-                                ////converting  MAP to POJO model class ( current order to cancel order )
-                                var orderCancelledFromRemoteData: OrderCancelledFromRemoteData? = null
-                                val jsonElement = gson.toJsonTree(currentOrder)
-                                orderCancelledFromRemoteData = gson.fromJson(jsonElement, OrderCancelledFromRemoteData::class.java)
-                                cancelOrder(OrderCancelledFromRemoteEvent(orderCancelledFromRemoteData))
-
-                            } else if (((orderSwitchingFromRemoteData != null) && orderSwitchingFromRemoteData!!.orderId.toString().equals(currentOrder!!.orderId, true))) {
-                                //// this section is for switching order
-                                switchingOrder(OrderSwitchFromRemoteEvent(orderSwitchingFromRemoteData!!))
+                                ///....below value is pushing in fir base database on request of backend developer
+                                ///if order exist then save this value to push in fire base
+                                //// here instead of cid we are updating diff (nonCid ) as request by backend developer (sumeet )
+                                ////while accepting order we are updating cid
+                                preferenceHelper!!.fireBase_e5 =
+                                    response.body()!!.data!!.get(0).nonCid
 
 
-                            } else if (currentOrder!!.switchOrderStatus.toString().equals(OGoConstant.SWITCHING_ORDER)) {
+                                ////make driver online
+                                goOnline()
 
 
-                                ///converting map to jason
-                                val gson = Gson()
-                                //val jsonOrder = gson.toJson(remoteMessage.data)
+                                if (supportActionBar != null)
+                                    supportActionBar!!.setTitle(R.string.orders)
 
-                                ////converting  MAP to POJO model class ( current order to cancel order )
-                                var orderSwitchFromRemoteData: OrderSwitchFromRemoteData? = null
-                                val jsonElement = gson.toJsonTree(currentOrder)
-                                orderSwitchFromRemoteData = gson.fromJson(jsonElement, OrderSwitchFromRemoteData::class.java)
+                                val fragment = OrdersFragment()
+                                val b = Bundle()
+                                b.putSerializable("DISPLAY_ACCEPTED_ORDER", currentOrder!!)
+                                fragment.setArguments(b)
+                                val fragmentManager = supportFragmentManager
 
-                                switchingOrder(OrderSwitchFromRemoteEvent(orderSwitchFromRemoteData))
+                                ///with action bar load fragment
+                                //fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).addToBackStack(fragment.javaClass.getName()).commit()
+                                fragmentManager.beginTransaction()
+                                    .replace(R.id.frame_container, fragment)
+                                    .addToBackStack(fragment.javaClass.getName())
+                                    .commitAllowingStateLoss()
 
-                            } else if (((orderSwitchedAndAssignedFromRemoteData != null) && orderSwitchedAndAssignedFromRemoteData!!.orderId.toString().equals(currentOrder!!.orderId, true))) {
-                                switchedOrderAssigned(OrderSwitchedAndAssignedFromRemoteEvent(orderSwitchedAndAssignedFromRemoteData!!))
 
-                            } else if (currentOrder!!.switchOrderStatus!!.equals(OGoConstant.ASSIGNING_ORDER)) {
-                                ///converting map to jason
-                                val gson = Gson()
-                                //val jsonOrder = gson.toJson(remoteMessage.data)
 
-                                ////converting  MAP to POJO model class ( current order to cancel order )
-                                var orderSwitchedAndAssignedFromRemoteDataModel: OrderSwitchedAndAssignedFromRemoteData? = null
-                                val jsonElement = gson.toJsonTree(currentOrder)
-                                orderSwitchedAndAssignedFromRemoteDataModel = gson.fromJson(jsonElement, OrderSwitchedAndAssignedFromRemoteData::class.java)
+                                if (((orderCancelledFromRemoteData != null) && orderCancelledFromRemoteData!!.orderId.toString()
+                                        .equals(currentOrder!!.orderId, true))
+                                ) {
 
-                                switchedOrderAssigned(OrderSwitchedAndAssignedFromRemoteEvent(orderSwitchedAndAssignedFromRemoteDataModel))
+                                    //LogUtils.error(LogUtils.TAG, "currentOrder!!.orderId =>"+currentOrder!!.orderId)
+                                    //LogUtils.error(LogUtils.TAG, "orderCancelledFromRemoteData!!.orderId.toString() =>"+orderCancelledFromRemoteData!!.orderId.toString())
+
+                                    cancelOrder(
+                                        OrderCancelledFromRemoteEvent(
+                                            orderCancelledFromRemoteData
+                                        )
+                                    )
+
+                                } else if (currentOrder!!.orderStatusInt.toString()
+                                        .equals(OGoConstant.CANCEL)
+                                ) {
+
+
+                                    ///converting map to jason
+                                    val gson = Gson()
+                                    //val jsonOrder = gson.toJson(remoteMessage.data)
+
+                                    ////converting  MAP to POJO model class ( current order to cancel order )
+                                    var orderCancelledFromRemoteData: OrderCancelledFromRemoteData? =
+                                        null
+                                    val jsonElement = gson.toJsonTree(currentOrder)
+                                    orderCancelledFromRemoteData = gson.fromJson(
+                                        jsonElement,
+                                        OrderCancelledFromRemoteData::class.java
+                                    )
+                                    cancelOrder(
+                                        OrderCancelledFromRemoteEvent(
+                                            orderCancelledFromRemoteData
+                                        )
+                                    )
+
+                                } else if (((orderSwitchingFromRemoteData != null) && orderSwitchingFromRemoteData!!.orderId.toString()
+                                        .equals(currentOrder!!.orderId, true))
+                                ) {
+                                    //// this section is for switching order
+                                    switchingOrder(
+                                        OrderSwitchFromRemoteEvent(
+                                            orderSwitchingFromRemoteData!!
+                                        )
+                                    )
+
+
+                                } else if (currentOrder!!.switchOrderStatus.toString()
+                                        .equals(OGoConstant.SWITCHING_ORDER)
+                                ) {
+
+
+                                    ///converting map to jason
+                                    val gson = Gson()
+                                    //val jsonOrder = gson.toJson(remoteMessage.data)
+
+                                    ////converting  MAP to POJO model class ( current order to cancel order )
+                                    var orderSwitchFromRemoteData: OrderSwitchFromRemoteData? = null
+                                    val jsonElement = gson.toJsonTree(currentOrder)
+                                    orderSwitchFromRemoteData = gson.fromJson(
+                                        jsonElement,
+                                        OrderSwitchFromRemoteData::class.java
+                                    )
+
+                                    switchingOrder(
+                                        OrderSwitchFromRemoteEvent(
+                                            orderSwitchFromRemoteData
+                                        )
+                                    )
+
+                                } else if (((orderSwitchedAndAssignedFromRemoteData != null) && orderSwitchedAndAssignedFromRemoteData!!.orderId.toString()
+                                        .equals(currentOrder!!.orderId, true))
+                                ) {
+                                    switchedOrderAssigned(
+                                        OrderSwitchedAndAssignedFromRemoteEvent(
+                                            orderSwitchedAndAssignedFromRemoteData!!
+                                        )
+                                    )
+
+                                } else if (currentOrder!!.switchOrderStatus!!.equals(OGoConstant.ASSIGNING_ORDER)) {
+                                    ///converting map to jason
+                                    val gson = Gson()
+                                    //val jsonOrder = gson.toJson(remoteMessage.data)
+
+                                    ////converting  MAP to POJO model class ( current order to cancel order )
+                                    var orderSwitchedAndAssignedFromRemoteDataModel: OrderSwitchedAndAssignedFromRemoteData? =
+                                        null
+                                    val jsonElement = gson.toJsonTree(currentOrder)
+                                    orderSwitchedAndAssignedFromRemoteDataModel = gson.fromJson(
+                                        jsonElement,
+                                        OrderSwitchedAndAssignedFromRemoteData::class.java
+                                    )
+
+                                    switchedOrderAssigned(
+                                        OrderSwitchedAndAssignedFromRemoteEvent(
+                                            orderSwitchedAndAssignedFromRemoteDataModel
+                                        )
+                                    )
+
+
+                                }
+
+
+                            } else {
+
+                                /// make here current running order null
+                                currentOrder = null
+                                UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(
+                                    this@MainActivity,
+                                    OGoConstant.NO_ORDER
+                                )
 
 
                             }
@@ -2232,59 +2679,69 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
                         } else {
 
+
+                            ///// display here empty fragment and add some welcome text
+                            if (supportActionBar != null)
+                                supportActionBar!!.setTitle(R.string.orders)
+                            supportFragmentManager.beginTransaction()
+                                .replace(R.id.frame_container, WelcomeFragment.newInstance())
+                                .commitAllowingStateLoss()
+
+                            Toast.makeText(
+                                this@MainActivity,
+                                response.body()!!.message,
+                                Toast.LENGTH_LONG
+                            ).show()
+
                             /// make here current running order null
                             currentOrder = null
-                            UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(this@MainActivity, OGoConstant.NO_ORDER)
+
+                            UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(
+                                this@MainActivity,
+                                OGoConstant.NO_ORDER
+                            )
 
 
                         }
 
 
-                    } else {
+                        LogUtils.error(
+                            LogUtils.TAG,
+                            "preferenceHelper!!.driverOnlineStatus###=>" + preferenceHelper!!.driverOnlineStatus
+                        )
+
+                        /////put last status
+                        if (preferenceHelper!!.driverOnlineStatus.equals(
+                                OGoConstant.ONLINE,
+                                true
+                            )
+                        ) {
+
+                            goOnline()
 
 
-                        ///// display here empty fragment and add some welcome text
-                        if (supportActionBar != null)
-                            supportActionBar!!.setTitle(R.string.orders)
-                        supportFragmentManager.beginTransaction().replace(R.id.frame_container, WelcomeFragment.newInstance()).commitAllowingStateLoss()
+                        } else {
 
-                        Toast.makeText(this@MainActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
-
-                        /// make here current running order null
-                        currentOrder = null
-
-                        UpdateRealTimeDriverOrderStatus.updateRealTimeDriverOrderStatus(this@MainActivity, OGoConstant.NO_ORDER)
+                            goOffline()
 
 
-                    }
-
-
-                    LogUtils.error(LogUtils.TAG, "preferenceHelper!!.driverOnlineStatus###=>" + preferenceHelper!!.driverOnlineStatus)
-
-                    /////put last status
-                    if (preferenceHelper!!.driverOnlineStatus.equals(OGoConstant.ONLINE, true)) {
-
-                        goOnline()
-
-
-                    } else {
-
-                        goOffline()
+                        }
 
 
                     }
+                }
 
+                override fun onFailure(call: Call<ReceiveCurrentOrderResponse>, t: Throwable) {
+
+                    LogUtils.error("TAG", "Unable to submit postReceiveCurrentOrder to API.")
+                    Toast.makeText(
+                        this@MainActivity,
+                        " Unable to submit postReceiveCurrentOrder to API.!",
+                        Toast.LENGTH_LONG
+                    ).show();
 
                 }
-            }
-
-            override fun onFailure(call: Call<ReceiveCurrentOrderResponse>, t: Throwable) {
-
-                LogUtils.error("TAG", "Unable to submit postReceiveCurrentOrder to API.")
-                Toast.makeText(this@MainActivity, " Unable to submit postReceiveCurrentOrder to API.!", Toast.LENGTH_LONG).show();
-
-            }
-        })
+            })
 
 
     }
@@ -2301,13 +2758,18 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
             ////first update in fire base and then only update via api
 
-            driverOnlineOfflineStatusPost(preferenceHelper!!.lastUsername!!, OGoConstant.ONLINE, false, false)
+            driverOnlineOfflineStatusPost(
+                preferenceHelper!!.lastUsername!!,
+                OGoConstant.ONLINE,
+                false,
+                false
+            )
 
 
         } else {
 
             //set state to unchecked
-              binding.lytslidingdrawer.toggleGoOnlineButton.setChecked(false);
+            binding.lytslidingdrawer.toggleGoOnlineButton.setChecked(false);
             binding.lytslidingdrawer.toggleGoOnlineButtonLayout.setHorizontalGravity(Gravity.START)
 
             NetworkUtil.getInstance(this@MainActivity).showCustomNetworkError(this@MainActivity)
@@ -2326,12 +2788,15 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         ///Ask to turn on GPS after getting location permission
         askForGPS()
         //set state to checked
-          binding.lytslidingdrawer.toggleGoOnlineButton.setChecked(true);
-         binding.lytslidingdrawer.toggleGoOnlineButtonLayout.setHorizontalGravity(Gravity.END)
+        binding.lytslidingdrawer.toggleGoOnlineButton.setChecked(true);
+        binding.lytslidingdrawer.toggleGoOnlineButtonLayout.setHorizontalGravity(Gravity.END)
         ///close drawer
         binding.drawerLayout!!.closeDrawer(GravityCompat.START)
         binding.lytslidingdrawer.navigationDrawerGoOnlineDetail!!.setText(getString(R.string.navigation_drawer_go_online_desc))
-        UpdateRealTimeDriverOnlineStatus.updateDriverOnlineStatus(this@MainActivity, OGoConstant.ONLINE)
+        UpdateRealTimeDriverOnlineStatus.updateDriverOnlineStatus(
+            this@MainActivity,
+            OGoConstant.ONLINE
+        )
 
         ///Once online then start  services here
         startServicesWhenOnline()
@@ -2345,14 +2810,19 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         if (NetworkUtil.getInstance(this@MainActivity).isOnline) {
 
             ////preferenceHelper!!.loggedInUser!!.emailId!!
-            driverOnlineOfflineStatusPost(preferenceHelper!!.lastUsername!!, OGoConstant.OFFLINE, false, false)
+            driverOnlineOfflineStatusPost(
+                preferenceHelper!!.lastUsername!!,
+                OGoConstant.OFFLINE,
+                false,
+                false
+            )
 
 
         } else {
 
             //set state to checked
-              binding.lytslidingdrawer.toggleGoOnlineButton.setChecked(true);
-             binding.lytslidingdrawer.toggleGoOnlineButtonLayout.setHorizontalGravity(Gravity.END)
+            binding.lytslidingdrawer.toggleGoOnlineButton.setChecked(true);
+            binding.lytslidingdrawer.toggleGoOnlineButtonLayout.setHorizontalGravity(Gravity.END)
             NetworkUtil.getInstance(this@MainActivity).showCustomNetworkError(this@MainActivity)
 
 
@@ -2374,13 +2844,16 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             ///snack bar offline
             displaySnackBar(getString(R.string.offline), OGoConstant.INDEFINITE)
             //set state to unchecked
-              binding.lytslidingdrawer.toggleGoOnlineButton.setChecked(false);
-             binding.lytslidingdrawer.toggleGoOnlineButtonLayout.setHorizontalGravity(Gravity.START)
+            binding.lytslidingdrawer.toggleGoOnlineButton.setChecked(false);
+            binding.lytslidingdrawer.toggleGoOnlineButtonLayout.setHorizontalGravity(Gravity.START)
             ///close drawer
             (binding.drawerLayout)!!.closeDrawer(GravityCompat.START)
 
             binding.lytslidingdrawer.navigationDrawerGoOnlineDetail.setText(getString(R.string.navigation_drawer_go_online_description))
-            UpdateRealTimeDriverOnlineStatus.updateDriverOnlineStatus(this@MainActivity, OGoConstant.OFFLINE)
+            UpdateRealTimeDriverOnlineStatus.updateDriverOnlineStatus(
+                this@MainActivity,
+                OGoConstant.OFFLINE
+            )
 
             ///Once offline then stop  services here
             stopServicesWhenOffline()
@@ -2413,13 +2886,15 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         ////////////////////////////////
         ///loader animation
         binding.lytappbar.lytcontent.loadingLayoutAnim.visibility = View.VISIBLE
-        val loader = CircularSticksLoader(this@MainActivity, 80, 90f, 40f,
-                ContextCompat.getColor(this, R.color.white),
-                ContextCompat.getColor(this, R.color.colorLoader),
-                ContextCompat.getColor(this, R.color.white))
-                .apply {
+        val loader = CircularSticksLoader(
+            this@MainActivity, 80, 90f, 40f,
+            ContextCompat.getColor(this, R.color.white),
+            ContextCompat.getColor(this, R.color.colorLoader),
+            ContextCompat.getColor(this, R.color.white)
+        )
+            .apply {
 
-                }
+            }
         binding.lytappbar.lytcontent.loadingLayoutAnim.addView(loader)
         ////////////////////////////////
 
@@ -2438,15 +2913,26 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
                         makeOffline(true)
-                        var isSucesssfullFirebasePush = UpdateRealTimeDriverApplicationStatus.updateRealTimeDriverApplicationStatus(this@MainActivity, OGoConstant.LOGOUT)
-                        LogUtils.error(LogUtils.TAG, "isSucesssfullFirebasePush ===>" + isSucesssfullFirebasePush)
+                        var isSucesssfullFirebasePush =
+                            UpdateRealTimeDriverApplicationStatus.updateRealTimeDriverApplicationStatus(
+                                this@MainActivity,
+                                OGoConstant.LOGOUT
+                            )
+                        LogUtils.error(
+                            LogUtils.TAG,
+                            "isSucesssfullFirebasePush ===>" + isSucesssfullFirebasePush
+                        )
 
                         if (isSucesssfullFirebasePush) {
-                            Toast.makeText(this@MainActivity, "Logout success!", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@MainActivity, "Logout success!", Toast.LENGTH_LONG)
+                                .show()
                         }
 
                         stopAllServices()
-                        LogUtils.error(LogUtils.TAG, "postLogout response.body()!!.message.toString() =>" + response.body()!!.message.toString())
+                        LogUtils.error(
+                            LogUtils.TAG,
+                            "postLogout response.body()!!.message.toString() =>" + response.body()!!.message.toString()
+                        )
 
                         val i = Intent(this@MainActivity, LoginActivity::class.java)
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -2457,7 +2943,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
                     } else {
 
-                        Toast.makeText(this@MainActivity, response.body()!!.message, Toast.LENGTH_LONG).show();
+                        Toast.makeText(
+                            this@MainActivity,
+                            response.body()!!.message,
+                            Toast.LENGTH_LONG
+                        ).show();
 
                     }
 
@@ -2471,7 +2961,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             override fun onFailure(call: Call<LogoutResp>, t: Throwable) {
 
                 LogUtils.error("TAG", "Unable to submit postLogout to API.")
-                Toast.makeText(this@MainActivity, " Unable to submit postLogout to API.!", Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                    this@MainActivity,
+                    " Unable to submit postLogout to API.!",
+                    Toast.LENGTH_LONG
+                ).show();
 
 
             }
@@ -2488,14 +2982,30 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
     ///First ask for permission
     ///Ask user for location permission
     private fun askForPermission(permission: String, requestCode: Int) {
-        if (ContextCompat.checkSelfPermission(this@MainActivity, permission) !== PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this@MainActivity,
+                permission
+            ) !== PackageManager.PERMISSION_GRANTED
+        ) {
             // Should we show an explanation?
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this@MainActivity, permission)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    this@MainActivity,
+                    permission
+                )
+            ) {
                 //This is called if user has denied the permission before
                 //In this case I am just asking the permission again
-                ActivityCompat.requestPermissions(this@MainActivity, arrayOf<String>(permission), requestCode)
+                ActivityCompat.requestPermissions(
+                    this@MainActivity,
+                    arrayOf<String>(permission),
+                    requestCode
+                )
             } else {
-                ActivityCompat.requestPermissions(this@MainActivity, arrayOf<String>(permission), requestCode)
+                ActivityCompat.requestPermissions(
+                    this@MainActivity,
+                    arrayOf<String>(permission),
+                    requestCode
+                )
             }
         } else {
             //Toast.makeText(this, "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
@@ -2551,13 +3061,15 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                                 // Show the dialog by calling startResolutionForResult(),
                                 // and check the result in onActivityResult().
                                 resolvable.startResolutionForResult(
-                                        this@MainActivity,
-                                        RESULT_CODE)
+                                    this@MainActivity,
+                                    RESULT_CODE
+                                )
                             } catch (e: Throwable) {
                                 // Ignore the error.
                             } catch (e: Throwable) {
                                 // Ignore, should be an impossible error.
                             }
+
                         LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {}
                     }// Location settings are not satisfied. However, we have no way to fix the
                     // settings so we won't show the dialog.
@@ -2572,10 +3084,20 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
                 RESULT_CODE -> when (resultCode) {
                     Activity.RESULT_OK ->
                         // All required changes were successfully made
-                        Toast.makeText(this@MainActivity, " " + states.isLocationPresent(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@MainActivity,
+                            " " + states.isLocationPresent(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
                     Activity.RESULT_CANCELED ->
                         // The user was asked to change settings, but chose not to
-                        Toast.makeText(this@MainActivity, " " + getString(R.string.cancel), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@MainActivity,
+                            " " + getString(R.string.cancel),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
                     else -> {}
                 }
             }
@@ -2588,7 +3110,8 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
     private fun loadYourOrdersTab() {
         Toast.makeText(this@MainActivity, "Your Orders", Toast.LENGTH_LONG).show()
         binding.drawerLayout!!.closeDrawer(GravityCompat.START)
-         binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility = View.VISIBLE
+        binding.lytappbar.lytcontent.bottomNavigation.BubbleNavigationmainLayout.visibility =
+            View.VISIBLE
         receiveCurrentOrderPost(preferenceHelper!!.loggedInUser!!.emailId!!)
     }
 
@@ -2596,7 +3119,9 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
     private fun loadNearByOrdersTab() {
         //Toast.makeText(this@MainActivity, "Your Near by Orders : To Do!", Toast.LENGTH_LONG).show()
         //supportFragmentManager.beginTransaction().replace(R.id.frame_container, NearByOrdersFragment.newInstance()).addToBackStack("Near By Orders").commit()
-        supportFragmentManager.beginTransaction().replace(R.id.frame_container, NearByOrdersFragment.newInstance()).commitAllowingStateLoss()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_container, NearByOrdersFragment.newInstance())
+            .commitAllowingStateLoss()
 
 
     }
@@ -2609,7 +3134,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         if (preferenceHelper!!.loggedInUser!!.shiftFromTime == null || preferenceHelper!!.loggedInUser!!.shiftFromTime == "" || preferenceHelper!!.loggedInUser!!.shiftToTime == null || preferenceHelper!!.loggedInUser!!.shiftToTime == "") {
             /// can go offline
             goOffline()
-        } else if (TimeUtils.isValidShiftDateAndTime(preferenceHelper!!.loggedInUser!!.shiftFromTime, preferenceHelper!!.loggedInUser!!.shiftToTime!!)) {
+        } else if (TimeUtils.isValidShiftDateAndTime(
+                preferenceHelper!!.loggedInUser!!.shiftFromTime,
+                preferenceHelper!!.loggedInUser!!.shiftToTime!!
+            )
+        ) {
             ///can not go offline during shift timing
             showShiftTimeDialogue(".You can not go offline without admin permission.")
             goOnline()
@@ -2631,11 +3160,17 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         if (preferenceHelper!!.loggedInUser!!.shiftFromTime == null || preferenceHelper!!.loggedInUser!!.shiftFromTime == "" || preferenceHelper!!.loggedInUser!!.shiftToTime == null || preferenceHelper!!.loggedInUser!!.shiftToTime == "") {
             goOffline()
             val builder = CFAlertDialog.Builder(this@MainActivity)
-                    .setDialogStyle(CFAlertDialog.CFAlertStyle.NOTIFICATION)
-                    .setTitle("ALERT")
-                    .setCancelable(false)
-                    .setMessage("Your working shift is not available today.Please make sue you are on duty to go online.")
-                    .addButton("Ok got it.", -1, getResources().getColor(R.color.color_them), CFAlertDialog.CFAlertActionStyle.POSITIVE, CFAlertDialog.CFAlertActionAlignment.END, { dialog, which ->
+                .setDialogStyle(CFAlertDialog.CFAlertStyle.NOTIFICATION)
+                .setTitle("ALERT")
+                .setCancelable(false)
+                .setMessage("Your working shift is not available today.Please make sue you are on duty to go online.")
+                .addButton(
+                    "Ok got it.",
+                    -1,
+                    getResources().getColor(R.color.color_them),
+                    CFAlertDialog.CFAlertActionStyle.POSITIVE,
+                    CFAlertDialog.CFAlertActionAlignment.END,
+                    { dialog, which ->
                         //Toast.makeText(this@MainActivity, "Ok.", Toast.LENGTH_SHORT).show()
 
 
@@ -2648,18 +3183,28 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
         } else {
             // val isValidShiftTime = TimeUtils.isTimeBetween(preferenceHelper!!.loggedInUser!!.shiftFromTime!!,preferenceHelper!!.loggedInUser!!.shiftToTime!!,currentTime)
 
-            if (TimeUtils.isValidShiftDateAndTime(preferenceHelper!!.loggedInUser!!.shiftFromTime, preferenceHelper!!.loggedInUser!!.shiftToTime!!)) {
+            if (TimeUtils.isValidShiftDateAndTime(
+                    preferenceHelper!!.loggedInUser!!.shiftFromTime,
+                    preferenceHelper!!.loggedInUser!!.shiftToTime!!
+                )
+            ) {
                 goOnline()
 
             } else {
 
                 goOffline()
                 val builder = CFAlertDialog.Builder(this@MainActivity)
-                        .setDialogStyle(CFAlertDialog.CFAlertStyle.BOTTOM_SHEET)
-                        .setTitle("ALERT")
-                        .setCancelable(false)
-                        .setMessage("Your working shift hours has been finished.Please wait for next shift to go online.")
-                        .addButton("Ok got it.", -1, getResources().getColor(R.color.color_them), CFAlertDialog.CFAlertActionStyle.POSITIVE, CFAlertDialog.CFAlertActionAlignment.END, { dialog, which ->
+                    .setDialogStyle(CFAlertDialog.CFAlertStyle.BOTTOM_SHEET)
+                    .setTitle("ALERT")
+                    .setCancelable(false)
+                    .setMessage("Your working shift hours has been finished.Please wait for next shift to go online.")
+                    .addButton(
+                        "Ok got it.",
+                        -1,
+                        getResources().getColor(R.color.color_them),
+                        CFAlertDialog.CFAlertActionStyle.POSITIVE,
+                        CFAlertDialog.CFAlertActionAlignment.END,
+                        { dialog, which ->
                             //Toast.makeText(this@MainActivity, "Ok.", Toast.LENGTH_SHORT).show()
 
 
@@ -2679,7 +3224,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
     private fun shiftTimeLogin(userName: String) {
 
         if (preferenceHelper!!.loggedInUser!!.shiftFromTime != null || preferenceHelper!!.loggedInUser!!.shiftToTime != null) {
-            if (TimeUtils.isValidShiftDateAndTime(preferenceHelper!!.loggedInUser!!.shiftFromTime, preferenceHelper!!.loggedInUser!!.shiftToTime!!)) {
+            if (TimeUtils.isValidShiftDateAndTime(
+                    preferenceHelper!!.loggedInUser!!.shiftFromTime,
+                    preferenceHelper!!.loggedInUser!!.shiftToTime!!
+                )
+            ) {
 
                 showShiftTimeDialogue(".You can not logout without admin permission.")
 
@@ -2699,15 +3248,29 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
 
     private fun showShiftTimeDialogue(msg: String) {
-        val shiftStartedAt = TimeUtils.getFormatedDateTime(preferenceHelper!!.loggedInUser!!.shiftFromTime!!, TimeUtils.readFormate, TimeUtils.writeFormat)
-        val shiftEndAt = TimeUtils.getFormatedDateTime(preferenceHelper!!.loggedInUser!!.shiftToTime!!, TimeUtils.readFormate, TimeUtils.writeFormat)
+        val shiftStartedAt = TimeUtils.getFormatedDateTime(
+            preferenceHelper!!.loggedInUser!!.shiftFromTime!!,
+            TimeUtils.readFormate,
+            TimeUtils.writeFormat
+        )
+        val shiftEndAt = TimeUtils.getFormatedDateTime(
+            preferenceHelper!!.loggedInUser!!.shiftToTime!!,
+            TimeUtils.readFormate,
+            TimeUtils.writeFormat
+        )
 
         val builder = CFAlertDialog.Builder(this@MainActivity)
-                .setDialogStyle(CFAlertDialog.CFAlertStyle.BOTTOM_SHEET)
-                .setTitle("Your shift time")
-                .setCancelable(false)
-                .setMessage("" + shiftStartedAt + " - " + shiftEndAt + " " + msg)
-                .addButton("Ok got it.", -1, getResources().getColor(R.color.color_them), CFAlertDialog.CFAlertActionStyle.POSITIVE, CFAlertDialog.CFAlertActionAlignment.END, { dialog, which ->
+            .setDialogStyle(CFAlertDialog.CFAlertStyle.BOTTOM_SHEET)
+            .setTitle("Your shift time")
+            .setCancelable(false)
+            .setMessage("" + shiftStartedAt + " - " + shiftEndAt + " " + msg)
+            .addButton(
+                "Ok got it.",
+                -1,
+                getResources().getColor(R.color.color_them),
+                CFAlertDialog.CFAlertActionStyle.POSITIVE,
+                CFAlertDialog.CFAlertActionAlignment.END,
+                { dialog, which ->
                     //Toast.makeText(this@MainActivity, "Ok.", Toast.LENGTH_SHORT).show()
 
 
@@ -2725,7 +3288,10 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
     private fun stuckOrderPost(userNameStr: String) {
         apiPostService = ApiPostUtils.apiPostService
         apiPostService!!.postStuckOrder(userNameStr).enqueue(object : Callback<StuckOrderResp> {
-            override fun onResponse(call: Call<StuckOrderResp>, response: Response<StuckOrderResp>) {
+            override fun onResponse(
+                call: Call<StuckOrderResp>,
+                response: Response<StuckOrderResp>
+            ) {
 
                 //LogUtils.error("TvCloud>>>", "response.raw().toString() =>" + response.raw().toString())
 
@@ -2738,14 +3304,21 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
 
                         ///////Here whether its accepted order or not just call web service to get current driver assigned order and proceed accordingly
                         receiveCurrentOrderPost(preferenceHelper!!.loggedInUser!!.emailId!!)
-                        NetworkStateChangeUtil.checkInternetConnectivity(this@MainActivity, javaClass.simpleName)
+                        NetworkStateChangeUtil.checkInternetConnectivity(
+                            this@MainActivity,
+                            javaClass.simpleName
+                        )
 
                         startServicesWhenOnline()
 
 
                     } else {
 
-                        Toast.makeText(this@MainActivity, response.body()!!.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            this@MainActivity,
+                            response.body()!!.message,
+                            Toast.LENGTH_LONG
+                        ).show()
 
 
                     }
@@ -2757,7 +3330,11 @@ class MainActivity : MasterAppCombatActivity(), NavigationView.OnNavigationItemS
             override fun onFailure(call: Call<StuckOrderResp>, t: Throwable) {
 
                 LogUtils.error("TAG", "Unable to submit postStuckOrder to API.")
-                Toast.makeText(this@MainActivity, " Unable to submit postStuckOrder to API.!", Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                    this@MainActivity,
+                    " Unable to submit postStuckOrder to API.!",
+                    Toast.LENGTH_LONG
+                ).show();
 
             }
         })

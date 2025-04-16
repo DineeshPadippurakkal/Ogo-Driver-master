@@ -1,7 +1,10 @@
 package webtech.com.courierdriver.LocationUtils
 
+import android.app.Service
 import android.content.Context
+import android.content.Intent
 import android.location.Location
+import android.os.IBinder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +29,7 @@ Hannure Abdulrahim
 
 on 7/31/2019.
  */
-class LocationServiceHelper
+class LocationServiceHelper: Service()
 {
     companion object {
 
@@ -439,6 +442,9 @@ class LocationServiceHelper
 
     }
 
+    override fun onBind(p0: Intent?): IBinder? {
+        TODO("Not yet implemented")
+    }
 
 
 }
